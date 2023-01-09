@@ -1,0 +1,10 @@
+@import '../node_modules/animate.css/source/_vars.css';
+@import '../node_modules/animate.css/source/_base.css';
+@import '../node_modules/animate.css/source/fading_entrances/fadeInUp.css';
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
