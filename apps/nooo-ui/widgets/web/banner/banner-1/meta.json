@@ -1,0 +1,11 @@
+{
+   "tags": [],
+   "tailwindcssVersion": "^3.2.4",
+   "dark": false,
+   "responsive": true,
+   "accessibility": false,
+   "animate": false,
+   "interaction": false,
+   "screenshotHeight": "400px",
+   "order": 0
+}

@@ -35,3 +35,7 @@ yarn-error.log*
 
 # bundle
 dist
+.data
+
+
+public/widgets

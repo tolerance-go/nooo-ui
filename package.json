@@ -1,26 +1,31 @@
 {
-  "name": "nooo-ui",
-  "version": "0.0.0",
-  "description": "",
-  "scripts": {
-    "bundle": "turbo run lint build test --concurrency=2 --filter={'./apps/*'}...",
-    "ci": "pnpm install && pnpm prebuild && pnpm pretest && pnpm bundle && pnpm postbuild",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "pnpm -r --parallel --filter=@fenxing/nooo-ui... run dev",
-    "format": "prettier '{apps,packages,docs,scripts,test}/**/*.{css,js,md}' --write",
-    "clean": "git clean -dfX",
-    "postbuild": "pnpm -r --if-present --filter={'./apps/*'}... run postbuild",
-    "prebuild": "pnpm -r --if-present --filter={'./apps/*'}... run prebuild",
-    "pretest": "pnpm -r --if-present --filter={'./apps/*'}... run pretest"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@changesets/cli": "^2.26.0",
-    "turbo": "^1.6.3",
-    "prettier": "^2.8.0",
-    "prettier-plugin-organize-imports": "^3.2.0",
-    "prettier-plugin-packagejson": "^2.3.0"
-  }
+   "name": "nooo-ui",
+   "version": "0.0.0",
+   "description": "",
+   "keywords": [],
+   "license": "ISC",
+   "author": "",
+   "scripts": {
+      "bundle": "turbo run lint build test --concurrency=2 --filter={'./apps/*'}...",
+      "ci": "pnpm install && pnpm prebuild && pnpm pretest && pnpm bundle && pnpm postbuild",
+      "clean": "git clean -dfX",
+      "dev": "pnpm -r --parallel --filter=@fenxing/nooo-ui... run dev",
+      "format": "prettier '**/*.{css,js,md}' --write",
+      "lint": "pnpm lint:format && pnpm lint:packages",
+      "lint:format": "prettier '**/*.{css,js,md}' --check",
+      "lint:packages": "pnpm -r --if-present --filter={'./apps/*'}... run lint",
+      "postbuild": "pnpm -r --if-present --filter={'./apps/*'}... run postbuild",
+      "prebuild": "pnpm -r --if-present --filter={'./apps/*'}... run prebuild",
+      "prepare": "husky install",
+      "pretest": "pnpm -r --if-present --filter={'./apps/*'}... run pretest",
+      "test": "turbo run test --concurrency=2 --filter={'./apps/*'}..."
+   },
+   "devDependencies": {
+      "@changesets/cli": "^2.26.0",
+      "husky": "^8.0.3",
+      "prettier": "^2.8.0",
+      "prettier-plugin-organize-imports": "^3.2.0",
+      "prettier-plugin-packagejson": "^2.3.0",
+      "turbo": "^1.6.3"
+   }
 }
