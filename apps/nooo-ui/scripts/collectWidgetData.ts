@@ -1,4 +1,6 @@
 import fs from 'fs-extra'
+import { Random } from 'mockjs'
+import Mustache from 'mustache'
 import path from 'path'
 import invariant from 'tiny-invariant'
 import {
@@ -96,7 +98,14 @@ export const collectWidgetData = async (
 
    return {
       css,
-      html: tpl,
+      html: Mustache.render(tpl, {
+         title: () => Random.ctitle(),
+         word: () => Random.cword(),
+         'word-2': () => Random.cword(2),
+         paragraph: () => Random.cparagraph(),
+         'paragraph-sm': () => Random.cparagraph(2, 2),
+         'paragraph-xs': () => Random.cparagraph(1, 1),
+      }),
       meta,
       tailwindConfig,
       segmentedMetas,
