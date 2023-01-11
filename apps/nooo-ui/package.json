@@ -1,5 +1,5 @@
 {
-   "name": "@fenxing/nooo-ui",
+   "name": "@nooo-ui/nooo-ui",
    "version": "1.0.0",
    "keywords": [],
    "license": "ISC",
@@ -9,7 +9,7 @@
       "collect": "tsx scripts/collect",
       "dev": "concurrently \"npm:serve:next\" \"npm:watch:*\"",
       "dev:test": "vitest -u",
-      "postinstall": "tsx scripts/collect",
+      "postinstall-": "tsx scripts/collect",
       "lint": "next lint",
       "open:browser": "open http://localhost:3000",
       "serve:next": "pnpm open:browser && next dev",
