@@ -18,6 +18,9 @@
       "tsc:widgets": "tsc widgets/mobile/button/button-1/*.ts"
    },
    "dependencies": {
+      "@mdx-js/loader": "^2.2.1",
+      "@mdx-js/react": "^2.2.1",
+      "@next/mdx": "^13.1.1",
       "animate.css": "^4.1.1",
       "axios": "^1.2.0",
       "cac": "^6.7.14",

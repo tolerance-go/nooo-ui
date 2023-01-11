@@ -1,6 +1,6 @@
 import widgetsData from '.data/widgets-data.json'
 import clsx from 'clsx'
-import { getDoc } from '../getDoc'
+import { getDoc } from 'utils/getDoc'
 import { MobileContainer } from './MobileContainer'
 import { MobileDeviceSelector } from './MobileDeviceSelector'
 import { WebResponsiveSwitcher } from './WebResponsiveSwitcher'

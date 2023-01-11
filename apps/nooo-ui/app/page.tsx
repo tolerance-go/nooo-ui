@@ -1,4 +1,4 @@
-import { WidgetList } from './WidgetList'
+import { WidgetList } from 'components/WidgetList'
 
 const Home = async () => {
    return (
