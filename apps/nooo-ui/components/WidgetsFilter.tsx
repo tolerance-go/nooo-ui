@@ -1,6 +1,71 @@
 'use client'
 
+import widgetsData from '.data/widgets-data.json'
 import { WidgetsFilterToggler } from 'components/WidgetsFilterToggler'
+
+type MultipleConfig = {
+   type: 'radio' | 'select' | 'multiple-select' | 'checkbox'
+   options: {
+      value: string
+      label: string
+   }[]
+}
+
+type FormConfigs = Record<
+   string,
+   {
+      name: string
+   } & (
+      | {
+           type: 'toggle'
+        }
+      | {
+           type: 'textarea' | 'text'
+        }
+      | MultipleConfig
+      | {
+           type: 'range'
+        }
+   )
+>
+
+widgetsData.reduce(
+   (distFormConfigs, next) => {
+      return Object.entries(next.meta.props).reduce(
+         (_distFormConfigs, [key, config]) => {
+            if (key === 'type' || key === 'categories') {
+               _distFormConfigs.type.options.push(config)
+               return _distFormConfigs
+            }
+
+            // if (typeof config === 'object') {
+            //    _distFormConfigs[key] = {
+            //       type: config.type,
+            //    }
+            // }
+            return {
+               ..._distFormConfigs,
+            }
+         },
+         distFormConfigs,
+      )
+   },
+   {
+      categories: {
+         type: 'checkbox',
+         options: [],
+         name: '分类',
+      },
+      type: {
+         type: 'radio',
+         options: [],
+         name: '类型',
+      },
+   } as FormConfigs & {
+      categories: MultipleConfig
+      type: MultipleConfig
+   },
+)
 
 export const WidgetsFilter = () => {
    return (
