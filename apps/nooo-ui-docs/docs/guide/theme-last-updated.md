@@ -9,7 +9,7 @@ Add `lastUpdated` options to your config.
 
 ```js
 export default {
-  lastUpdated: true
+   lastUpdated: true,
 }
 ```
 
@@ -22,4 +22,3 @@ If you would like to hide the last update text, set false to the `lastUpdated` o
 lastUpdated: false
 ---
 ```
-

@@ -12,15 +12,15 @@ Returns page-specific data. The returned object has the following type:
 
 ```ts
 interface VitePressData {
-  site: Ref<SiteData>
-  page: Ref<PageData>
-  theme: Ref<any> // themeConfig from .vitepress/config.js
-  frontmatter: Ref<PageData['frontmatter']>
-  lang: Ref<string>
-  title: Ref<string>
-  description: Ref<string>
-  localePath: Ref<string>
-  isDark: Ref<boolean>
+   site: Ref<SiteData>
+   page: Ref<PageData>
+   theme: Ref<any> // themeConfig from .vitepress/config.js
+   frontmatter: Ref<PageData['frontmatter']>
+   lang: Ref<string>
+   title: Ref<string>
+   description: Ref<string>
+   localePath: Ref<string>
+   isDark: Ref<boolean>
 }
 ```
 
@@ -34,7 +34,7 @@ const { theme } = useData()
 </script>
 
 <template>
-  <h1>{{ theme.footer.copyright }}</h1>
+   <h1>{{ theme.footer.copyright }}</h1>
 </template>
 ```
 
@@ -44,9 +44,9 @@ Returns the current route object with the following type:
 
 ```ts
 interface Route {
-  path: string
-  data: PageData
-  component: Component | null
+   path: string
+   data: PageData
+   component: Component | null
 }
 ```
 
@@ -56,14 +56,14 @@ Returns the VitePress router instance so you can programmatically navigate to an
 
 ```ts
 interface Router {
-  route: Route
-  go: (href?: string) => Promise<void>
+   route: Route
+   go: (href?: string) => Promise<void>
 }
 ```
 
 ## `withBase`
 
-- **Type**: `(path: string) => string`
+-  **Type**: `(path: string) => string`
 
 Appends the configured [`base`](../config/app-configs#base) to a given URL path. Also see [Base URL](./asset-handling#base-url).
 
@@ -73,8 +73,8 @@ The `<Content />` component displays the rendered markdown contents. Useful [whe
 
 ```vue
 <template>
-  <h1>Custom Layout!</h1>
-  <Content />
+   <h1>Custom Layout!</h1>
+   <Content />
 </template>
 ```
 

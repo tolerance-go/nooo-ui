@@ -28,15 +28,16 @@ Note the optimization is applied while still allowing the user to freely mix Vue
 
 ### It uses Vite under the hood
 
-- Faster dev server start
-- Faster hot updates
-- Faster build (uses Rollup internally)
+-  Faster dev server start
+-  Faster hot updates
+-  Faster build (uses Rollup internally)
 
 ### Lighter page weight
 
 Vue 3 tree-shaking + Rollup code splitting
-- Does not ship metadata for every page on every request. This decouples page weight from total number of pages. Only the current page's metadata is sent. Client side navigation fetches the new page's component and metadata together.
-- Does not use vue-router because the need of VitePress is very simple and specific - a simple custom router (under 200 LOC) is used instead.
+
+-  Does not ship metadata for every page on every request. This decouples page weight from total number of pages. Only the current page's metadata is sent. Client side navigation fetches the new page's component and metadata together.
+-  Does not use vue-router because the need of VitePress is very simple and specific - a simple custom router (under 200 LOC) is used instead.
 
 ### Other differences
 

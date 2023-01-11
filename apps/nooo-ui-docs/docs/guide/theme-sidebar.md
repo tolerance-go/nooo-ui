@@ -21,7 +21,7 @@ export default {
 
 ## The Basics
 
-The simplest form of the sidebar menu is passing in a single array of links.  The first level item defines the "section" for the sidebar. It should contain `text`, which is the title of the section, and `items` which are the actual navigation links.
+The simplest form of the sidebar menu is passing in a single array of links. The first level item defines the "section" for the sidebar. It should contain `text`, which is the title of the section, and `items` which are the actual navigation links.
 
 ```js
 export default {
@@ -52,17 +52,17 @@ Each `link` should specify the path to the actual file starting with `/`. If you
 
 ```js
 export default {
-  themeConfig: {
-    sidebar: [
-      {
-        text: 'Guide',
-        items: [
-          // This shows `/guide/index.md` page.
-          { text: 'Introduction', link: '/guide/' }
-        ]
-      }
-    ]
-  }
+   themeConfig: {
+      sidebar: [
+         {
+            text: 'Guide',
+            items: [
+               // This shows `/guide/index.md` page.
+               { text: 'Introduction', link: '/guide/' },
+            ],
+         },
+      ],
+   },
 }
 ```
 
@@ -88,37 +88,37 @@ Then, update your configuration to define your sidebar for each section. This ti
 
 ```js
 export default {
-  themeConfig: {
-    sidebar: {
-      // This sidebar gets displayed when user is
-      // under `guide` directory.
-      '/guide/': [
-        {
-          text: 'Guide',
-          items: [
-            // This shows `/guide/index.md` page.
-            { text: 'Index', link: '/guide/' }, // /guide/index.md
-            { text: 'One', link: '/guide/one' }, // /guide/one.md
-            { text: 'Two', link: '/guide/two' } // /guide/two.md
-          ]
-        }
-      ],
+   themeConfig: {
+      sidebar: {
+         // This sidebar gets displayed when user is
+         // under `guide` directory.
+         '/guide/': [
+            {
+               text: 'Guide',
+               items: [
+                  // This shows `/guide/index.md` page.
+                  { text: 'Index', link: '/guide/' }, // /guide/index.md
+                  { text: 'One', link: '/guide/one' }, // /guide/one.md
+                  { text: 'Two', link: '/guide/two' }, // /guide/two.md
+               ],
+            },
+         ],
 
-      // This sidebar gets displayed when user is
-      // under `config` directory.
-      '/config/': [
-        {
-          text: 'Config',
-          items: [
-            // This shows `/config/index.md` page.
-            { text: 'Index', link: '/config/' }, // /config/index.md
-            { text: 'Three', link: '/config/three' }, // /config/three.md
-            { text: 'Four', link: '/config/four' } // /config/four.md
-          ]
-        }
-      ]
-    }
-  }
+         // This sidebar gets displayed when user is
+         // under `config` directory.
+         '/config/': [
+            {
+               text: 'Config',
+               items: [
+                  // This shows `/config/index.md` page.
+                  { text: 'Index', link: '/config/' }, // /config/index.md
+                  { text: 'Three', link: '/config/three' }, // /config/three.md
+                  { text: 'Four', link: '/config/four' }, // /config/four.md
+               ],
+            },
+         ],
+      },
+   },
 }
 ```
 

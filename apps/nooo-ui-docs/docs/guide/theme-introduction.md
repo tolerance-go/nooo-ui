@@ -2,18 +2,18 @@
 
 VitePress comes with its default theme providing many features out of the box. Learn more about each feature on its dedicated page listed below.
 
-- [Nav](./theme-nav)
-- [Sidebar](./theme-sidebar)
-- [Prev Next Link](./theme-prev-next-link)
-- [Edit Link](./theme-edit-link)
-- [Last Updated](./theme-last-updated)
-- [Layout](./theme-layout)
-- [Home Page](./theme-home-page)
-- [Team Page](./theme-team-page)
-- [Badge](./theme-badge)
-- [Footer](./theme-footer)
-- [Search](./theme-search)
-- [Carbon Ads](./theme-carbon-ads)
+-  [Nav](./theme-nav)
+-  [Sidebar](./theme-sidebar)
+-  [Prev Next Link](./theme-prev-next-link)
+-  [Edit Link](./theme-edit-link)
+-  [Last Updated](./theme-last-updated)
+-  [Layout](./theme-layout)
+-  [Home Page](./theme-home-page)
+-  [Team Page](./theme-team-page)
+-  [Badge](./theme-badge)
+-  [Footer](./theme-footer)
+-  [Search](./theme-search)
+-  [Carbon Ads](./theme-carbon-ads)
 
 If you don't find the features you're looking for, or you would rather create your own theme, you may customize VitePress to fit your requirements. In the following sections, we'll go through each way of customizing the VitePress theme.
 
@@ -36,16 +36,16 @@ A VitePress custom theme is simply an object containing four properties and is d
 
 ```ts
 interface Theme {
-  Layout: Component // Vue 3 component
-  NotFound?: Component
-  enhanceApp?: (ctx: EnhanceAppContext) => Awaitable<void>
-  setup?: () => void
+   Layout: Component // Vue 3 component
+   NotFound?: Component
+   enhanceApp?: (ctx: EnhanceAppContext) => Awaitable<void>
+   setup?: () => void
 }
 
 interface EnhanceAppContext {
-  app: App // Vue 3 app instance
-  router: Router // VitePress router instance
-  siteData: Ref<SiteData>
+   app: App // Vue 3 app instance
+   router: Router // VitePress router instance
+   siteData: Ref<SiteData>
 }
 ```
 
@@ -56,22 +56,22 @@ The theme entry file should export the theme as its default export:
 import Layout from './Layout.vue'
 
 export default {
-  // root component to wrap each page
-  Layout,
+   // root component to wrap each page
+   Layout,
 
-  // this is a Vue 3 functional component
-  NotFound: () => 'custom 404',
+   // this is a Vue 3 functional component
+   NotFound: () => 'custom 404',
 
-  enhanceApp({ app, router, siteData }) {
-    // app is the Vue 3 app instance from `createApp()`.
-    // router is VitePress' custom router. `siteData` is
-    // a `ref` of current site-level metadata.
-  },
+   enhanceApp({ app, router, siteData }) {
+      // app is the Vue 3 app instance from `createApp()`.
+      // router is VitePress' custom router. `siteData` is
+      // a `ref` of current site-level metadata.
+   },
 
-  setup() {
-    // this function will be executed inside VitePressApp's
-    // setup hook. all composition APIs are available here.
-  }
+   setup() {
+      // this function will be executed inside VitePressApp's
+      // setup hook. all composition APIs are available here.
+   },
 }
 ```
 
@@ -80,10 +80,10 @@ export default {
 ```vue
 <!-- .vitepress/theme/Layout.vue -->
 <template>
-  <h1>Custom Layout!</h1>
+   <h1>Custom Layout!</h1>
 
-  <!-- this is where markdown content will be rendered -->
-  <Content />
+   <!-- this is where markdown content will be rendered -->
+   <Content />
 </template>
 ```
 
@@ -109,14 +109,14 @@ If you want to extend and customize the default theme, you can import it from `v
 import DefaultTheme from 'vitepress/theme'
 
 export default {
-  ...DefaultTheme,
-  enhanceApp(ctx) {
-    // extend default theme custom behaviour.
-    DefaultTheme.enhanceApp(ctx)
+   ...DefaultTheme,
+   enhanceApp(ctx) {
+      // extend default theme custom behaviour.
+      DefaultTheme.enhanceApp(ctx)
 
-    // register your custom global components
-    ctx.app.component('MyGlobalComponent' /* ... */)
-  }
+      // register your custom global components
+      ctx.app.component('MyGlobalComponent' /* ... */)
+   },
 }
 ```
 
@@ -137,8 +137,8 @@ export default DefaultTheme
 ```css
 /* .vitepress/theme/custom.css */
 :root {
-  --vp-c-brand: #646cff;
-  --vp-c-brand-light: #747bff;
+   --vp-c-brand: #646cff;
+   --vp-c-brand-light: #747bff;
 }
 ```
 
@@ -154,10 +154,10 @@ import DefaultTheme from 'vitepress/theme'
 import MyLayout from './MyLayout.vue'
 
 export default {
-  ...DefaultTheme,
-  // override the Layout with a wrapper component that
-  // injects the slots
-  Layout: MyLayout
+   ...DefaultTheme,
+   // override the Layout with a wrapper component that
+   // injects the slots
+   Layout: MyLayout,
 }
 ```
 
@@ -170,11 +170,9 @@ const { Layout } = DefaultTheme
 </script>
 
 <template>
-  <Layout>
-    <template #aside-outline-before>
-      My custom sidebar top content
-    </template>
-  </Layout>
+   <Layout>
+      <template #aside-outline-before> My custom sidebar top content </template>
+   </Layout>
 </template>
 ```
 
@@ -187,41 +185,41 @@ import DefaultTheme from 'vitepress/theme'
 import MyComponent from './MyComponent.vue'
 
 export default {
-  ...DefaultTheme,
-  Layout() {
-    return h(DefaultTheme.Layout, null, {
-      'aside-outline-before': () => h(MyComponent)
-    })
-  }
+   ...DefaultTheme,
+   Layout() {
+      return h(DefaultTheme.Layout, null, {
+         'aside-outline-before': () => h(MyComponent),
+      })
+   },
 }
 ```
 
 Full list of slots available in the default theme layout:
 
-- When `layout: 'doc'` (default) is enabled via frontmatter:
-  - `doc-footer-before`
-  - `doc-before`
-  - `doc-after`
-  - `sidebar-nav-before`
-  - `sidebar-nav-after`
-  - `aside-top`
-  - `aside-bottom`
-  - `aside-outline-before`
-  - `aside-outline-after`
-  - `aside-ads-before`
-  - `aside-ads-after`
-- When `layout: 'home'` is enabled via frontmatter:
-  - `home-hero-before`
-  - `home-hero-image`
-  - `home-hero-after`
-  - `home-features-before`
-  - `home-features-after`
-- Always:
-  - `layout-top`
-  - `layout-bottom`
-  - `nav-bar-title-before`
-  - `nav-bar-title-after`
-  - `nav-bar-content-before`
-  - `nav-bar-content-after`
-  - `nav-screen-content-before`
-  - `nav-screen-content-after`
+-  When `layout: 'doc'` (default) is enabled via frontmatter:
+   -  `doc-footer-before`
+   -  `doc-before`
+   -  `doc-after`
+   -  `sidebar-nav-before`
+   -  `sidebar-nav-after`
+   -  `aside-top`
+   -  `aside-bottom`
+   -  `aside-outline-before`
+   -  `aside-outline-after`
+   -  `aside-ads-before`
+   -  `aside-ads-after`
+-  When `layout: 'home'` is enabled via frontmatter:
+   -  `home-hero-before`
+   -  `home-hero-image`
+   -  `home-hero-after`
+   -  `home-features-before`
+   -  `home-features-after`
+-  Always:
+   -  `layout-top`
+   -  `layout-bottom`
+   -  `nav-bar-title-before`
+   -  `nav-bar-title-after`
+   -  `nav-bar-content-before`
+   -  `nav-bar-content-after`
+   -  `nav-screen-content-before`
+   -  `nav-screen-content-after`

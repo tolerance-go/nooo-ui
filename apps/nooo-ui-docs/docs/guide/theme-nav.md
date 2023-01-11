@@ -8,9 +8,9 @@ By default, nav shows the title of the site referencing [`config.title`](../conf
 
 ```js
 export default {
-  themeConfig: {
-    siteTitle: 'My Custom Title'
-  }
+   themeConfig: {
+      siteTitle: 'My Custom Title',
+   },
 }
 ```
 
@@ -18,9 +18,9 @@ If you have a logo for your site, you can display it by passing in the path to t
 
 ```js
 export default {
-  themeConfig: {
-    logo: '/my-logo.svg'
-  }
+   themeConfig: {
+      logo: '/my-logo.svg',
+   },
 }
 ```
 
@@ -28,10 +28,10 @@ When adding a logo, it gets displayed along with the site title. If your logo is
 
 ```js
 export default {
-  themeConfig: {
-    logo: '/my-logo.svg',
-    siteTitle: false
-  }
+   themeConfig: {
+      logo: '/my-logo.svg',
+      siteTitle: false,
+   },
 }
 ```
 
@@ -43,13 +43,13 @@ You may define `themeConfig.nav` option to add links to your nav.
 
 ```js
 export default {
-  themeConfig: {
-    nav: [
-      { text: 'Guide', link: '/guide' },
-      { text: 'Configs', link: '/configs' },
-      { text: 'Changelog', link: 'https://github.com/...' }
-    ]
-  }
+   themeConfig: {
+      nav: [
+         { text: 'Guide', link: '/guide' },
+         { text: 'Configs', link: '/configs' },
+         { text: 'Changelog', link: 'https://github.com/...' },
+      ],
+   },
 }
 ```
 
@@ -59,19 +59,19 @@ Nav links can also be dropdown menus. To do this, set `items` key on link option
 
 ```js
 export default {
-  themeConfig: {
-    nav: [
-      { text: 'Guide', link: '/guide' },
-      {
-        text: 'Dropdown Menu',
-        items: [
-          { text: 'Item A', link: '/item-1' },
-          { text: 'Item B', link: '/item-2' },
-          { text: 'Item C', link: '/item-3' }
-        ]
-      }
-    ]
-  }
+   themeConfig: {
+      nav: [
+         { text: 'Guide', link: '/guide' },
+         {
+            text: 'Dropdown Menu',
+            items: [
+               { text: 'Item A', link: '/item-1' },
+               { text: 'Item B', link: '/item-2' },
+               { text: 'Item C', link: '/item-3' },
+            ],
+         },
+      ],
+   },
 }
 ```
 
@@ -81,36 +81,36 @@ You may further add "sections" to the dropdown menu items as well by passing in 
 
 ```js
 export default {
-  themeConfig: {
-    nav: [
-      { text: 'Guide', link: '/guide' },
-      {
-        text: 'Dropdown Menu',
-        items: [
-          {
-            // Title for the section.
-            text: 'Section A Title',
+   themeConfig: {
+      nav: [
+         { text: 'Guide', link: '/guide' },
+         {
+            text: 'Dropdown Menu',
             items: [
-              { text: 'Section A Item A', link: '...' },
-              { text: 'Section B Item B', link: '...' }
-            ]
-          }
-        ]
-      },
-      {
-        text: 'Dropdown Menu',
-        items: [
-          {
-            // You may also omit the title.
+               {
+                  // Title for the section.
+                  text: 'Section A Title',
+                  items: [
+                     { text: 'Section A Item A', link: '...' },
+                     { text: 'Section B Item B', link: '...' },
+                  ],
+               },
+            ],
+         },
+         {
+            text: 'Dropdown Menu',
             items: [
-              { text: 'Section A Item A', link: '...' },
-              { text: 'Section B Item B', link: '...' }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+               {
+                  // You may also omit the title.
+                  items: [
+                     { text: 'Section A Item A', link: '...' },
+                     { text: 'Section B Item B', link: '...' },
+                  ],
+               },
+            ],
+         },
+      ],
+   },
 }
 ```
 
@@ -120,17 +120,17 @@ Nav menu items will be highlighted when the current page is under the matching p
 
 ```js
 export default {
-  themeConfig: {
-    nav: [
-      // This link gets active state when the user is
-      // on `/config/` path.
-      {
-        text: 'Guide',
-        link: '/guide',
-        activeMatch: '/config/'
-      }
-    ]
-  }
+   themeConfig: {
+      nav: [
+         // This link gets active state when the user is
+         // on `/config/` path.
+         {
+            text: 'Guide',
+            link: '/guide',
+            activeMatch: '/config/',
+         },
+      ],
+   },
 }
 ```
 

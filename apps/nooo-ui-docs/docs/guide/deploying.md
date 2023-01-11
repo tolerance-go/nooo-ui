@@ -2,18 +2,18 @@
 
 The following guides are based on some shared assumptions:
 
-- You are placing your docs inside the `docs` directory of your project.
-- You are using the default build output location (`.vitepress/dist`).
-- VitePress is installed as a local dependency in your project, and you have set up the following scripts in your `package.json`:
+-  You are placing your docs inside the `docs` directory of your project.
+-  You are using the default build output location (`.vitepress/dist`).
+-  VitePress is installed as a local dependency in your project, and you have set up the following scripts in your `package.json`:
 
-  ```json
-  {
-    "scripts": {
-      "docs:build": "vitepress build docs",
-      "docs:preview": "vitepress preview docs"
-    }
-  }
-  ```
+   ```json
+   {
+      "scripts": {
+         "docs:build": "vitepress build docs",
+         "docs:preview": "vitepress preview docs"
+      }
+   }
+   ```
 
 ::: tip
 
@@ -25,39 +25,39 @@ If your site is to be served at a subdirectory (`https://example.com/subdir/`), 
 
 ## Build and Test Locally
 
-- You may run this command to build the docs:
+-  You may run this command to build the docs:
 
-  ```sh
-  $ yarn docs:build
-  ```
+   ```sh
+   $ yarn docs:build
+   ```
 
-- Once you've built the docs, you can test them locally by running:
+-  Once you've built the docs, you can test them locally by running:
 
-  ```sh
-  $ yarn docs:preview
-  ```
+   ```sh
+   $ yarn docs:preview
+   ```
 
-  The `preview` command will boot up a local static web server that will serve the files from `.vitepress/dist` at `http://localhost:4173`. It's an easy way to check if the production build looks fine in your local environment.
+   The `preview` command will boot up a local static web server that will serve the files from `.vitepress/dist` at `http://localhost:4173`. It's an easy way to check if the production build looks fine in your local environment.
 
-- You can configure the port of the server by passing `--port` as an argument.
+-  You can configure the port of the server by passing `--port` as an argument.
 
-  ```json
-  {
-    "scripts": {
-      "docs:preview": "vitepress preview docs --port 8080"
-    }
-  }
-  ```
+   ```json
+   {
+      "scripts": {
+         "docs:preview": "vitepress preview docs --port 8080"
+      }
+   }
+   ```
 
-  Now the `docs:preview` method will launch the server at `http://localhost:8080`.
+   Now the `docs:preview` method will launch the server at `http://localhost:8080`.
 
 ## Netlify, Vercel, AWS Amplify, Cloudflare Pages, Render
 
 Set up a new project and change these settings using your dashboard:
 
-- **Build Command:** `yarn docs:build`
-- **Output Directory:** `docs/.vitepress/dist`
-- **Node Version:** `14` (or above, by default it usually will be 14 or 16, but on Cloudflare Pages the default is still 12, so you may need to [change that](https://developers.cloudflare.com/pages/platform/build-configuration/))
+-  **Build Command:** `yarn docs:build`
+-  **Output Directory:** `docs/.vitepress/dist`
+-  **Node Version:** `14` (or above, by default it usually will be 14 or 16, but on Cloudflare Pages the default is still 12, so you may need to [change that](https://developers.cloudflare.com/pages/platform/build-configuration/))
 
 ::: warning
 Don't enable options like _Auto Minify_ for HTML code. It will remove comments from output which have meaning to Vue. You may see hydration mismatch errors if they get removed.
@@ -75,32 +75,32 @@ Don't enable options like _Auto Minify_ for HTML code. It will remove comments f
    name: Deploy
 
    on:
-     push:
-       branches:
-         - main
+      push:
+         branches:
+            - main
 
    jobs:
-     deploy:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v3
-           with:
-             fetch-depth: 0
-         - uses: actions/setup-node@v3
-           with:
-             node-version: 16
-             cache: yarn
-         - run: yarn install --frozen-lockfile
+      deploy:
+         runs-on: ubuntu-latest
+         steps:
+            - uses: actions/checkout@v3
+              with:
+                 fetch-depth: 0
+            - uses: actions/setup-node@v3
+              with:
+                 node-version: 16
+                 cache: yarn
+            - run: yarn install --frozen-lockfile
 
-         - name: Build
-           run: yarn docs:build
+            - name: Build
+              run: yarn docs:build
 
-         - name: Deploy
-           uses: peaceiris/actions-gh-pages@v3
-           with:
-             github_token: ${{ secrets.GITHUB_TOKEN }}
-             publish_dir: docs/.vitepress/dist
-             # cname: example.com # if wanna deploy to custom domain
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                 github_token: ${{ secrets.GITHUB_TOKEN }}
+                 publish_dir: docs/.vitepress/dist
+                 # cname: example.com # if wanna deploy to custom domain
    ```
 
    ::: tip
@@ -124,17 +124,17 @@ Don't enable options like _Auto Minify_ for HTML code. It will remove comments f
    ```yaml
    image: node:16
    pages:
-     cache:
-       paths:
-         - node_modules/
-     script:
-       - yarn install
-       - yarn docs:build
-     artifacts:
-       paths:
-         - public
-     only:
-       - main
+      cache:
+         paths:
+            - node_modules/
+      script:
+         - yarn install
+         - yarn docs:build
+      artifacts:
+         paths:
+            - public
+      only:
+         - main
    ```
 
 ## Azure Static Web Apps
@@ -143,9 +143,9 @@ Don't enable options like _Auto Minify_ for HTML code. It will remove comments f
 
 2. Set these values in your configuration file (and remove the ones you don't require, like `api_location`):
 
-   - **`app_location`**: `/`
-   - **`output_location`**: `docs/.vitepress/dist`
-   - **`app_build_command`**: `yarn docs:build`
+   -  **`app_location`**: `/`
+   -  **`output_location`**: `docs/.vitepress/dist`
+   -  **`app_build_command`**: `yarn docs:build`
 
 ## Firebase
 
@@ -155,10 +155,10 @@ Don't enable options like _Auto Minify_ for HTML code. It will remove comments f
 
    ```json
    {
-     "hosting": {
-       "public": "docs/.vitepress/dist",
-       "ignore": []
-     }
+      "hosting": {
+         "public": "docs/.vitepress/dist",
+         "ignore": []
+      }
    }
    ```
 
@@ -166,9 +166,9 @@ Don't enable options like _Auto Minify_ for HTML code. It will remove comments f
 
    ```json
    {
-     "projects": {
-       "default": "<YOUR_FIREBASE_ID>"
-     }
+      "projects": {
+         "default": "<YOUR_FIREBASE_ID>"
+      }
    }
    ```
 
@@ -194,7 +194,7 @@ Don't enable options like _Auto Minify_ for HTML code. It will remove comments f
 
    ```json
    {
-     "root": "docs/.vitepress/dist"
+      "root": "docs/.vitepress/dist"
    }
    ```
 

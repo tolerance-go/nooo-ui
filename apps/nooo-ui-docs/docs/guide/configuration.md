@@ -15,8 +15,8 @@ The essential file for configuring a VitePress site is `.vitepress/config.js`, w
 
 ```js
 export default {
-  title: 'VitePress',
-  description: 'Just playing around.'
+   title: 'VitePress',
+   description: 'Just playing around.',
 }
 ```
 

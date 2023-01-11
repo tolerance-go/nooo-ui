@@ -4,15 +4,15 @@ You can customize the text of previous and next links. This is helpful if you wa
 
 ## prev
 
-- Type: `string`
+-  Type: `string`
 
-- Details:
+-  Details:
 
-  Specify the text to show on the link to the previous page.
+   Specify the text to show on the link to the previous page.
 
-  If you don't set this in frontmatter, the text will be inferred from the sidebar config.
+   If you don't set this in frontmatter, the text will be inferred from the sidebar config.
 
-- Example:
+-  Example:
 
 ```yaml
 ---
@@ -22,8 +22,8 @@ prev: 'Get Started | Markdown'
 
 ## next
 
-- Type: `string`
+-  Type: `string`
 
-- Details:
+-  Details:
 
-  Same as `prev` but for the next page.
+   Same as `prev` but for the next page.

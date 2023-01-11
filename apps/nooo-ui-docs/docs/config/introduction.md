@@ -30,7 +30,7 @@ Since VitePress ships with TypeScript typings, you can leverage your IDE's intel
  * @type {import('vitepress').UserConfig}
  */
 const config = {
-  // ...
+   // ...
 }
 
 export default config
@@ -42,7 +42,7 @@ Alternatively, you can use the `defineConfig` helper at which should provide int
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  // ...
+   // ...
 })
 ```
 
@@ -56,9 +56,9 @@ By default, `defineConfig` helper leverages the theme config type from default t
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  themeConfig: {
-    // Type is `DefaultTheme.Config`
-  }
+   themeConfig: {
+      // Type is `DefaultTheme.Config`
+   },
 })
 ```
 
@@ -69,8 +69,8 @@ import { defineConfigWithTheme } from 'vitepress'
 import { ThemeConfig } from 'your-theme'
 
 export default defineConfigWithTheme<ThemeConfig>({
-  themeConfig: {
-    // Type is `ThemeConfig`
-  }
+   themeConfig: {
+      // Type is `ThemeConfig`
+   },
 })
 ```

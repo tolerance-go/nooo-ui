@@ -42,9 +42,9 @@ You can use the [`useData` helper](./api#usedata) in a `<script>` block and expo
 
 ```html
 <script setup>
-import { useData } from 'vitepress'
+   import { useData } from 'vitepress'
 
-const { page } = useData()
+   const { page } = useData()
 </script>
 
 <pre>{{ page }}</pre>
@@ -54,9 +54,9 @@ const { page } = useData()
 
 ```json
 {
-  "path": "/using-vue.html",
-  "title": "Using Vue in Markdown",
-  "frontmatter": {}
+   "path": "/using-vue.html",
+   "title": "Using Vue in Markdown",
+   "frontmatter": {}
 }
 ```
 
@@ -112,11 +112,11 @@ In `.vitepress/theme/index.js`, the `enhanceApp` function receives the Vue `app`
 import DefaultTheme from 'vitepress/theme'
 
 export default {
-  ...DefaultTheme,
-  enhanceApp(ctx) {
-    DefaultTheme.enhanceApp(ctx)
-    ctx.app.component('VueClickAwayExample', VueClickAwayExample)
-  }
+   ...DefaultTheme,
+   enhanceApp(ctx) {
+      DefaultTheme.enhanceApp(ctx)
+      ctx.app.component('VueClickAwayExample', VueClickAwayExample)
+   },
 }
 ```
 
@@ -202,7 +202,7 @@ VitePress provides Built-In Vue Components like `ClientOnly`, check out the [Glo
 
 **Also see:**
 
-- [Using Components In Headers](#using-components-in-headers)
+-  [Using Components In Headers](#using-components-in-headers)
 
 ## Browser API Access Restrictions
 
@@ -221,11 +221,11 @@ Note this does not fix components or libraries that access Browser APIs **on imp
 ```vue
 <script>
 export default {
-  mounted() {
-    import('./lib-that-access-window-on-import').then((module) => {
-      // use code
-    })
-  }
+   mounted() {
+      import('./lib-that-access-window-on-import').then((module) => {
+         // use code
+      })
+   },
 }
 </script>
 ```
@@ -234,29 +234,26 @@ If your module `export default` a Vue component, you can register it dynamically
 
 ```vue
 <template>
-  <component
-    v-if="dynamicComponent"
-    :is="dynamicComponent">
-  </component>
+   <component v-if="dynamicComponent" :is="dynamicComponent"> </component>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      dynamicComponent: null
-    }
-  },
+   data() {
+      return {
+         dynamicComponent: null,
+      }
+   },
 
-  mounted() {
-    import('./lib-that-access-window-on-import').then((module) => {
-      this.dynamicComponent = module.default
-    })
-  }
+   mounted() {
+      import('./lib-that-access-window-on-import').then((module) => {
+         this.dynamicComponent = module.default
+      })
+   },
 }
 </script>
 ```
 
 **Also see:**
 
-- [Vue.js > Dynamic Components](https://vuejs.org/guide/essentials/component-basics.html#dynamic-components)
+-  [Vue.js > Dynamic Components](https://vuejs.org/guide/essentials/component-basics.html#dynamic-components)

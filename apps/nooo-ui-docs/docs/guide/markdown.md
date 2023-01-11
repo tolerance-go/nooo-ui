@@ -48,8 +48,8 @@ Pages and internal links get generated with the `.html` suffix by default.
 
 Outbound links automatically get `target="_blank" rel="noreferrer"`:
 
-- [vuejs.org](https://vuejs.org)
-- [VitePress on GitHub](https://github.com/vuejs/vitepress)
+-  [vuejs.org](https://vuejs.org)
+-  [VitePress on GitHub](https://github.com/vuejs/vitepress)
 
 ## Frontmatter
 
@@ -178,9 +178,11 @@ Danger zone, do not proceed
 :::
 
 ::: details Click me to view the code
+
 ```js
 console.log('Hello, VitePress!')
 ```
+
 :::
 ````
 
@@ -191,9 +193,11 @@ Danger zone, do not proceed
 :::
 
 ::: details Click me to view the code
+
 ```js
 console.log('Hello, VitePress!')
 ```
+
 :::
 
 ### `raw`
@@ -212,28 +216,28 @@ Wraps in a <div class="vp-raw">
 
 ::: details
 
-- Install required deps with your preferred package manager:
+-  Install required deps with your preferred package manager:
 
-  ```sh
-  $ yarn add -D postcss postcss-prefix-selector
-  ```
+   ```sh
+   $ yarn add -D postcss postcss-prefix-selector
+   ```
 
-- Create a file named `docs/.postcssrc.cjs` and add this to it:
+-  Create a file named `docs/.postcssrc.cjs` and add this to it:
 
-  ```js
-  module.exports = {
-    plugins: {
-      'postcss-prefix-selector': {
-        prefix: ':not(:where(.vp-raw *))',
-        includeFiles: [/vp-doc\.css/],
-        transform(prefix, _selector) {
-          const [selector, pseudo = ''] = _selector.split(/(:\S*)$/)
-          return selector + prefix + pseudo
-        }
-      }
-    }
-  }
-  ```
+   ```js
+   module.exports = {
+      plugins: {
+         'postcss-prefix-selector': {
+            prefix: ':not(:where(.vp-raw *))',
+            includeFiles: [/vp-doc\.css/],
+            transform(prefix, _selector) {
+               const [selector, pseudo = ''] = _selector.split(/(:\S*)$/)
+               return selector + prefix + pseudo
+            },
+         },
+      },
+   }
+   ```
 
 :::
 
@@ -266,16 +270,14 @@ export default {
 
 ```js
 export default {
-  name: 'MyComponent'
-  // ...
+   name: 'MyComponent',
+   // ...
 }
 ```
 
 ```html
 <ul>
-  <li v-for="todo in todos" :key="todo.id">
-    {{ todo.text }}
-  </li>
+   <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
 </ul>
 ```
 
@@ -313,9 +315,9 @@ export default {
 
 In addition to a single line, you can also specify multiple single lines, ranges, or both:
 
-- Line ranges: for example `{5-8}`, `{3-10}`, `{10-17}`
-- Multiple single lines: for example `{4,7,9}`
-- Line ranges and single lines: for example `{4,7-13,16,23-27,40}`
+-  Line ranges: for example `{5-8}`, `{3-10}`, `{10-17}`
+-  Multiple single lines: for example `{4,7,9}`
+-  Line ranges and single lines: for example `{4,7-13,16,23-27,40}`
 
 **Input**
 
@@ -371,11 +373,11 @@ export default {
 
 ```js
 export default {
-  data() {
-    return {
-      msg: 'Highlighted!' // [!code hl]
-    }
-  }
+   data() {
+      return {
+         msg: 'Highlighted!', // [!code hl]
+      }
+   },
 }
 ```
 
@@ -405,11 +407,11 @@ export default {
 
 ```js
 export default {
-  data() {
-    return {
-      msg: 'Focused!' // [!code focus]
-    }
-  }
+   data() {
+      return {
+         msg: 'Focused!', // [!code focus]
+      }
+   },
 }
 ```
 
@@ -472,12 +474,12 @@ export default {
 
 ```js
 export default {
-  data() {
-    return {
-      msg: 'Error', // [!code error]
-      msg: 'Warning' // [!code warning]
-    }
-  }
+   data() {
+      return {
+         msg: 'Error', // [!code error]
+         msg: 'Warning', // [!code warning]
+      }
+   },
 }
 ```
 
@@ -487,9 +489,9 @@ You can enable line numbers for each code blocks via config:
 
 ```js
 export default {
-  markdown: {
-    lineNumbers: true
-  }
+   markdown: {
+      lineNumbers: true,
+   },
 }
 ```
 
@@ -605,7 +607,7 @@ You can group multiple code blocks like this:
  * @type {import('vitepress').UserConfig}
  */
 const config = {
-  // ...
+   // ...
 }
 
 export default config
@@ -615,7 +617,7 @@ export default config
 import type { UserConfig } from 'vitepress'
 
 const config: UserConfig = {
-  // ...
+   // ...
 }
 
 export default config
@@ -633,7 +635,7 @@ export default config
  * @type {import('vitepress').UserConfig}
  */
 const config = {
-  // ...
+   // ...
 }
 
 export default config
@@ -643,7 +645,7 @@ export default config
 import type { UserConfig } from 'vitepress'
 
 const config: UserConfig = {
-  // ...
+   // ...
 }
 
 export default config
@@ -701,22 +703,22 @@ VitePress uses [markdown-it](https://github.com/markdown-it/markdown-it) as the 
 const anchor = require('markdown-it-anchor')
 
 module.exports = {
-  markdown: {
-    // options for markdown-it-anchor
-    // https://github.com/valeriangalliat/markdown-it-anchor#usage
-    anchor: {
-      permalink: anchor.permalink.headerLink()
-    },
+   markdown: {
+      // options for markdown-it-anchor
+      // https://github.com/valeriangalliat/markdown-it-anchor#usage
+      anchor: {
+         permalink: anchor.permalink.headerLink(),
+      },
 
-    // options for @mdit-vue/plugin-toc
-    // https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-toc#options
-    toc: { level: [1, 2] },
+      // options for @mdit-vue/plugin-toc
+      // https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-toc#options
+      toc: { level: [1, 2] },
 
-    config: (md) => {
-      // use more markdown-it plugins!
-      md.use(require('markdown-it-xxx'))
-    }
-  }
+      config: (md) => {
+         // use more markdown-it plugins!
+         md.use(require('markdown-it-xxx'))
+      },
+   },
 }
 ```
 

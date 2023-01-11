@@ -16,10 +16,10 @@ Almost all generic elements such as `p`, or `h2` get special styling. Therefore,
 
 It also provides documentation specific features listed below. These features are only enabled in this layout.
 
-- Edit Link
-- Prev Next Link
-- Outline
-- [Carbon Ads](./theme-carbon-ads)
+-  Edit Link
+-  Prev Next Link
+-  Outline
+-  [Carbon Ads](./theme-carbon-ads)
 
 ## Page Layout
 

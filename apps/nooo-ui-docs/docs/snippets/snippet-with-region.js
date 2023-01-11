@@ -1,6 +1,6 @@
 // #region snippet
 function foo() {
-  // ..
+   // ..
 }
 // #endregion snippet
 
