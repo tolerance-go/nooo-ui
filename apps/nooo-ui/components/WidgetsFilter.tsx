@@ -11,7 +11,7 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
+                        className='w-52 bg-gray-50 flex items-center justify-center p-2'
                      >
                         radio
                      </div>
@@ -53,7 +53,7 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
+                        className='w-52 bg-gray-50 flex items-center justify-center p-2'
                      >
                         toggle
                      </div>
@@ -73,7 +73,7 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
+                        className='w-52 bg-gray-50 flex items-center justify-center p-2'
                      >
                         range
                      </div>
@@ -93,7 +93,7 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
+                        className='w-52 bg-gray-50 flex items-center justify-center p-2'
                      >
                         checkbox
                      </div>
@@ -133,7 +133,7 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
+                        className='w-52 bg-gray-50 flex items-center justify-center p-2'
                      >
                         select
                      </div>
@@ -163,7 +163,7 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
+                        className='w-52 bg-gray-50 flex items-center justify-center p-2'
                      >
                         textarea
                      </div>
@@ -184,7 +184,7 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
+                        className='w-52 bg-gray-50 flex items-center justify-center p-2'
                      >
                         text
                      </div>
@@ -206,7 +206,7 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
+                        className='w-52 bg-gray-50 flex items-center justify-center p-2'
                      >
                         multiple select
                      </div>
