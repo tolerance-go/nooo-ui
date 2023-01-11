@@ -11,10 +11,10 @@ export const DocLayout = (
 ) => {
    return (
       <div>
-         <div className='px-10 py-4 border-b fixed top-0 w-full'>
-            <Link className='inline-flex space-x-3' href={'/'}>
-               <img src='/logo.svg' className='w-6 h-6' />
-               <span className='uppercase font-medium'>Nooo-UI</span>
+         <div className='px-10 py-4 border-b fixed top-0 w-full doc-header flex items-center justify-between'>
+            <Link className='inline-flex space-x-3 items-center' href={'/'}>
+               <img src='/logo.svg' className='w-7 h-7' />
+               <span className='uppercase font-bold text-lg'>Nooo-UI</span>
             </Link>
          </div>
          <div className='fixed w-52 left-60 top-32'>
