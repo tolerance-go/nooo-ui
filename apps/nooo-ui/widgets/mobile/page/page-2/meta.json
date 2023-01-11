@@ -1,9 +1,0 @@
-{
-   "tags": [],
-   "tailwindcssVersion": "^3.2.4",
-   "mobileSize": {
-      "width": 375,
-      "height": 812
-   },
-   "order": 0
-}

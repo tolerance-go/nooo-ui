@@ -4,5 +4,5 @@ export default {
    props: {},
    createDate: '2023-01-01 00:00:00',
    updateDate: '2023-01-01 00:00:00',
-   center: true,
+   frameHeight: 750,
 }

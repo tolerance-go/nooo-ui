@@ -13,7 +13,7 @@ export const WidgetList = () => {
                <div
                   key={item.key}
                   aria-label='card'
-                  className='rounded-xl bg-white border overflow-hidden'
+                  className='rounded-xl bg-white border overflow-hidden mb-14'
                >
                   <div className='py-5 px-7 flex justify-between items-center flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400 border-b'>
                      <div className='flex'>
@@ -185,7 +185,6 @@ export const WidgetList = () => {
                                  type={item.meta.mobile.type}
                               >
                                  <iframe
-                                    height={item.meta.frameHeight}
                                     className='w-full h-full'
                                     srcDoc={getDoc({
                                        html: item.html,

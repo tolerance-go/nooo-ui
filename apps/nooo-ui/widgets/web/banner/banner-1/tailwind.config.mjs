@@ -1,2 +1,4 @@
 /** @type {import('../../../../typings/widgets').WidgetTailwindConfig} */
-export default {}
+export default {
+   darkMode: 'class',
+}
