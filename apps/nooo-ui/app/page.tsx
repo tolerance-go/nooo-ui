@@ -7,14 +7,14 @@ const Home = async () => {
       <div className=''>
          <header aria-label='page-header' className='bg-gray-50 border-b'>
             <div className='mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-0'>
-               <div className='flex items-center sm:justify-between sm:gap-4'>
+               <div className='flex items-center sm:justify-between sm:space-x-4'>
                   <div className='inline-flex space-x-3 items-center'>
                      <img src='/logo.svg' className='w-7 h-7' />
                      <span className='uppercase font-bold text-lg'>
                         Nooo-UI
                      </span>
                   </div>
-                  <div className='flex items-center justify-between gap-8 sm:justify-end'>
+                  <div className='flex items-center justify-between space-x-4 sm:justify-end'>
                      <div className='flex space-x-4 items-center'>
                         <Link
                            href='/docs/introduction/what-is-nooo-ui'

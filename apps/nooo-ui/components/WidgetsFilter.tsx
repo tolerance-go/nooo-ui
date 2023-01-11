@@ -11,14 +11,11 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center py-1.5 px-2.5'
+                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
                      >
                         radio
                      </div>
-                     <div
-                        className='flex-grow py-1.5 px-2.5'
-                        aria-label='right-area'
-                     >
+                     <div className='flex-grow p-2' aria-label='right-area'>
                         <div className='flex items-center space-x-4 h-full'>
                            <div className='flex items-center'>
                               <input
@@ -56,14 +53,11 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center py-1.5 px-2.5'
+                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
                      >
                         toggle
                      </div>
-                     <div
-                        className='flex-grow py-1.5 px-2.5'
-                        aria-label='right-area'
-                     >
+                     <div className='flex-grow p-2' aria-label='right-area'>
                         <div className='flex items-center space-x-2 h-full'>
                            <label className='relative inline-flex items-center cursor-pointer'>
                               <input type='checkbox' className='sr-only peer' />
@@ -79,14 +73,11 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center py-1.5 px-2.5'
+                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
                      >
                         range
                      </div>
-                     <div
-                        className='flex-grow py-1.5 px-2.5'
-                        aria-label='right-area'
-                     >
+                     <div className='flex-grow p-2' aria-label='right-area'>
                         <div className='h-full flex items-center'>
                            <input
                               id='small-range'
@@ -102,14 +93,11 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center py-1.5 px-2.5'
+                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
                      >
                         checkbox
                      </div>
-                     <div
-                        className='flex-grow py-1.5 px-2.5'
-                        aria-label='right-area'
-                     >
+                     <div className='flex-grow p-2' aria-label='right-area'>
                         <div className='flex items-center h-full space-x-4'>
                            <div className='flex items-center'>
                               <input
@@ -145,14 +133,11 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center py-1.5 px-2.5'
+                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
                      >
                         select
                      </div>
-                     <div
-                        className='flex-grow py-1.5 px-2.5'
-                        aria-label='right-area'
-                     >
+                     <div className='flex-grow p-2' aria-label='right-area'>
                         <div>
                            <label
                               htmlFor='underline_select'
@@ -162,7 +147,7 @@ export const WidgetsFilter = () => {
                            </label>
                            <select
                               id='underline_select'
-                              className='block py-1 px-0 w-full text-sm bg-transparent border-none appearance-none focus:outline-none focus:ring-0 peer'
+                              className='block px-2.5 py-2 border-gray-300 focus:ring-sky-500 focus:border-sky-500 w-full text-sm bg-transparent appearance-none peer rounded-lg'
                               defaultValue={'df'}
                            >
                               <option value={'df'}>Choose a country</option>
@@ -178,21 +163,18 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center py-1.5 px-2.5'
+                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
                      >
                         textarea
                      </div>
-                     <div
-                        className='flex-grow py-1.5 px-2.5'
-                        aria-label='right-area'
-                     >
+                     <div className='flex-grow p-2' aria-label='right-area'>
                         <div>
                            <label htmlFor='text-area' className='sr-only'>
                               Underline select
                            </label>
                            <textarea
                               id='text-area'
-                              className='block py-1 px-0 w-full text-sm bg-transparent border-none appearance-none focus:outline-none focus:ring-0 peer'
+                              className='block px-2.5 py-2 w-full rounded-lg text-sm bg-transparent border-gray-300 appearance-none focus:ring-sky-500 focus:border-sky-500 peer'
                               placeholder='请输入'
                            ></textarea>
                         </div>
@@ -202,14 +184,11 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center py-1.5 px-2.5'
+                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
                      >
                         text
                      </div>
-                     <div
-                        className='flex-grow py-1.5 px-2.5'
-                        aria-label='right-area'
-                     >
+                     <div className='flex-grow p-2' aria-label='right-area'>
                         <div>
                            <label htmlFor='text-area' className='sr-only'>
                               Underline select
@@ -217,7 +196,7 @@ export const WidgetsFilter = () => {
                            <input
                               type={'text'}
                               id='text-area'
-                              className='block py-1 px-0 w-full text-sm bg-transparent border-none appearance-none focus:outline-none focus:ring-0 peer'
+                              className='block px-2.5 py-2 w-full text-sm bg-transparent border-gray-300 rounded-lg peer focus:ring-sky-500 focus:border-sky-500'
                               placeholder='请输入'
                            ></input>
                         </div>
@@ -227,19 +206,15 @@ export const WidgetsFilter = () => {
                   <div className='flex items-stretch border-b'>
                      <div
                         aria-label='left-area'
-                        className='w-56 bg-gray-50 flex items-center justify-center py-1.5 px-2.5'
+                        className='w-56 bg-gray-50 flex items-center justify-center p-2'
                      >
                         multiple select
                      </div>
-                     <div
-                        className='flex-grow py-1.5 px-2.5'
-                        aria-label='right-area'
-                     >
+                     <div className='flex-grow p-2' aria-label='right-area'>
                         <div>
                            <select
                               multiple
-                              id='countries_multiple'
-                              className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500'
+                              className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2'
                            >
                               <option selected>Choose countries</option>
                               <option value='US'>United States</option>
