@@ -9,9 +9,7 @@ describe('collect', async () => {
          ),
       ).toMatchInlineSnapshot(`
         [
-          {
-            "asdfasdfff": "true",
-          },
+          {},
         ]
       `)
    })

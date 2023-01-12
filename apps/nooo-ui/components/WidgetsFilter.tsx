@@ -1,12 +1,9 @@
 'use client'
 
-import { widgetsData } from '.data/widgets-data'
 import { WidgetsFilterToggler } from 'components/WidgetsFilterToggler'
-import { getFormConfigs } from 'utils/getFormConfigs'
+import { formConfigs } from 'constants/formConfigs'
 import { Checkbox } from './filter-inputs/Checkbox'
 import { Radio } from './filter-inputs/Radio'
-
-const formConfigs = getFormConfigs(widgetsData)
 
 export const WidgetsFilter = () => {
    return (

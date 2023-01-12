@@ -75,7 +75,12 @@ export const getFormConfigs = (widgetsData: WidgetData[]) => {
          },
          type: {
             type: 'radio',
-            options: [],
+            options: [
+               {
+                  value: 'all',
+                  label: '全部',
+               },
+            ],
             title: '类型',
          },
       } as FormConfigs & {

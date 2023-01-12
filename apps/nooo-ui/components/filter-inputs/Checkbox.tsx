@@ -1,3 +1,6 @@
+'use client'
+
+import { useFormContext } from 'react-hook-form'
 import { InputControlCommon } from 'typings/filter-inputs'
 import { OptionItem } from 'typings/widgets'
 
@@ -6,6 +9,7 @@ export const Checkbox = (
       options: OptionItem[]
    },
 ) => {
+   const { register } = useFormContext()
    return (
       <div className='flex items-stretch border-b'>
          <div
@@ -23,6 +27,7 @@ export const Checkbox = (
                            id={item.value}
                            type='checkbox'
                            className='w-4 h-4 text-sky-600 bg-gray-100 border-gray-300 rounded focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+                           {...register([props.name, item.value].join('.'))}
                         />
                         <label
                            htmlFor={item.value}
