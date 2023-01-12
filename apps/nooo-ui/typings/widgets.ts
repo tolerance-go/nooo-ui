@@ -2,16 +2,15 @@ import { Config } from 'tailwindcss'
 
 export type WidgetTailwindConfig = Omit<Config, 'content'>
 
-export type Option = {
+export type OptionItem = {
    label: string
    value: string
 }
 
-export type WidgetItemProps = Record<
-   string,
-   | ({
+export type WidgetItemTargetProps =
+   | {
         // 属性显示名称
-        name: string
+        title: string
      } & (
         | {
              type: 'toggle'
@@ -19,7 +18,7 @@ export type WidgetItemProps = Record<
           }
         | {
              type: 'radio' | 'select'
-             target: Option
+             target: OptionItem
           }
         | {
              type: 'textarea' | 'text'
@@ -27,19 +26,18 @@ export type WidgetItemProps = Record<
           }
         | {
              type: 'multiple-select' | 'checkbox'
-             target: Option[]
+             target: OptionItem[]
           }
         | {
              type: 'range'
              target: number
           }
-     ))
-   | Option
-   | Option[]
-   | string
-   | boolean
-   | number
-> & { categories: Option[]; type: Option }
+     )
+
+export type WidgetItemProps = Record<
+   string,
+   WidgetItemTargetProps | OptionItem | OptionItem[] | string | boolean | number
+> & { categories: OptionItem[]; type: OptionItem }
 
 export type WidgetItemMeta = {
    keywords: string[]

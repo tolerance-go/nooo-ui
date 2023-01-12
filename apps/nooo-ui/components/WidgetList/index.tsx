@@ -1,4 +1,4 @@
-import widgetsData from '.data/widgets-data.json'
+import { widgetsData } from '.data/widgets-data'
 import clsx from 'clsx'
 import { getDoc } from 'utils/getDoc'
 import { MobileContainer } from './MobileContainer'

@@ -14,11 +14,13 @@ export default {
       ],
       custom: {
          type: 'checkbox',
-         target: {
-            value: 'sdfsdf',
-            label: 'alsdfj',
-         },
-         name: 'custom-name',
+         target: [
+            {
+               value: 'sdfsdf',
+               label: 'alsdfj',
+            },
+         ],
+         title: 'custom-name',
       },
    },
    createDate: '2023-01-01 00:00:00',

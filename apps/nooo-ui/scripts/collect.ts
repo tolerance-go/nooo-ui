@@ -31,7 +31,17 @@ const main = async () => {
          widgetPaths.map((item) => collectWidgetData(item)),
       )
 
-      fs.writeJsonSync(path.join(dataPath, 'widgets-data.json'), widgetsData)
+      fs.writeFileSync(
+         path.join(dataPath, 'widgets-data.ts'),
+         `
+import { WidgetData } from '../typings/widgets'
+
+export const widgetsData: WidgetData[] = ${JSON.stringify(widgetsData, null, 2)}
+      `,
+         {
+            encoding: 'utf-8',
+         },
+      )
    })
 
    cli.help()
