@@ -1,3 +1,0 @@
-# Search
-
-Documentation coming soon...
