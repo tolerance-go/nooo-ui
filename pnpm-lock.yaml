@@ -49,6 +49,7 @@ importers:
       mustache: ^4.2.0
       next: ^13.0.7
       postcss: ^8.4.19
+      prism-react-renderer: ^1.3.5
       qs: ^6.11.0
       react: ^18.2.0
       react-dnd: ^16.0.1
@@ -80,6 +81,7 @@ importers:
       mockjs: 1.1.0
       mustache: 4.2.0
       next: 13.1.1_biqbaboplfbrettd7655fr4n2y
+      prism-react-renderer: 1.3.5_react@18.2.0
       qs: 6.11.0
       react: 18.2.0
       react-dnd: 16.0.1_glye3pnrizqg4gu2xfqsafbxou
@@ -5503,6 +5505,14 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
+
+  /prism-react-renderer/1.3.5_react@18.2.0:
+    resolution: {integrity: sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==}
+    peerDependencies:
+      react: '>=0.14.9'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
