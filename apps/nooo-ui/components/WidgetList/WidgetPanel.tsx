@@ -70,7 +70,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                         <TabletResponsiveSwitcher />
                      )}
                      <div className='text-gray-200'>|</div>
-                     <div className='w-9 h-9 flex hover:bg-gray-50 hover:text-sky-600 transition cursor-pointer justify-center items-center border rounded-md'>
+                     <div className='w-9 h-9 flex hover:bg-gray-50 hover:text-amber-500 transition cursor-pointer justify-center items-center border rounded-md'>
                         <svg
                            fill='none'
                            stroke='currentColor'
