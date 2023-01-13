@@ -1,9 +1,11 @@
 'use client'
 
 import clsx from 'clsx'
+import Link from 'next/link'
 import { useState } from 'react'
 import { WidgetData } from 'typings/widgets'
 import { getDoc } from 'utils/getDoc'
+import { getFullPageHtmlCode } from 'utils/getFullPageHtmlCode'
 import { CopyBtn } from './CopyBtn'
 import { HTMLPreviewer } from './HTMLPreviewer'
 import { MobileContainer } from './MobileContainer'
@@ -24,6 +26,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                {(
                   [
                      { value: 'preview', label: '预览' },
+                     { value: 'HTML', label: 'HTML' },
                      { value: 'HTML-snippet', label: 'HTML-snippet' },
                      { value: 'React', label: 'React' },
                      { value: 'Vue', label: 'Vue' },
@@ -62,7 +65,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                   <WebResponsiveSwitcher />
                )}
                <div className='text-gray-200'>|</div>
-               <div className='p-2 border rounded-md'>
+               <div className='w-9 h-9 flex justify-center items-center border rounded-md'>
                   <svg
                      viewBox='0 0 1024 1024'
                      version='1.1'
@@ -158,18 +161,30 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                   </div>
                )}
                {data.meta.frameworks && <div className='text-gray-200'>|</div>}
-               <div className='p-2 border rounded-md'>
+               <Link
+                  href={`/preview/${data.key}`}
+                  target='_blank'
+                  className='w-9 h-9 flex justify-center items-center border rounded-md'
+               >
                   <svg
-                     viewBox='0 0 1024 1024'
+                     viewBox='0 0 24 24'
                      className='w-4 h-4'
-                     version='1.1'
+                     fill='none'
+                     strokeWidth={1.5}
                      xmlns='http://www.w3.org/2000/svg'
-                     fill='currentColor'
                   >
-                     <path d='M339.432 63.594H99.944c-19.851 0-36 16.149-36 36v239.488c0 17.673 14.327 32 32 32s32-14.327 32-32V127.594h211.487c17.673 0 32-14.327 32-32 0.001-17.673-14.326-32-31.999-32zM339.432 895.503H127.944V684.016c0-17.673-14.327-32-32-32s-32 14.327-32 32v239.487c0 19.851 16.149 36 36 36h239.487c17.673 0 32-14.327 32-32s-14.326-32-31.999-32zM928 651.915c-17.673 0-32 14.327-32 32v211.487H684.513c-17.673 0-32 14.327-32 32s14.327 32 32 32H924c19.851 0 36-16.149 36-36V683.915c0-17.673-14.327-32-32-32zM924 64.151H684.513c-17.673 0-32 14.327-32 32s14.327 32 32 32H896v211.488c0 17.673 14.327 32 32 32s32-14.327 32-32V100.151c0-19.851-16.149-36-36-36z'></path>
+                     <path
+                        d='M21.1667 2.83331L11.7708 12.2291'
+                        stroke='currentColor'
+                     />
+                     <path d='M21 10V3H14' stroke='currentColor' />
+                     <path
+                        d='M11.0833 2.83331H4.66665C3.65412 2.83331 2.83331 3.65412 2.83331 4.66665V19.3333C2.83331 20.3459 3.65412 21.1666 4.66665 21.1666H19.3333C20.3459 21.1666 21.1667 20.3459 21.1667 19.3333V12.6875'
+                        stroke='currentColor'
+                     />
                   </svg>
-               </div>
-               <div className='p-2 border rounded-md'>
+               </Link>
+               <div className='w-9 h-9 flex justify-center items-center border rounded-md'>
                   <div>
                      <svg
                         aria-hidden='true'
@@ -236,6 +251,15 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                      })}
                   />
                )}
+            </div>
+         )}
+         {activeTabKey === 'HTML' && (
+            <div className='relative'>
+               <CopyBtn text={getFullPageHtmlCode(data)} />
+               <HTMLPreviewer
+                  code={getFullPageHtmlCode(data)}
+                  language={'markup'}
+               />
             </div>
          )}
          {activeTabKey === 'HTML-snippet' && (

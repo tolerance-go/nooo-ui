@@ -108,7 +108,7 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       meta,
       tailwindConfig,
       segmentedMetas,
-      key: path.relative(process.cwd(), widgetPath),
+      key: path.relative(process.cwd(), widgetPath).replace(/\//g, '_'),
    }
 
    return data

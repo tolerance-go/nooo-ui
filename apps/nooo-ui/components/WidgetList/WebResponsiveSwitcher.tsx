@@ -1,7 +1,7 @@
 export const WebResponsiveSwitcher = () => {
    return (
       <>
-         <div className='p-2 border rounded-md'>
+         <div className='w-9 h-9 flex justify-center items-center border rounded-md'>
             <svg
                xmlns='http://www.w3.org/2000/svg'
                fill='none'
@@ -18,7 +18,7 @@ export const WebResponsiveSwitcher = () => {
                />
             </svg>
          </div>
-         <div className='p-2 border rounded-md'>
+         <div className='w-9 h-9 flex justify-center items-center border rounded-md'>
             <svg
                xmlns='http://www.w3.org/2000/svg'
                fill='none'
@@ -35,7 +35,7 @@ export const WebResponsiveSwitcher = () => {
                />
             </svg>
          </div>
-         <div className='p-2 border rounded-md'>
+         <div className='w-9 h-9 flex justify-center items-center border rounded-md'>
             <svg
                xmlns='http://www.w3.org/2000/svg'
                fill='none'

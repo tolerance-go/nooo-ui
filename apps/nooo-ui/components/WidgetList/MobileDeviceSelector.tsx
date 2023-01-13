@@ -4,7 +4,7 @@ export const MobileDeviceSelector = () => {
          <select
             id='small'
             // dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500
-            className='block p-2 w-72 text-xs text-gray-900 border border-gray-200 rounded-md focus:ring-sky-500 focus:border-sky-500'
+            className='h-9 block w-72 text-xs text-gray-900 border border-gray-200 rounded-md focus:ring-sky-500 focus:border-sky-500'
          >
             <option value='320 x 568'>iPhone 5 (320 x 568 | Dpr:2)</option>
             <option value='375 x 667'>iPhone 6/7/8 (375 x 667 | Dpr:2)</option>
