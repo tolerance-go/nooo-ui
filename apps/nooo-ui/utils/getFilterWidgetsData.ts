@@ -1,6 +1,14 @@
 import { FieldValues } from 'react-hook-form'
 import { OptionItem, WidgetData } from 'typings/widgets'
 
+export const keywordIsHit = (keyword: string, keywords: string[]) => {
+   if (keywords.some((item) => item.indexOf(keyword) > -1) === false) {
+      return false
+   }
+
+   return true
+}
+
 export const getFilterWidgetsData = (
    watchAllFields: FieldValues,
    widgetsData: WidgetData[],
@@ -8,6 +16,15 @@ export const getFilterWidgetsData = (
    return widgetsData.filter((widgetData) => {
       return Object.entries(widgetData.meta.props).every(
          ([key, targetProps]) => {
+            if (key === 'keywords' && watchAllFields[key]) {
+               if (
+                  keywordIsHit(watchAllFields[key], targetProps as string[]) ===
+                  false
+               ) {
+                  return false
+               }
+            }
+
             if (key === 'categories' && key in watchAllFields) {
                if (
                   (targetProps as OptionItem[]).some((item) => {

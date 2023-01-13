@@ -1,7 +1,7 @@
 /** @type {import('../../../../typings/widgets').WidgetItemMeta} */
 export default {
-   keywords: [],
    props: {
+      keywords: ['首页'],
       type: {
          label: 'app',
          value: 'app',
@@ -12,16 +12,6 @@ export default {
             value: 'page',
          },
       ],
-      custom: {
-         type: 'checkbox',
-         target: [
-            {
-               value: 'sdfsdf',
-               label: 'alsdfj',
-            },
-         ],
-         title: 'custom-name',
-      },
    },
    createDate: '2023-01-01 00:00:00',
    updateDate: '2023-01-01 00:00:00',

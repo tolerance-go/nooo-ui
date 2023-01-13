@@ -7,40 +7,13 @@ export type OptionItem = {
    value: string
 }
 
-export type WidgetItemTargetProps =
-   | {
-        // 属性显示名称
-        title: string
-     } & (
-        | {
-             type: 'toggle'
-             target: boolean
-          }
-        | {
-             type: 'radio' | 'select'
-             target: OptionItem
-          }
-        | {
-             type: 'textarea' | 'text'
-             target: string
-          }
-        | {
-             type: 'multiple-select' | 'checkbox'
-             target: OptionItem[]
-          }
-        | {
-             type: 'range'
-             target: number
-          }
-     )
-
-export type WidgetItemProps = Record<
-   string,
-   WidgetItemTargetProps | OptionItem | OptionItem[] | string | boolean | number
-> & { categories: OptionItem[]; type: OptionItem }
+export type WidgetItemProps = {
+   categories: OptionItem[]
+   type: OptionItem
+   keywords: string[]
+}
 
 export type WidgetItemMeta = {
-   keywords: string[]
    props: WidgetItemProps
    alpine?: boolean
    mobile?:

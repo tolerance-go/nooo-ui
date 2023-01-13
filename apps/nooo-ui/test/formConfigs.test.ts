@@ -1,5 +1,5 @@
 import { getDefaultFormValuesFromFormConfigs } from 'utils/getDefaultFormValuesFromFormConfigs'
-import { getFilterWidgetsData } from 'utils/getFilterWidgetsData'
+import { getFilterWidgetsData, keywordIsHit } from 'utils/getFilterWidgetsData'
 import { getFormConfigs } from 'utils/getFormConfigs'
 import { describe, expect, test } from 'vitest'
 
@@ -11,15 +11,10 @@ describe('formConfigs', async () => {
                css: '',
                html: '',
                meta: {
-                  keywords: [],
                   props: {
+                     keywords: [],
                      type: { label: 'app', value: 'app' },
                      categories: [{ label: 'page', value: 'page' }],
-                     customSame: {
-                        type: 'checkbox',
-                        target: [{ value: 'sdfsdf', label: 'alsdfj' }],
-                        title: 'custom-name',
-                     },
                   },
                   createDate: '2023-01-01 00:00:00',
                   updateDate: '2023-01-01 00:00:00',
@@ -34,20 +29,10 @@ describe('formConfigs', async () => {
                css: '',
                html: '',
                meta: {
-                  keywords: [],
                   props: {
+                     keywords: [],
                      type: { label: 'web', value: 'web' },
                      categories: [{ label: 'banner', value: 'banner' }],
-                     customSame: {
-                        type: 'checkbox',
-                        target: [{ value: 'xxxx', label: 'fff' }],
-                        title: 'custom-name',
-                     },
-                     custom: {
-                        type: 'checkbox',
-                        target: [{ value: 'bbbb', label: 'bbbb' }],
-                        title: 'custom-name',
-                     },
                   },
                   createDate: '2023-01-01 00:00:00',
                   updateDate: '2023-01-01 00:00:00',
@@ -71,30 +56,6 @@ describe('formConfigs', async () => {
                },
             ],
             title: '分类',
-            type: 'checkbox',
-         },
-         custom: {
-            options: [
-               {
-                  label: 'bbbb',
-                  value: 'bbbb',
-               },
-            ],
-            title: 'custom-name',
-            type: 'checkbox',
-         },
-         customSame: {
-            options: [
-               {
-                  label: 'alsdfj',
-                  value: 'sdfsdf',
-               },
-               {
-                  label: 'fff',
-                  value: 'xxxx',
-               },
-            ],
-            title: 'custom-name',
             type: 'checkbox',
          },
          type: {
@@ -132,15 +93,10 @@ describe('formConfigs', async () => {
                   css: '',
                   html: '',
                   meta: {
-                     keywords: [],
                      props: {
+                        keywords: [],
                         type: { label: 'app', value: 'app' },
                         categories: [{ label: 'page', value: 'page' }],
-                        customSame: {
-                           type: 'checkbox',
-                           target: [{ value: 'sdfsdf', label: 'alsdfj' }],
-                           title: 'custom-name',
-                        },
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -158,20 +114,10 @@ describe('formConfigs', async () => {
                   css: '',
                   html: '',
                   meta: {
-                     keywords: [],
                      props: {
+                        keywords: [],
                         type: { label: 'web', value: 'web' },
                         categories: [{ label: 'banner', value: 'banner' }],
-                        customSame: {
-                           type: 'checkbox',
-                           target: [{ value: 'xxxx', label: 'fff' }],
-                           title: 'custom-name',
-                        },
-                        custom: {
-                           type: 'checkbox',
-                           target: [{ value: 'bbbb', label: 'bbbb' }],
-                           title: 'custom-name',
-                        },
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -200,15 +146,10 @@ describe('formConfigs', async () => {
                   css: '',
                   html: '',
                   meta: {
-                     keywords: [],
                      props: {
+                        keywords: [],
                         type: { label: 'app', value: 'app' },
                         categories: [{ label: 'page', value: 'page' }],
-                        customSame: {
-                           type: 'checkbox',
-                           target: [{ value: 'sdfsdf', label: 'alsdfj' }],
-                           title: 'custom-name',
-                        },
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -226,20 +167,10 @@ describe('formConfigs', async () => {
                   css: '',
                   html: '',
                   meta: {
-                     keywords: [],
                      props: {
+                        keywords: [],
                         type: { label: 'web', value: 'web' },
                         categories: [{ label: 'banner', value: 'banner' }],
-                        customSame: {
-                           type: 'checkbox',
-                           target: [{ value: 'xxxx', label: 'fff' }],
-                           title: 'custom-name',
-                        },
-                        custom: {
-                           type: 'checkbox',
-                           target: [{ value: 'bbbb', label: 'bbbb' }],
-                           title: 'custom-name',
-                        },
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -256,20 +187,10 @@ describe('formConfigs', async () => {
             css: '',
             html: '',
             meta: {
-               keywords: [],
                props: {
+                  keywords: [],
                   type: { label: 'web', value: 'web' },
                   categories: [{ label: 'banner', value: 'banner' }],
-                  customSame: {
-                     type: 'checkbox',
-                     target: [{ value: 'xxxx', label: 'fff' }],
-                     title: 'custom-name',
-                  },
-                  custom: {
-                     type: 'checkbox',
-                     target: [{ value: 'bbbb', label: 'bbbb' }],
-                     title: 'custom-name',
-                  },
                },
                createDate: '2023-01-01 00:00:00',
                updateDate: '2023-01-01 00:00:00',
@@ -282,26 +203,21 @@ describe('formConfigs', async () => {
       ])
    })
 
-   test('getFilterWidgetsData type all', async () => {
+   test('getFilterWidgetsData keywords empty', async () => {
       expect(
          getFilterWidgetsData(
             {
-               type: 'all',
+               keywords: 'other',
             },
             [
                {
                   css: '',
                   html: '',
                   meta: {
-                     keywords: [],
                      props: {
+                        keywords: ['home'],
                         type: { label: 'app', value: 'app' },
                         categories: [{ label: 'page', value: 'page' }],
-                        customSame: {
-                           type: 'checkbox',
-                           target: [{ value: 'sdfsdf', label: 'alsdfj' }],
-                           title: 'custom-name',
-                        },
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -319,20 +235,67 @@ describe('formConfigs', async () => {
                   css: '',
                   html: '',
                   meta: {
-                     keywords: [],
                      props: {
+                        keywords: [],
                         type: { label: 'web', value: 'web' },
                         categories: [{ label: 'banner', value: 'banner' }],
-                        customSame: {
-                           type: 'checkbox',
-                           target: [{ value: 'xxxx', label: 'fff' }],
-                           title: 'custom-name',
-                        },
-                        custom: {
-                           type: 'checkbox',
-                           target: [{ value: 'bbbb', label: 'bbbb' }],
-                           title: 'custom-name',
-                        },
+                     },
+                     createDate: '2023-01-01 00:00:00',
+                     updateDate: '2023-01-01 00:00:00',
+                     frameHeight: 750,
+                  },
+                  tailwindConfig: { darkMode: 'class' },
+                  segmentedMetas: [{ asdfasdfff: 'true' }],
+                  key: 'widgets/web/banner/banner-1',
+               },
+            ],
+         ),
+      ).toEqual([])
+   })
+
+   test('keywordIsHit', () => {
+      expect(keywordIsHit('home', [])).toBe(false)
+      expect(keywordIsHit('home', ['home'])).toBe(true)
+      expect(keywordIsHit('home', ['home-home'])).toBe(true)
+      expect(keywordIsHit('home', ['home', 'other'])).toBe(true)
+   })
+
+   test('getFilterWidgetsData keywords some hit', async () => {
+      expect(
+         getFilterWidgetsData(
+            {
+               keywords: 'home',
+            },
+            [
+               {
+                  css: '',
+                  html: '',
+                  meta: {
+                     props: {
+                        keywords: ['home'],
+                        type: { label: 'app', value: 'app' },
+                        categories: [{ label: 'page', value: 'page' }],
+                     },
+                     createDate: '2023-01-01 00:00:00',
+                     updateDate: '2023-01-01 00:00:00',
+                     center: true,
+                     mobile: {
+                        type: 'page',
+                        size: { width: 375, height: 812 },
+                     },
+                  },
+                  tailwindConfig: {},
+                  segmentedMetas: [{ asdfasdfff: 'true' }, { ff: 'true' }],
+                  key: 'widgets/app/page/page-1',
+               },
+               {
+                  css: '',
+                  html: '',
+                  meta: {
+                     props: {
+                        keywords: [],
+                        type: { label: 'web', value: 'web' },
+                        categories: [{ label: 'banner', value: 'banner' }],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -352,7 +315,6 @@ describe('formConfigs', async () => {
             meta: {
                center: true,
                createDate: '2023-01-01 00:00:00',
-               keywords: [],
                mobile: {
                   size: {
                      height: 812,
@@ -367,16 +329,97 @@ describe('formConfigs', async () => {
                         value: 'page',
                      },
                   ],
-                  customSame: {
-                     target: [
-                        {
-                           label: 'alsdfj',
-                           value: 'sdfsdf',
-                        },
-                     ],
-                     title: 'custom-name',
-                     type: 'checkbox',
+                  keywords: ['home'],
+                  type: {
+                     label: 'app',
+                     value: 'app',
                   },
+               },
+               updateDate: '2023-01-01 00:00:00',
+            },
+            segmentedMetas: [
+               {
+                  asdfasdfff: 'true',
+               },
+               {
+                  ff: 'true',
+               },
+            ],
+            tailwindConfig: {},
+         },
+      ])
+   })
+
+   test('getFilterWidgetsData type all', async () => {
+      expect(
+         getFilterWidgetsData(
+            {
+               type: 'all',
+            },
+            [
+               {
+                  css: '',
+                  html: '',
+                  meta: {
+                     props: {
+                        keywords: [],
+                        type: { label: 'app', value: 'app' },
+                        categories: [{ label: 'page', value: 'page' }],
+                     },
+                     createDate: '2023-01-01 00:00:00',
+                     updateDate: '2023-01-01 00:00:00',
+                     center: true,
+                     mobile: {
+                        type: 'page',
+                        size: { width: 375, height: 812 },
+                     },
+                  },
+                  tailwindConfig: {},
+                  segmentedMetas: [{ asdfasdfff: 'true' }, { ff: 'true' }],
+                  key: 'widgets/app/page/page-1',
+               },
+               {
+                  css: '',
+                  html: '',
+                  meta: {
+                     props: {
+                        keywords: [],
+                        type: { label: 'web', value: 'web' },
+                        categories: [{ label: 'banner', value: 'banner' }],
+                     },
+                     createDate: '2023-01-01 00:00:00',
+                     updateDate: '2023-01-01 00:00:00',
+                     frameHeight: 750,
+                  },
+                  tailwindConfig: { darkMode: 'class' },
+                  segmentedMetas: [{ asdfasdfff: 'true' }],
+                  key: 'widgets/web/banner/banner-1',
+               },
+            ],
+         ),
+      ).toEqual([
+         {
+            css: '',
+            html: '',
+            key: 'widgets/app/page/page-1',
+            meta: {
+               center: true,
+               createDate: '2023-01-01 00:00:00',
+               mobile: {
+                  size: {
+                     height: 812,
+                     width: 375,
+                  },
+                  type: 'page',
+               },
+               props: {
+                  keywords: [],
+                  categories: [
+                     {
+                        label: 'page',
+                        value: 'page',
+                     },
+                  ],
                   type: {
                      label: 'app',
                      value: 'app',
@@ -401,34 +444,14 @@ describe('formConfigs', async () => {
             meta: {
                createDate: '2023-01-01 00:00:00',
                frameHeight: 750,
-               keywords: [],
                props: {
+                  keywords: [],
                   categories: [
                      {
                         label: 'banner',
                         value: 'banner',
                      },
                   ],
-                  custom: {
-                     target: [
-                        {
-                           label: 'bbbb',
-                           value: 'bbbb',
-                        },
-                     ],
-                     title: 'custom-name',
-                     type: 'checkbox',
-                  },
-                  customSame: {
-                     target: [
-                        {
-                           label: 'fff',
-                           value: 'xxxx',
-                        },
-                     ],
-                     title: 'custom-name',
-                     type: 'checkbox',
-                  },
                   type: {
                      label: 'web',
                      value: 'web',
@@ -459,15 +482,10 @@ describe('formConfigs', async () => {
                   css: '',
                   html: '',
                   meta: {
-                     keywords: [],
                      props: {
+                        keywords: [],
                         type: { label: 'app', value: 'app' },
                         categories: [{ label: 'page', value: 'page' }],
-                        customSame: {
-                           type: 'checkbox',
-                           target: [{ value: 'sdfsdf', label: 'alsdfj' }],
-                           title: 'custom-name',
-                        },
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -485,20 +503,10 @@ describe('formConfigs', async () => {
                   css: '',
                   html: '',
                   meta: {
-                     keywords: [],
                      props: {
+                        keywords: [],
                         type: { label: 'web', value: 'web' },
                         categories: [{ label: 'banner', value: 'banner' }],
-                        customSame: {
-                           type: 'checkbox',
-                           target: [{ value: 'xxxx', label: 'fff' }],
-                           title: 'custom-name',
-                        },
-                        custom: {
-                           type: 'checkbox',
-                           target: [{ value: 'bbbb', label: 'bbbb' }],
-                           title: 'custom-name',
-                        },
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -515,15 +523,10 @@ describe('formConfigs', async () => {
             css: '',
             html: '',
             meta: {
-               keywords: [],
                props: {
+                  keywords: [],
                   type: { label: 'app', value: 'app' },
                   categories: [{ label: 'page', value: 'page' }],
-                  customSame: {
-                     type: 'checkbox',
-                     target: [{ value: 'sdfsdf', label: 'alsdfj' }],
-                     title: 'custom-name',
-                  },
                },
                createDate: '2023-01-01 00:00:00',
                updateDate: '2023-01-01 00:00:00',
@@ -557,30 +560,6 @@ describe('formConfigs', async () => {
                title: '分类',
                type: 'checkbox',
             },
-            custom: {
-               options: [
-                  {
-                     label: 'bbbb',
-                     value: 'bbbb',
-                  },
-               ],
-               title: 'custom-name',
-               type: 'checkbox',
-            },
-            customSame: {
-               options: [
-                  {
-                     label: 'alsdfj',
-                     value: 'sdfsdf',
-                  },
-                  {
-                     label: 'fff',
-                     value: 'xxxx',
-                  },
-               ],
-               title: 'custom-name',
-               type: 'checkbox',
-            },
             type: {
                options: [
                   {
@@ -604,13 +583,6 @@ describe('formConfigs', async () => {
          categories: {
             banner: true,
             page: true,
-         },
-         custom: {
-            bbbb: true,
-         },
-         customSame: {
-            sdfsdf: true,
-            xxxx: true,
          },
          type: 'all',
       })

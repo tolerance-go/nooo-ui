@@ -1,6 +1,7 @@
-import { OptionItem, WidgetData, WidgetItemTargetProps } from 'typings/widgets'
+import { OptionItem, WidgetData } from 'typings/widgets'
 
 export type MultipleConfig = {
+   title: string
    type: 'radio' | 'select' | 'multiple-select' | 'checkbox'
    options: {
       value: string
@@ -8,23 +9,10 @@ export type MultipleConfig = {
    }[]
 }
 
-export type FormConfigs = Record<
-   string,
-   {
-      title: string
-   } & (
-      | {
-           type: 'toggle'
-        }
-      | {
-           type: 'textarea' | 'text'
-        }
-      | MultipleConfig
-      | {
-           type: 'range'
-        }
-   )
->
+export type FormConfigs = {
+   categories: MultipleConfig
+   type: MultipleConfig
+}
 
 export const getFormConfigs = (widgetsData: WidgetData[]) => {
    const formConfigs: FormConfigs = widgetsData.reduce(
@@ -42,24 +30,6 @@ export const getFormConfigs = (widgetsData: WidgetData[]) => {
                   return _distFormConfigs
                }
 
-               if (typeof config === 'object') {
-                  // 手动具体的类型
-                  const specificConfig = config as WidgetItemTargetProps
-
-                  if (specificConfig.type === 'checkbox') {
-                     if (_distFormConfigs[key]) {
-                        ;(_distFormConfigs[key] as MultipleConfig).options.push(
-                           ...specificConfig.target,
-                        )
-                     } else {
-                        _distFormConfigs[key] = {
-                           type: 'checkbox',
-                           options: specificConfig.target,
-                           title: specificConfig.title,
-                        }
-                     }
-                  }
-               }
                return {
                   ..._distFormConfigs,
                }
@@ -83,10 +53,7 @@ export const getFormConfigs = (widgetsData: WidgetData[]) => {
             ],
             title: '类型',
          },
-      } as FormConfigs & {
-         categories: MultipleConfig
-         type: MultipleConfig
-      },
+      } as FormConfigs,
    )
 
    return formConfigs

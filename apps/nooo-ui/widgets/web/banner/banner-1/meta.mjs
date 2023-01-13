@@ -1,7 +1,7 @@
 /** @type {import('../../../../typings/widgets').WidgetItemMeta} */
 export default {
-   keywords: [],
    props: {
+      keywords: ['首页'],
       type: {
          label: 'web',
          value: 'web',
