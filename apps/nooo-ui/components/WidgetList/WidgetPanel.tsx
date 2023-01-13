@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import { useState } from 'react'
 import { WidgetData } from 'typings/widgets'
 import { getDoc } from 'utils/getDoc'
+import { CopyBtn } from './CopyBtn'
 import { HTMLPreviewer } from './HTMLPreviewer'
 import { MobileContainer } from './MobileContainer'
 import { MobileDeviceSelector } from './MobileDeviceSelector'
@@ -24,7 +25,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                   [
                      { value: 'preview', label: '预览' },
                      { value: 'HTML', label: 'HTML' },
-                     { value: 'JSX', label: 'JSX' },
+                     { value: 'React', label: 'React' },
                      { value: 'Vue', label: 'Vue' },
                   ] as {
                      value: string
@@ -208,7 +209,10 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
             </div>
          )}
          {activeTabKey === 'HTML' && (
-            <HTMLPreviewer code={data.html} language={'markup'} />
+            <div className='relative'>
+               <CopyBtn text={data.html} />
+               <HTMLPreviewer code={data.html} language={'markup'} />
+            </div>
          )}
       </div>
    )
