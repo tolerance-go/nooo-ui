@@ -14,7 +14,7 @@ export const HTMLPreviewer = (props: { code: string; language: Language }) => {
       >
          {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre
-               className={clsx(className, 'p-5 overflow-x-auto')}
+               className={clsx(className, 'p-5 overflow-auto max-h-screen')}
                style={style}
             >
                {tokens.map((line, i) => (
