@@ -14,8 +14,7 @@
       "open:browser": "open http://localhost:3000",
       "serve:next": "pnpm open:browser && next dev",
       "start": "next start",
-      "test": "vitest run",
-      "tsc:widgets": "tsc widgets/mobile/button/button-1/*.ts"
+      "test": "vitest run"
    },
    "dependencies": {
       "@mdx-js/loader": "^2.2.1",

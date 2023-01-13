@@ -1,4 +1,4 @@
-import { collectSegmentedMetas } from 'scripts/collectWidgetData'
+import { collectSegmentedMetas } from 'scripts/utils/collectWidgetData'
 import { describe, expect, test } from 'vitest'
 
 describe('collect', async () => {

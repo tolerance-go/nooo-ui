@@ -3,7 +3,7 @@ import glob from 'fast-glob'
 import fs from 'fs-extra'
 import path from 'path'
 import { version } from '../package.json'
-import { collectWidgetData } from './collectWidgetData'
+import { collectWidgetData } from './utils/collectWidgetData'
 
 const dataPath = path.join(process.cwd(), '.data')
 
