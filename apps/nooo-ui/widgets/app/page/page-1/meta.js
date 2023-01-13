@@ -1,19 +1,26 @@
 /** @type {import('../../../../typings/widgets').WidgetItemMeta} */
-export default {
+module.exports = {
    props: {
       keywords: ['首页'],
       type: {
-         label: 'web',
-         value: 'web',
+         label: 'app',
+         value: 'app',
       },
       categories: [
          {
-            label: 'banner',
-            value: 'banner',
+            label: 'page',
+            value: 'page',
          },
       ],
    },
    createDate: '2023-01-01 00:00:00',
    updateDate: '2023-01-01 00:00:00',
-   frameHeight: 750,
+   center: true,
+   mobile: {
+      type: 'page',
+      size: {
+         width: 375,
+         height: 812,
+      },
+   },
 }

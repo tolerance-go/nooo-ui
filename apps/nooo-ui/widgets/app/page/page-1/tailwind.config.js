@@ -1,2 +1,2 @@
 /** @type {import('../../../../typings/widgets').WidgetTailwindConfig} */
-export default {}
+module.exports = {}

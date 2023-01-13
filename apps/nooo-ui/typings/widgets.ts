@@ -13,13 +13,15 @@ export type WidgetItemProps = {
    keywords: string[]
 }
 
+export type WidgetBaseFrameworks = {
+   alpine?: string
+   daisyui?: string
+   kutty?: string
+}
+
 export type WidgetItemMeta = {
    props: WidgetItemProps
-   frameworks?: {
-      alpine?: boolean
-      daisyui?: boolean
-      kutty?: boolean
-   }
+   frameworks?: WidgetBaseFrameworks
    mobile?:
       | boolean
       // 机型

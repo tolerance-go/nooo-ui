@@ -1,9 +1,9 @@
-import { cac } from 'cac'
-import glob from 'fast-glob'
-import fs from 'fs-extra'
-import path from 'path'
-import { version } from '../package.json'
-import { collectWidgetData } from './utils/collectWidgetData'
+const { cac } = require('cac')
+const glob = require('fast-glob')
+const fs = require('fs-extra')
+const path = require('path')
+const { version } = require('../package.json')
+const { collectWidgetData } = require('./utils/collectWidgetData')
 
 const dataPath = path.join(process.cwd(), '.data')
 
@@ -18,9 +18,7 @@ const main = async () => {
       {
          ignoreOptionDefaultValue: true,
       },
-   ).action(async (globPath: string, flags) => {
-      console.log(globPath, flags)
-
+   ).action(async (/** @type {string} */ globPath, flags) => {
       const pathnames = await glob(globPath, {})
 
       const widgetPaths = pathnames

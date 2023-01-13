@@ -1,7 +1,8 @@
 /** @type {import('../../../../typings/widgets').WidgetItemMeta} */
-export default {
+module.exports = {
    frameworks: {
-      kutty: true,
+      kutty: '0.6.0',
+      alpine: '2.8.0',
    },
    props: {
       keywords: ['管理系统'],

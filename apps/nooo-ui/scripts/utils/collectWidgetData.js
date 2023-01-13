@@ -1,20 +1,15 @@
-import fs from 'fs-extra'
-import { Random } from 'mockjs'
-import Mustache from 'mustache'
-import path from 'path'
-import invariant from 'tiny-invariant'
-import {
-   WidgetData,
-   WidgetItemMeta,
-   WidgetSegmentedMeta,
-   WidgetTailwindConfig,
-} from 'typings/widgets'
-import { getTailwindcssFromHtml } from './getTailwindcssFromHtml'
+const fs = require('fs-extra')
+const { Random } = require('mockjs')
+const Mustache = require('mustache')
+const path = require('path')
+const invariant = require('tiny-invariant')
+const { getTailwindcssFromHtml } = require('./getTailwindcssFromHtml')
+const requireUncached = require('./requireUncached')
 
 const widgetRootPath = path.join(process.cwd(), 'widgets')
 const publicPath = path.join(process.cwd(), 'public')
 
-export const copyAssetsToPublic = (assetsPath: string) => {
+const copyAssetsToPublic = (/** @type {string} */ assetsPath) => {
    const relativeAssetsPath = path.relative(process.cwd(), assetsPath)
 
    if (fs.existsSync(assetsPath) && fs.statSync(assetsPath).isDirectory()) {
@@ -33,9 +28,9 @@ export const copyAssetsToPublic = (assetsPath: string) => {
  *
  * @param widgetPath eg: ${cwd}/widgets/mobile/button/button-1
  */
-export const collectSegmentedMetas = async (
-   widgetPath: string,
-   segmenteds: WidgetSegmentedMeta[] = [],
+const collectSegmentedMetas = async (
+   /** @type {string} */ widgetPath,
+   /** @type {import('../../typings/widgets').WidgetSegmentedMeta[]} */ segmenteds = [],
 ) => {
    const upper = path.dirname(widgetPath)
 
@@ -43,13 +38,10 @@ export const collectSegmentedMetas = async (
       return []
    }
 
-   const segMetaPath = path.join(upper, 'meta.mjs')
+   const segMetaPath = path.join(upper, 'meta.js')
 
    if (fs.existsSync(segMetaPath)) {
-      segmenteds.unshift(
-         // https://ar.al/2021/02/22/cache-busting-in-node.js-dynamic-esm-imports/
-         (await import(`${segMetaPath}?update=${Date.now()}`)).default,
-      )
+      segmenteds.unshift(requireUncached(segMetaPath))
    }
 
    await collectSegmentedMetas(upper, segmenteds)
@@ -61,11 +53,9 @@ export const collectSegmentedMetas = async (
  *
  * @param widgetPath eg: ${cwd}/widgets/mobile/button/button-1
  */
-export const collectWidgetData = async (
-   widgetPath: string,
-): Promise<WidgetData> => {
-   const metaPath = path.join(widgetPath, 'meta.mjs')
-   const tailwindConfigPath = path.join(widgetPath, 'tailwind.config.mjs')
+module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
+   const metaPath = path.join(widgetPath, 'meta.js')
+   const tailwindConfigPath = path.join(widgetPath, 'tailwind.config.js')
    const tplPath = path.join(widgetPath, 'template.html')
 
    const assetsPath = path.join(widgetPath, 'assets')
@@ -73,17 +63,21 @@ export const collectWidgetData = async (
 
    const segmentedMetas = await collectSegmentedMetas(widgetPath)
 
-   let meta: WidgetItemMeta | undefined,
-      tpl: string | undefined,
-      tailwindConfig: WidgetTailwindConfig | undefined
+   /** @type {import('../../typings/widgets').WidgetItemMeta | undefined} */
+   let meta
+
+   /** @type {string | undefined} */
+   let tpl
+
+   /** @type {import('../../typings/widgets').WidgetTailwindConfig | undefined} */
+   let tailwindConfig
+
    if (fs.existsSync(metaPath)) {
-      meta = (await import(`${metaPath}?update=${Date.now()}`)).default
+      meta = requireUncached(metaPath)
    }
 
    if (fs.existsSync(tailwindConfigPath)) {
-      tailwindConfig = (
-         await import(`${tailwindConfigPath}?update=${Date.now()}`)
-      ).default
+      tailwindConfig = requireUncached(tailwindConfigPath)
    }
 
    if (fs.existsSync(tplPath)) {
@@ -96,7 +90,8 @@ export const collectWidgetData = async (
 
    const css = await getTailwindcssFromHtml(tpl, tailwindConfig)
 
-   return {
+   /** @type {import('../../typings/widgets').WidgetData} */
+   const data = {
       css,
       html: Mustache.render(tpl, {
          // https://github.com/nuysoft/Mock/wiki/Mock.Random
@@ -115,4 +110,9 @@ export const collectWidgetData = async (
       segmentedMetas,
       key: path.relative(process.cwd(), widgetPath),
    }
+
+   return data
 }
+
+module.exports.copyAssetsToPublic = copyAssetsToPublic
+module.exports.collectSegmentedMetas = collectSegmentedMetas

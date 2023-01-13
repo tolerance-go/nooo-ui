@@ -1,12 +1,11 @@
-import autoprefixer from 'autoprefixer'
-import cssnano from 'cssnano'
-import postcss from 'postcss'
-import tailwind from 'tailwindcss'
-import { WidgetTailwindConfig } from 'typings/widgets'
+const autoprefixer = require('autoprefixer')
+const cssnano = require('cssnano')
+const postcss = require('postcss')
+const tailwind = require('tailwindcss')
 
-export const getTailwindcssFromHtml = async (
-   html: string,
-   configs?: WidgetTailwindConfig,
+module.exports.getTailwindcssFromHtml = async (
+   /** @type {string} */ html,
+   /** @type {import('../../typings/widgets').WidgetTailwindConfig} */ configs,
 ) => {
    return postcss([
       tailwind({

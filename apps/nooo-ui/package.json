@@ -6,10 +6,10 @@
    "author": "",
    "scripts": {
       "build": "next build",
-      "collect": "tsx scripts/collect",
+      "collect": "node scripts/collect",
       "dev": "concurrently \"npm:serve:next\" \"npm:watch:*\"",
       "dev:test": "vitest -u",
-      "postinstall-": "tsx scripts/collect",
+      "postinstall-": "node scripts/collect",
       "lint": "next lint",
       "open:browser": "open http://localhost:3000",
       "serve:next": "pnpm open:browser && next dev",
