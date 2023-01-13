@@ -15,9 +15,10 @@ export type WidgetItemProps = {
 
 export type WidgetItemMeta = {
    props: WidgetItemProps
-   frameworks: {
+   frameworks?: {
       alpine?: boolean
       daisyui?: boolean
+      kutty?: boolean
    }
    mobile?:
       | boolean
