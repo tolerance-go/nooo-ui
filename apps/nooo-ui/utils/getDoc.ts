@@ -2,30 +2,50 @@ import clsx from 'clsx'
 import { WidgetBaseFrameworks } from 'typings/widgets'
 import { getFrameScripts } from './getFrameScripts'
 
-export const getDoc = (options: {
+export const getDoc = ({
+   maxWidthMode = 'full',
+   ...rest
+}: {
    css: string
    html: string
    bodyCss?: string
    center?: boolean
    frameworks?: WidgetBaseFrameworks
+   maxWidthMode?: 'xs' | 'md' | 'full'
 }) => {
    const srcDoc = /*html*/ `
  <head>
    <style type="text/css">
-      ${options.css}
+      ${rest.css}
    </style>
    <style type="text/css">
       body {
-         ${options.bodyCss ?? ''}
+         position: relative;
+         width: 100%;
+       
+         ${rest.bodyCss ?? ''}
+      }
+      body.center { 
+         display: flex;
+         justify-content: center;
+      }
+      .inner {
+         width: 100%;
+         max-width: ${
+            maxWidthMode === 'xs'
+               ? '390px'
+               : maxWidthMode === 'md'
+               ? '768px'
+               : '100%'
+         }; 
       }
    </style>
-   ${options.frameworks ? getFrameScripts(options.frameworks).join('\n') : ''}
+   ${rest.frameworks ? getFrameScripts(rest.frameworks).join('\n') : ''}
  </head>
- <body class="${clsx(
-    'relative w-full',
-    options.center ? 'flex justify-center' : undefined,
- )}">
-   ${options.html}
+ <body class="${clsx(rest.center && 'center')}">
+   <div class="inner">
+      ${rest.html}
+   </div>
  </body
  `
    return srcDoc

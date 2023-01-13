@@ -24,14 +24,8 @@ export type WidgetItemMeta = {
    frameworks?: WidgetBaseFrameworks
    mobile?:
       | boolean
-      // 机型
-      | string
       | {
            type: 'top' | 'center' | 'bottom' | 'page'
-           size: {
-              width: number
-              height: number
-           }
         }
    center?: boolean
    theme?: boolean

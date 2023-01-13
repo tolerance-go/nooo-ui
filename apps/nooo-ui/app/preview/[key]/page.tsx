@@ -1,6 +1,7 @@
 import { widgetsData } from '.data/widgets-data'
 import clsx from 'clsx'
 import { MobileContainer } from 'components/WidgetList/MobileContainer'
+import { defaultMobileSize } from 'components/WidgetList/MobileDeviceSizeContext'
 import { getFullPageHtmlCode } from 'utils/getFullPageHtmlCode'
 
 const PreviewPage = (props: {
@@ -13,7 +14,7 @@ const PreviewPage = (props: {
    if (!target) return <div>not match</div>
 
    if (target.meta.mobile) {
-      return typeof target.meta.mobile === 'object' ? (
+      return (
          <div
             className={clsx(
                target.meta.center &&
@@ -21,13 +22,17 @@ const PreviewPage = (props: {
             )}
          >
             <MobileContainer
-               size={target.meta.mobile.size}
-               type={target.meta.mobile.type}
+               size={defaultMobileSize}
+               type={
+                  typeof target.meta.mobile === 'object'
+                     ? target.meta.mobile.type
+                     : 'page'
+               }
             >
                <div
                   style={{
-                     height: target.meta.mobile.size.height,
-                     width: target.meta.mobile.size.width,
+                     height: defaultMobileSize.height,
+                     width: defaultMobileSize.width,
                   }}
                   className='w-full h-full bg-white overflow-x-auto'
                   dangerouslySetInnerHTML={{
@@ -36,7 +41,7 @@ const PreviewPage = (props: {
                ></div>
             </MobileContainer>
          </div>
-      ) : null
+      )
    }
 
    return (
