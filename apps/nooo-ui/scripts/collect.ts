@@ -14,7 +14,7 @@ const main = async () => {
 
    cli.command(
       '[glob]',
-      "Collect file with glob, eg: 'widgets/mobile/**/template.html'",
+      "Collect file with glob, eg: 'widgets/**/template.html'",
       {
          ignoreOptionDefaultValue: true,
       },

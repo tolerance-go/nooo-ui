@@ -5,6 +5,7 @@
    "keywords": [],
    "license": "ISC",
    "author": "",
+   "type": "module",
    "scripts": {
       "bundle": "turbo run lint build test --concurrency=2 --filter={'./apps/*'}...",
       "ci": "pnpm install && pnpm prebuild && pnpm pretest && pnpm bundle && pnpm postbuild",

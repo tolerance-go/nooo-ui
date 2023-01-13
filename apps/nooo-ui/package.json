@@ -27,7 +27,7 @@
       "cssnano": "^5.1.14",
       "fast-glob": "^3.2.12",
       "fs-extra": "^11.1.0",
-      "glob": "^8.0.3",
+      "kutty": "^0.6.0",
       "lodash-es": "^4.17.21",
       "mockjs": "^1.1.0",
       "mustache": "^4.2.0",
