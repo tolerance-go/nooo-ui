@@ -7,7 +7,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
    const { children } = props
    const nextCookies = cookies()
 
-   const theme = nextCookies.get('theme')?.value === 'light' ? 'light' : 'dark'
+   const theme = nextCookies.get('theme')?.value === 'dark' ? 'dark' : 'light'
 
    return (
       <html className={theme}>
