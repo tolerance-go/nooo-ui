@@ -15,6 +15,7 @@ import { TabletResponsiveSwitcher } from './TabletResponsiveSwitcher'
 import { TabletSizeContextProvider } from './TabletSizeContext'
 import { ThemeContextProvider } from './ThemeContext'
 import { ThemeSwitchBtn } from './ThemeSwitchBtn'
+import { WidgetInfo } from './WidgetInfo'
 
 export const WidgetPanel = ({ data }: { data: WidgetData }) => {
    const [activeTabKey, setActiveTabKey] = useState<string>('preview')
@@ -179,6 +180,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                         {data.meta.frameworks && (
                            <div className='text-gray-200'>|</div>
                         )}
+                        <WidgetInfo data={data} />
 
                         <Link
                            href={`/preview/${data.key}`}
@@ -186,25 +188,18 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                            className='w-9 h-9 flex justify-center transition hover:bg-gray-50 hover:text-sky-600 items-center border rounded-md'
                         >
                            <svg
-                              width='24'
-                              height='24'
-                              viewBox='0 0 24 24'
-                              fill='none'
-                              strokeWidth={2}
                               className='w-4 h-4'
+                              fill='none'
+                              stroke='currentColor'
+                              strokeWidth={2}
+                              viewBox='0 0 24 24'
                               xmlns='http://www.w3.org/2000/svg'
+                              aria-hidden='true'
                            >
                               <path
-                                 d='M20.6599 4L12.1216 12.5382'
-                                 stroke='currentColor'
-                              />
-                              <path
-                                 d='M20.5085 10.5126V4.15149H14.1475'
-                                 stroke='currentColor'
-                              />
-                              <path
-                                 d='M11.4969 4H5.666C4.74589 4 4 4.74589 4 5.666V18.9939C4 19.9141 4.74589 20.6599 5.666 20.6599H18.9939C19.9141 20.6599 20.66 19.9141 20.66 18.9939V12.9547'
-                                 stroke='currentColor'
+                                 strokeLinecap='round'
+                                 strokeLinejoin='round'
+                                 d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
                               />
                            </svg>
                         </Link>
