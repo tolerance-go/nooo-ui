@@ -23,14 +23,13 @@ const Home = async () => {
                               href='/docs/introduction/what-is-nooo-ui'
                               className='p-2.5 font-medium hover:underline underline-offset-4'
                            >
-                              <span className='sr-only'>Academy</span>
                               文档
                            </Link>
                            <Link
-                              href='/docs/introduction/what-is-nooo-ui'
+                              href='https://github.com/nooo-ui/nooo-ui'
+                              target='_blank'
                               className='p-2.5 font-medium hover:underline underline-offset-4'
                            >
-                              <span className='sr-only'>Academy</span>
                               Github
                            </Link>
                         </div>
