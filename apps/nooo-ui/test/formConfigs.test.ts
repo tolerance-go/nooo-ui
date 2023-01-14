@@ -310,10 +310,6 @@ describe('formConfigs', async () => {
             meta: {
                createDate: '2023-01-01 00:00:00',
                mobile: {
-                  size: {
-                     height: 812,
-                     width: 375,
-                  },
                   type: 'page',
                },
                props: {
@@ -398,10 +394,6 @@ describe('formConfigs', async () => {
             meta: {
                createDate: '2023-01-01 00:00:00',
                mobile: {
-                  size: {
-                     height: 812,
-                     width: 375,
-                  },
                   type: 'page',
                },
                props: {
