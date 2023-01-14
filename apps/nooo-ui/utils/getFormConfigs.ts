@@ -25,7 +25,14 @@ export const getFormConfigs = (widgetsData: WidgetData[]) => {
                   _distFormConfigs[key].options.push(
                      ...(Array.isArray(specificConfig)
                         ? specificConfig
-                        : [specificConfig]),
+                        : [specificConfig]
+                     ).filter(
+                        // 过滤重复
+                        (item) =>
+                           !_distFormConfigs[key].options.find(
+                              (it) => it.value === item.value,
+                           ),
+                     ),
                   )
                   return _distFormConfigs
                }
