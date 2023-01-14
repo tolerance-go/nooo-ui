@@ -1,10 +1,13 @@
 import { FilterFormProvider } from 'components/FilterFormProvider'
 import { KeywordSearchBar } from 'components/KeywordSearchBar'
+import { ThemeSwitchBtn } from 'components/SiteThemeSwitchBtn'
 import { WidgetList } from 'components/WidgetList'
 import { WidgetsFilter } from 'components/WidgetsFilter'
+import { cookies } from 'next/headers'
 import Link from 'next/link'
 
 const Home = async () => {
+   const nextCookies = cookies()
    return (
       <FilterFormProvider>
          <div className='min-h-screen'>
@@ -34,6 +37,11 @@ const Home = async () => {
                            </Link>
                         </div>
                         {/* <div className='text-gray-300'>|</div> */}
+                        <ThemeSwitchBtn
+                           initialTheme={
+                              nextCookies.get('theme')?.value ?? 'light'
+                           }
+                        />
                         {/* <button
                            type='button'
                            className='group flex shrink-0 items-center rounded-lg transition'
