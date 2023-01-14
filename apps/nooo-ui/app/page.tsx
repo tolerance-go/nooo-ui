@@ -1,22 +1,24 @@
 import { FilterFormProvider } from 'components/FilterFormProvider'
 import { KeywordSearchBar } from 'components/KeywordSearchBar'
+import { Logo } from 'components/Logo'
 import { ThemeSwitchBtn } from 'components/SiteThemeSwitchBtn'
 import { WidgetList } from 'components/WidgetList'
 import { WidgetsFilter } from 'components/WidgetsFilter'
-import { cookies } from 'next/headers'
 import Link from 'next/link'
 
 const Home = async () => {
-   const nextCookies = cookies()
    return (
       <FilterFormProvider>
          <div className='min-h-screen'>
-            <header aria-label='page-header' className='bg-gray-50 border-b'>
+            <header
+               aria-label='page-header'
+               className='bg-gray-50 dark:bg-gray-900 transition border-b border-b-gray-200 dark:border-b-gray-800'
+            >
                <div className='mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-0'>
                   <div className='flex items-center sm:justify-between sm:space-x-4'>
                      <div className='inline-flex space-x-3 items-center'>
-                        <img src='/logo.svg' className='w-7 h-7' />
-                        <span className='uppercase font-bold text-lg'>
+                        <Logo />
+                        <span className='uppercase font-bold text-lg dark:text-white'>
                            Nooo-UI
                         </span>
                      </div>
@@ -24,24 +26,20 @@ const Home = async () => {
                         <div className='flex space-x-4 items-center'>
                            <Link
                               href='/docs/introduction/what-is-nooo-ui'
-                              className='p-2.5 font-medium hover:underline underline-offset-2'
+                              className='p-2.5 font-medium hover:underline underline-offset-2 dark:text-white'
                            >
                               文档
                            </Link>
                            <Link
                               href='https://github.com/nooo-ui/nooo-ui'
                               target='_blank'
-                              className='p-2.5 font-medium hover:underline underline-offset-2'
+                              className='p-2.5 font-medium hover:underline underline-offset-2 dark:text-white'
                            >
                               Github
                            </Link>
                         </div>
                         {/* <div className='text-gray-300'>|</div> */}
-                        <ThemeSwitchBtn
-                           initialTheme={
-                              nextCookies.get('theme')?.value ?? 'light'
-                           }
-                        />
+                        <ThemeSwitchBtn />
                         {/* <button
                            type='button'
                            className='group flex shrink-0 items-center rounded-lg transition'
@@ -64,10 +62,10 @@ const Home = async () => {
                      </div>
                   </div>
                   <div className='mt-20 text-center'>
-                     <h1 className='text-2xl font-bold text-gray-900 sm:text-4xl'>
+                     <h1 className='text-2xl font-bold text-gray-900 sm:text-4xl dark:text-gray-100 transition'>
                         Nooo-UI 线上 tailwindcss 设计集散地
                      </h1>
-                     <p className='mt-2 text-sm text-gray-500'>
+                     <p className='mt-2 text-sm text-gray-500 dark:text-gray-400 transition'>
                         300+ 组件设计模板，50+ 分类类目 🚀 支持多种格式导出 🌱
                      </p>
                   </div>
@@ -76,14 +74,15 @@ const Home = async () => {
                   </div>
                </div>
             </header>
-            <div className='mx-auto max-w-screen-xl'>
-               <div className='relative'>
-                  <WidgetsFilter />
-               </div>
+            <div className='mx-auto max-w-screen-xl relative'>
+               <WidgetsFilter />
             </div>
             <WidgetList />
          </div>
-         <div aria-label='footer' className='bg-gray-50 p-5 mt-10'></div>
+         <div
+            aria-label='footer'
+            className='bg-gray-50 dark:bg-gray-900 transition p-5 mt-10'
+         ></div>
       </FilterFormProvider>
    )
 }

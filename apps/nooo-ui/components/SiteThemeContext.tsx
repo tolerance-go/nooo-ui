@@ -12,7 +12,7 @@ import { ThemeType } from 'typings/theme'
 
 export const defaultTheme: ThemeType = 'light'
 
-export const ThemeContext = createContext<{
+export const SiteThemeContext = createContext<{
    theme: ThemeType
    setTheme: Dispatch<SetStateAction<ThemeType>>
 }>({
@@ -20,21 +20,25 @@ export const ThemeContext = createContext<{
    setTheme: () => {},
 })
 
-export const ThemeContextProvider = (props: PropsWithChildren) => {
-   const [theme, setTheme] = useState<ThemeType>(defaultTheme)
+export const SiteThemeContextProvider = (
+   props: PropsWithChildren<{
+      defaultTheme: ThemeType
+   }>,
+) => {
+   const [theme, setTheme] = useState<ThemeType>(props.defaultTheme)
 
    return (
-      <ThemeContext.Provider
+      <SiteThemeContext.Provider
          value={{
             theme,
             setTheme,
          }}
       >
          {props.children}
-      </ThemeContext.Provider>
+      </SiteThemeContext.Provider>
    )
 }
 
-export const useThemeContext = () => {
-   return useContext(ThemeContext)
+export const useSiteThemeContext = () => {
+   return useContext(SiteThemeContext)
 }

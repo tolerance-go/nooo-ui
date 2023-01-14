@@ -1,15 +1,19 @@
 'use client'
 
 import clsx from 'clsx'
+import { useSiteThemeContext } from 'components/SiteThemeContext'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
-import githubTheme from 'prism-react-renderer/themes/github'
+import vsDark from 'prism-react-renderer/themes/vsDark'
+import vsLight from 'prism-react-renderer/themes/vsLight'
 
 export const HTMLPreviewer = (props: { code: string; language: Language }) => {
+   const { theme } = useSiteThemeContext()
+
    return (
       <Highlight
          {...defaultProps}
          code={props.code}
-         theme={githubTheme}
+         theme={theme === 'dark' ? vsDark : vsLight}
          language={props.language}
       >
          {({ className, style, tokens, getLineProps, getTokenProps }) => (

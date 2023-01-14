@@ -14,7 +14,7 @@ export const KeywordSearchBar = () => {
    return (
       <div className='relative w-2/3 mx-auto'>
          <input
-            className='h-16 w-full rounded-lg border-none bg-white pl-5 pr-20 text-lg shadow-md focus:ring-transparent focus:outline-sky-600 focus:shadow-none'
+            className='h-16 w-full rounded-lg border-none bg-white pl-5 pr-20 text-lg shadow-md focus:ring-transparent focus:outline-sky-600 focus:shadow-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white transition'
             id='search'
             type='search'
             placeholder='关键字搜索设计模板...'
@@ -28,7 +28,7 @@ export const KeywordSearchBar = () => {
             }}
          />
          <div
-            className='absolute top-1/2 right-5 -translate-y-1/2 rounded-md bg-gray-50 p-3 text-gray-600 transition'
+            className='absolute top-1/2 right-5 -translate-y-1/2 rounded-md bg-gray-50 dark:bg-gray-800 p-3 text-gray-600 dark:text-gray-400 transition'
             onClick={() => {
                inputRef.current?.focus()
             }}

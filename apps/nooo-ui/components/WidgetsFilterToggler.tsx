@@ -11,8 +11,10 @@ export const WidgetsFilterToggler = (props: {
       <>
          <div
             className={clsx(
-               'absolute top-0 rounded-full left-1/2 p-1.5 bg-white -translate-x-1/2 -translate-y-1/2 cursor-pointer hover:text-gray-900 text-gray-400 transition',
-               open ? 'shadow-md' : 'shadow',
+               'absolute top-0 rounded-full left-1/2 bg-white dark:bg-black -translate-x-1/2 -translate-y-1/2 cursor-pointer dark:border transition dark:shadow-none',
+               open
+                  ? 'shadow-md dark:border-gray-700'
+                  : 'shadow dark:border-gray-800',
             )}
             onClick={() => {
                setOpen((prev) => !prev)
@@ -20,7 +22,7 @@ export const WidgetsFilterToggler = (props: {
          >
             <svg
                className={clsx(
-                  'w-4 h-4 transition',
+                  'w-7 h-7 p-1.5 transition text-gray-400 dark:text-gray-600 hover:text-gray-900 dark:hover:text-gray-100',
                   open ? 'rotate-180' : null,
                )}
                viewBox='0 0 1024 1024'

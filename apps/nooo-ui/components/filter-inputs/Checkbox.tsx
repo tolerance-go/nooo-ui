@@ -11,10 +11,10 @@ export const Checkbox = (
 ) => {
    const { register } = useFormContext()
    return (
-      <div className='flex items-stretch border-b'>
+      <div className='flex items-stretch border-b dark:border-gray-800 transition'>
          <div
             aria-label='left-area'
-            className='w-52 bg-gray-50 flex items-center justify-center p-2'
+            className='w-52 bg-gray-50 dark:bg-gray-900 dark:text-white transition flex items-center justify-center p-2'
          >
             {props.title}
          </div>
@@ -26,12 +26,12 @@ export const Checkbox = (
                         <input
                            id={item.value}
                            type='checkbox'
-                           className='w-4 h-4 text-sky-600 bg-gray-100 border-gray-300 rounded focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+                           className='w-4 h-4 text-sky-600 bg-gray-100 border-gray-300 rounded focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 transition'
                            {...register([props.name, item.value].join('.'))}
                         />
                         <label
                            htmlFor={item.value}
-                           className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+                           className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 transition'
                         >
                            {item.label}
                         </label>

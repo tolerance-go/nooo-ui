@@ -1,18 +1,15 @@
 'use client'
 
-import { useState } from 'react'
 import { useCookies } from 'react-cookie'
-import { ThemeType } from './WidgetList/ThemeContext'
+import { useSiteThemeContext } from './SiteThemeContext'
 
-export const ThemeSwitchBtn = ({ initialTheme }: { initialTheme: string }) => {
-   const [theme, setTheme] = useState<ThemeType>(() =>
-      initialTheme === 'light' ? 'light' : 'dark',
-   )
+export const ThemeSwitchBtn = () => {
+   const { theme, setTheme } = useSiteThemeContext()
    const [, setCookie] = useCookies(['theme'])
 
    return (
       <div
-         className='w-10 h-10 flex cursor-pointer transition hover:bg-gray-100 justify-center items-center rounded-md'
+         className='w-10 h-10 flex cursor-pointer transition hover:bg-gray-100 dark:hover:bg-gray-800 justify-center items-center rounded-md dark:text-white'
          onClick={() => {
             setTheme(theme === 'light' ? 'dark' : 'light')
             if (theme === 'light') {

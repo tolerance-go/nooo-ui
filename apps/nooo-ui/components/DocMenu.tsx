@@ -29,7 +29,7 @@ export const DocMenu = () => {
                   )}
                   key={item.title}
                >
-                  <li className='text-gray-900 my-3.5 text-sm font-medium'>
+                  <li className='text-gray-900 transition dark:text-gray-100 my-3.5 text-sm font-medium'>
                      {item.title}
                   </li>
                   {item.children.map((it) => {
@@ -37,10 +37,10 @@ export const DocMenu = () => {
                         <Link href={it.path} key={it.path}>
                            <li
                               className={clsx(
-                                 'my-2.5 text-sm',
+                                 'my-2.5 text-sm transition',
                                  it.path === pathname
                                     ? 'text-sky-600'
-                                    : 'text-gray-500 hover:text-gray-900',
+                                    : 'text-gray-500 hover:text-gray-900 dark:hover:text-gray-100',
                               )}
                            >
                               {it.title}

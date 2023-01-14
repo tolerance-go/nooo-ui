@@ -28,9 +28,9 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                <div
                   key={data.key}
                   aria-label='card'
-                  className='rounded-xl bg-white border overflow-hidden mb-14'
+                  className='rounded-xl bg-white dark:bg-black border dark:border-gray-800 transition overflow-hidden mb-14'
                >
-                  <div className='py-5 px-7 flex justify-between items-center flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400 border-b'>
+                  <div className='py-5 px-7 flex justify-between items-center flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400 border-b dark:border-gray-800 transition'>
                      <div className='flex'>
                         {(
                            [
@@ -76,7 +76,9 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                            <TabletResponsiveSwitcher />
                         )}
                         {data.meta.theme ? <ThemeSwitchBtn /> : null}
-                        <div className='text-gray-200'>|</div>
+                        <div className='text-gray-200 dark:text-gray-800 transition'>
+                           |
+                        </div>
                         <CollectionBtn data={data} />
                      </div>
                      <div className='flex items-center space-x-2'>
@@ -149,14 +151,16 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                            </div>
                         )}
                         {data.meta.frameworks && (
-                           <div className='text-gray-200'>|</div>
+                           <div className='text-gray-200 dark:text-gray-800 transition'>
+                              |
+                           </div>
                         )}
                         <WidgetInfo data={data} />
                         {data.meta.playgroundLink && (
                            <Link
                               href={data.meta.playgroundLink}
                               target='_blank'
-                              className='w-9 h-9 flex justify-center transition hover:bg-gray-50 hover:text-sky-600 items-center border rounded-md'
+                              className='w-9 h-9 flex justify-center hover:bg-gray-50 dark:hover:bg-gray-900 dark:border-gray-700 transition hover:text-sky-600 items-center border rounded-md'
                            >
                               <svg
                                  className='w-4 h-4'
@@ -177,7 +181,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                         <Link
                            href={`/preview/${data.key}`}
                            target='_blank'
-                           className='w-9 h-9 flex justify-center transition hover:bg-gray-50 hover:text-sky-600 items-center border rounded-md'
+                           className='w-9 h-9 flex justify-center transition hover:bg-gray-50 dark:hover:bg-gray-900 dark:border-gray-700 hover:text-sky-600 items-center border rounded-md'
                         >
                            <svg
                               className='w-4 h-4'

@@ -7,7 +7,7 @@ export const ThemeSwitchBtn = () => {
 
    return (
       <div
-         className='w-9 h-9 flex cursor-pointer transition hover:bg-gray-50 hover:text-sky-600 justify-center items-center border rounded-md'
+         className='w-9 h-9 flex cursor-pointer transition hover:bg-gray-50 dark:hover:bg-gray-900 dark:border-gray-700 hover:text-sky-600 justify-center items-center border rounded-md'
          onClick={() =>
             setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
          }

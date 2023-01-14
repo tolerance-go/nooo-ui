@@ -19,7 +19,7 @@ export const CollectionBtn = ({ data }: { data: WidgetData }) => {
    return (
       <div
          className={clsx(
-            'w-9 h-9 flex hover:bg-gray-50 hover:text-amber-500 transition cursor-pointer justify-center items-center border rounded-md',
+            'w-9 h-9 flex hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-amber-500 transition cursor-pointer justify-center items-center border dark:border-gray-700 rounded-md',
             collected && 'text-amber-500',
          )}
          onClick={() => {

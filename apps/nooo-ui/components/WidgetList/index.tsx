@@ -27,7 +27,7 @@ export const WidgetList = () => {
       <>
          <div className='max-w-screen-2xl mx-auto mt-11 flex justify-between items-center'>
             <div>
-               <span className='text-xl'>
+               <span className='text-xl transition dark:text-white'>
                   {onlyShowCollected
                      ? resultsFilterByCollection.length
                      : results.length}{' '}
