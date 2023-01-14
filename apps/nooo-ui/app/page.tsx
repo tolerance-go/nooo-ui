@@ -33,8 +33,8 @@ const Home = async () => {
                               Github
                            </Link>
                         </div>
-                        <div className='text-gray-300'>|</div>
-                        <button
+                        {/* <div className='text-gray-300'>|</div> */}
+                        {/* <button
                            type='button'
                            className='group flex shrink-0 items-center rounded-lg transition'
                         >
@@ -52,7 +52,7 @@ const Home = async () => {
                                  yarnb@foxmail.com
                               </span>
                            </p>
-                        </button>
+                        </button> */}
                      </div>
                   </div>
                   <div className='mt-20 text-center'>
