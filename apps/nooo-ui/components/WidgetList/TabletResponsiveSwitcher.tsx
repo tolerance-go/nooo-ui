@@ -3,7 +3,6 @@ import { TabletSize, useTabletSizeContext } from './TabletSizeContext'
 
 export const TabletResponsiveSwitcher = () => {
    const { size, setSize } = useTabletSizeContext()
-   console.log('setSize', size)
 
    return (
       <>
