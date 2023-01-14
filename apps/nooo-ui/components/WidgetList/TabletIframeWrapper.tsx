@@ -14,7 +14,6 @@ export const TabletIframeWrapper = ({ data }: { data: WidgetData }) => {
             srcDoc={getDoc({
                html: data.html,
                css: data.css,
-               center: data.meta.center,
                frameworks: data.meta.frameworks,
                theme,
             })}

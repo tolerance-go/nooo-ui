@@ -1,5 +1,4 @@
 import { widgetsData } from '.data/widgets-data'
-import clsx from 'clsx'
 import { MobileContainer } from 'components/WidgetList/MobileContainer'
 import { defaultMobileSize } from 'components/WidgetList/MobileDeviceSizeContext'
 import { getFullPageHtmlCode } from 'utils/getFullPageHtmlCode'
@@ -15,12 +14,7 @@ const PreviewPage = (props: {
 
    if (target.meta.mobile) {
       return (
-         <div
-            className={clsx(
-               target.meta.center &&
-                  'flex justify-center items-center min-h-screen',
-            )}
-         >
+         <div className={'flex justify-center items-center min-h-screen'}>
             <MobileContainer
                size={defaultMobileSize}
                type={

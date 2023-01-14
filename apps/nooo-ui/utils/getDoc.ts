@@ -10,7 +10,6 @@ export const getDoc = ({
    css: string
    html: string
    bodyCss?: string
-   center?: boolean
    frameworks?: WidgetBaseFrameworks
    theme?: ThemeType
 }) => {

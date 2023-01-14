@@ -13,9 +13,7 @@ export const Previewer = ({ data }: { data: WidgetData }) => {
          })}
       >
          {data.meta.mobile ? (
-            <div className={clsx(data.meta.center && 'flex justify-center')}>
-               <MobileContainerWrapper data={data} />
-            </div>
+            <MobileContainerWrapper data={data} />
          ) : (
             <TabletIframeWrapper data={data} />
          )}

@@ -27,7 +27,6 @@ export type WidgetItemMeta = {
       | {
            type: 'top' | 'center' | 'bottom' | 'page'
         }
-   center?: boolean
    theme?: boolean
    createDate: string
    updateDate: string

@@ -18,8 +18,7 @@ describe('formConfigs', async () => {
                   },
                   createDate: '2023-01-01 00:00:00',
                   updateDate: '2023-01-01 00:00:00',
-                  center: true,
-                  mobile: { type: 'page', size: { width: 375, height: 812 } },
+                  mobile: { type: 'page' },
                },
                tailwindConfig: {},
                segmentedMetas: [{ asdfasdfff: 'true' }, { ff: 'true' }],
@@ -100,10 +99,9 @@ describe('formConfigs', async () => {
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
-                     center: true,
+
                      mobile: {
                         type: 'page',
-                        size: { width: 375, height: 812 },
                      },
                   },
                   tailwindConfig: {},
@@ -153,10 +151,9 @@ describe('formConfigs', async () => {
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
-                     center: true,
+
                      mobile: {
                         type: 'page',
-                        size: { width: 375, height: 812 },
                      },
                   },
                   tailwindConfig: {},
@@ -221,10 +218,9 @@ describe('formConfigs', async () => {
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
-                     center: true,
+
                      mobile: {
                         type: 'page',
-                        size: { width: 375, height: 812 },
                      },
                   },
                   tailwindConfig: {},
@@ -278,10 +274,9 @@ describe('formConfigs', async () => {
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
-                     center: true,
+
                      mobile: {
                         type: 'page',
-                        size: { width: 375, height: 812 },
                      },
                   },
                   tailwindConfig: {},
@@ -313,7 +308,6 @@ describe('formConfigs', async () => {
             html: '',
             key: 'widgets/app/page/page-1',
             meta: {
-               center: true,
                createDate: '2023-01-01 00:00:00',
                mobile: {
                   size: {
@@ -368,10 +362,9 @@ describe('formConfigs', async () => {
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
-                     center: true,
+
                      mobile: {
                         type: 'page',
-                        size: { width: 375, height: 812 },
                      },
                   },
                   tailwindConfig: {},
@@ -403,7 +396,6 @@ describe('formConfigs', async () => {
             html: '',
             key: 'widgets/app/page/page-1',
             meta: {
-               center: true,
                createDate: '2023-01-01 00:00:00',
                mobile: {
                   size: {
@@ -489,10 +481,9 @@ describe('formConfigs', async () => {
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
-                     center: true,
+
                      mobile: {
                         type: 'page',
-                        size: { width: 375, height: 812 },
                      },
                   },
                   tailwindConfig: {},
@@ -530,10 +521,9 @@ describe('formConfigs', async () => {
                },
                createDate: '2023-01-01 00:00:00',
                updateDate: '2023-01-01 00:00:00',
-               center: true,
+
                mobile: {
                   type: 'page',
-                  size: { width: 375, height: 812 },
                },
             },
             tailwindConfig: {},
