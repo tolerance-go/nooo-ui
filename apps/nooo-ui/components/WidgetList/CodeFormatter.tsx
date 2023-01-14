@@ -1,3 +1,5 @@
+'use client'
+
 import htmlParser from 'prettier/parser-html'
 import prettier from 'prettier/standalone'
 import { useMemo } from 'react'
