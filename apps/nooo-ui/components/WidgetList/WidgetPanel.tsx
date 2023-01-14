@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { WidgetData } from 'typings/widgets'
 import { getFullPageHtmlCode } from 'utils/getFullPageHtmlCode'
+import { CodeFormatter } from './CodeFormatter'
 import { CopyBtn } from './CopyBtn'
 import { HTMLPreviewer } from './HTMLPreviewer'
 import { MobileDeviceSelector } from './MobileDeviceSelector'
@@ -36,6 +37,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                               { value: 'HTML-snippet', label: 'HTML-snippet' },
                               { value: 'React', label: 'React' },
                               { value: 'Vue', label: 'Vue' },
+                              { value: 'tailwindConfig', label: '配置' },
                            ] as {
                               value: string
                               label: string
@@ -210,19 +212,52 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                   </div>
                   {activeTabKey === 'preview' && <Previewer data={data} />}
                   {activeTabKey === 'HTML' && (
-                     <div className='relative'>
-                        <CopyBtn text={getFullPageHtmlCode(data)} />
-                        <HTMLPreviewer
-                           code={getFullPageHtmlCode(data)}
-                           language={'markup'}
-                        />
-                     </div>
+                     <CodeFormatter
+                        code={getFullPageHtmlCode(data)}
+                        type='html'
+                     >
+                        {(code) => {
+                           return (
+                              <div className='relative'>
+                                 <CopyBtn text={code} />
+                                 <HTMLPreviewer
+                                    code={code}
+                                    language={'markup'}
+                                 />
+                              </div>
+                           )
+                        }}
+                     </CodeFormatter>
                   )}
                   {activeTabKey === 'HTML-snippet' && (
-                     <div className='relative'>
-                        <CopyBtn text={data.html} />
-                        <HTMLPreviewer code={data.html} language={'markup'} />
-                     </div>
+                     <CodeFormatter code={data.html} type='html'>
+                        {(code) => {
+                           return (
+                              <div className='relative'>
+                                 <CopyBtn text={code} />
+                                 <HTMLPreviewer
+                                    code={code}
+                                    language={'markup'}
+                                 />
+                              </div>
+                           )
+                        }}
+                     </CodeFormatter>
+                  )}
+                  {activeTabKey === 'tailwindConfig' && (
+                     <CodeFormatter code={data.tailwindConfigCode} type='js'>
+                        {(code) => {
+                           return (
+                              <div className='relative'>
+                                 <CopyBtn text={code} />
+                                 <HTMLPreviewer
+                                    code={code}
+                                    language={'javascript'}
+                                 />
+                              </div>
+                           )
+                        }}
+                     </CodeFormatter>
                   )}
                </div>
             </ThemeContextProvider>

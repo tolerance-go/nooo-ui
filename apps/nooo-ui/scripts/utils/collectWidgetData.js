@@ -24,6 +24,13 @@ const copyAssetsToPublic = (/** @type {string} */ assetsPath) => {
    }
 }
 
+const removeTailwindConfigTypeImports = (code) => {
+   return code.replace(
+      /\/\*\* @type \{import\('(\.\.\/)*typings\/widgets'\)\.WidgetTailwindConfig\} \*\/\n/,
+      '',
+   )
+}
+
 /**
  *
  * @param widgetPath eg: ${cwd}/widgets/mobile/button/button-1
@@ -84,6 +91,10 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       tpl = fs.readFileSync(tplPath, { encoding: 'utf-8' })
    }
 
+   const tailwindConfigCode = fs.readFileSync(tailwindConfigPath, {
+      encoding: 'utf-8',
+   })
+
    invariant(tailwindConfig, `${tailwindConfigPath} not find.`)
    invariant(meta, `${metaPath} not find.`)
    invariant(tpl, `${tplPath} not find.`)
@@ -107,6 +118,7 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       }),
       meta,
       tailwindConfig,
+      tailwindConfigCode: removeTailwindConfigTypeImports(tailwindConfigCode),
       segmentedMetas,
       key: path.relative(process.cwd(), widgetPath).replace(/\//g, '_'),
    }
@@ -116,3 +128,4 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
 
 module.exports.copyAssetsToPublic = copyAssetsToPublic
 module.exports.collectSegmentedMetas = collectSegmentedMetas
+module.exports.removeTailwindConfigTypeImports = removeTailwindConfigTypeImports
