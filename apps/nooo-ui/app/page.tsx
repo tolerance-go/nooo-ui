@@ -21,14 +21,14 @@ const Home = async () => {
                         <div className='flex space-x-4 items-center'>
                            <Link
                               href='/docs/introduction/what-is-nooo-ui'
-                              className='p-2.5 font-medium hover:underline underline-offset-4'
+                              className='p-2.5 font-medium hover:underline underline-offset-2'
                            >
                               文档
                            </Link>
                            <Link
                               href='https://github.com/nooo-ui/nooo-ui'
                               target='_blank'
-                              className='p-2.5 font-medium hover:underline underline-offset-4'
+                              className='p-2.5 font-medium hover:underline underline-offset-2'
                            >
                               Github
                            </Link>
