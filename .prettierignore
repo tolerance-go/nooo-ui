@@ -1,2 +1,4 @@
-.next
-.data
+.next/
+.data/
+out/
+.temp/

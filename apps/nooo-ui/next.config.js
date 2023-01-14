@@ -16,11 +16,11 @@ const nextConfig = {
    reactStrictMode: true,
    swcMinify: true,
    pageExtensions: ['tsx', 'ts', 'mdx'],
+   transpilePackages: [
+      // '@fenxing/utils',
+   ],
    experimental: {
       appDir: true,
-      transpilePackages: [
-         // '@fenxing/utils',
-      ],
       mdxRs: true,
    },
 }

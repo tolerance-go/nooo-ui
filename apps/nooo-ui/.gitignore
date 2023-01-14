@@ -35,8 +35,8 @@ yarn-error.log*
 
 # bundle
 dist
-.data
+.data/
 
 
-public/widgets
-.temp
+public/widgets/
+.temp/
