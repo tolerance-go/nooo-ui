@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { ThemeType } from 'components/WidgetList/ThemeContext'
+import { ThemeType } from 'typings/theme'
 import { WidgetBaseFrameworks } from 'typings/widgets'
 import { getFrameScripts } from './getFrameScripts'
 

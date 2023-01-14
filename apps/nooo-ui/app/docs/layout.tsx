@@ -32,9 +32,7 @@ const DocLayout = (
                >
                   Github
                </Link>
-               <ThemeSwitchBtn
-                  initialTheme={nextCookies.get('theme')?.value ?? 'light'}
-               />
+               <ThemeSwitchBtn />
             </div>
          </div>
          <div className='fixed w-52 left-60 top-32'>
