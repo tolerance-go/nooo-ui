@@ -25,11 +25,11 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
                      <tr className='border-b border-gray-200'>
                         <th
                            scope='row'
-                           className='px-8 py-3 font-medium whitespace-nowrap bg-gray-50'
+                           className='px-8 pt-4 pb-3 font-medium whitespace-nowrap bg-gray-50'
                         >
                            搜索关键字
                         </th>
-                        <td className='px-8 py-3 text-gray-900'>
+                        <td className='px-8 pt-4 pb-3 text-gray-900'>
                            {data.meta.props.keywords.join(', ')}
                         </td>
                      </tr>
@@ -44,14 +44,14 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
                            {data.meta.props.type.label}
                         </td>
                      </tr>
-                     <tr className='border-b border-gray-200'>
+                     <tr className=''>
                         <th
                            scope='row'
-                           className='px-8 py-3 font-medium whitespace-nowrap bg-gray-50'
+                           className='px-8 pt-3 pb-4 font-medium whitespace-nowrap bg-gray-50'
                         >
                            分类
                         </th>
-                        <td className='px-8 py-3 text-gray-900'>
+                        <td className='px-8 pt-3 pb-4 text-gray-900'>
                            {data.meta.props.categories
                               .map((item) => item.label)
                               .join(', ')}

@@ -31,6 +31,7 @@ export type WidgetItemMeta = {
    createDate: string
    updateDate: string
    frameHeight?: number | string
+   playgroundLink?: string
 }
 
 export type WidgetSegmentedMeta = {}

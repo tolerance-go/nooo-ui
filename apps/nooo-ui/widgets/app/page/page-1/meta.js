@@ -16,4 +16,5 @@ module.exports = {
    createDate: '2023-01-01 00:00:00',
    updateDate: '2023-01-01 00:00:00',
    mobile: true,
+   playgroundLink: 'https://play.tailwindcss.com/OoHVh0q16u',
 }

@@ -1,4 +1,2 @@
 /** @type {import('../../../../typings/widgets').WidgetTailwindConfig} */
-module.exports = {
-   darkMode: 'class',
-}
+module.exports = {}
