@@ -466,6 +466,7 @@ describe('formConfigs', async () => {
             tailwindConfig: {
                darkMode: 'class',
             },
+            tailwindConfigCode: "module.exports = { darkMode: 'class' };",
          },
       ])
    })
