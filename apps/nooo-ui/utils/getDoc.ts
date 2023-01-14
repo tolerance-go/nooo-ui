@@ -4,7 +4,6 @@ import { WidgetBaseFrameworks } from 'typings/widgets'
 import { getFrameScripts } from './getFrameScripts'
 
 export const getDoc = ({
-   maxWidthMode = 'full',
    theme = 'light',
    ...rest
 }: {
@@ -13,7 +12,6 @@ export const getDoc = ({
    bodyCss?: string
    center?: boolean
    frameworks?: WidgetBaseFrameworks
-   maxWidthMode?: 'xs' | 'md' | 'full'
    theme?: ThemeType
 }) => {
    const srcDoc = /*html*/ `
@@ -33,27 +31,11 @@ export const getDoc = ({
          
             ${rest.bodyCss ?? ''}
          }
-         body.center { 
-            display: flex;
-            justify-content: center;
-         }
-         .inner {
-            width: 100%;
-            max-width: ${
-               maxWidthMode === 'xs'
-                  ? '390px'
-                  : maxWidthMode === 'md'
-                  ? '768px'
-                  : '100%'
-            }; 
-         }
       </style>
       ${rest.frameworks ? getFrameScripts(rest.frameworks).join('\n') : ''}
    </head>
-   <body class="${clsx(rest.center && 'center')}">
-      <div class="inner">
-         ${rest.html}
-      </div>
+   <body>
+      ${rest.html}
    </body>
 </html>
  
