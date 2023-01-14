@@ -1,6 +1,6 @@
 import { widgetsData } from '.data/widgets-data'
 import { MobileContainer } from 'components/WidgetList/MobileContainer'
-import { defaultMobileSize } from 'components/WidgetList/MobileDeviceSizeContext'
+import { defaultMobileSize } from 'constants/defaultMobileSize'
 import { getFullPageHtmlCode } from 'utils/getFullPageHtmlCode'
 
 const PreviewPage = (props: {

@@ -1,5 +1,6 @@
 'use client'
 
+import { defaultMobileSize } from 'constants/defaultMobileSize'
 import {
    createContext,
    Dispatch,
@@ -12,11 +13,6 @@ import {
 export type Size = {
    width: number
    height: number
-}
-
-export const defaultMobileSize = {
-   width: 375,
-   height: 812,
 }
 
 export const MobileDeviceSizeContext = createContext<{
