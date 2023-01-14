@@ -11,10 +11,9 @@
       "dev:test": "vitest -u",
       "postinstall": "pnpm collect",
       "lint": "next lint",
-      "open:browser": "open http://localhost:3000",
-      "serve:next": "pnpm open:browser && next dev",
-      "start": "next start",
-      "export": "next export",
+      "open:browser": "open http://localhost:3001",
+      "serve:next": "pnpm open:browser && next dev -p 3001",
+      "start": "next start -p 3001",
       "test": "vitest run"
    },
    "dependencies": {
