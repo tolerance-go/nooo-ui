@@ -4,11 +4,13 @@ import { defaultMobileSize } from 'constants/defaultMobileSize'
 import { getFullPageHtmlCode } from 'utils/getFullPageHtmlCode'
 
 const PreviewPage = (props: {
-   params: {
+   searchParams: {
       key: string
    }
 }) => {
-   const target = widgetsData.find((item) => item.key === props.params.key)
+   const target = widgetsData.find(
+      (item) => item.key === props.searchParams.key,
+   )
 
    if (!target) return <div>not match</div>
 
