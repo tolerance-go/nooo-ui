@@ -1,7 +1,6 @@
 import { DocMenu } from 'components/DocMenu'
 import { Logo } from 'components/Logo'
 import { ThemeSwitchBtn } from 'components/SiteThemeSwitchBtn'
-import { cookies } from 'next/headers'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 import './prose.css'
@@ -13,8 +12,6 @@ const DocLayout = (
       //   }
    }>,
 ) => {
-   const nextCookies = cookies()
-
    return (
       <div>
          <div className='px-10 py-4 border-b fixed top-0 w-full doc-header flex items-center justify-between dark:bg-black dark:border-b-gray-800 transition'>
