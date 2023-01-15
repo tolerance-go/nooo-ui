@@ -28,10 +28,10 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                <div
                   key={data.key}
                   aria-label='card'
-                  className='rounded-xl bg-white dark:bg-black border dark:border-gray-800 transition overflow-hidden mb-14'
+                  className='rounded-xl bg-white dark:bg-black border dark:border-gray-800 transition overflow-hidden mb-10 lg:mb-14'
                >
-                  <div className='py-5 px-7 flex justify-between items-center flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400 border-b dark:border-gray-800 transition'>
-                     <div className='flex'>
+                  <div className='py-4 px-4 lg:py-5 lg:px-7 flex-col space-y-3 lg:space-y-0 lg:flex-row flex justify-between items-center text-sm font-medium text-center text-gray-500 dark:text-gray-400 border-b dark:border-gray-800 transition'>
+                     <div className='flex space-x-2 flex-wrap'>
                         {(
                            [
                               { value: 'preview', label: '预览' },
@@ -48,7 +48,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                         ).map((item) => {
                            const active = activeTabKey === item.value
                            return (
-                              <div className='mr-2' key={item.value}>
+                              <div key={item.value}>
                                  <div
                                     className={clsx(
                                        'inline-block px-4 py-3 rounded-lg cursor-pointer',
@@ -69,7 +69,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                            )
                         })}
                      </div>
-                     <div className='flex items-center space-x-2 absolute left-1/2 -translate-x-1/2'>
+                     <div className='flex items-center space-x-2 lg:absolute lg:left-1/2 lg:-translate-x-1/2'>
                         {data.meta.mobile ? (
                            <MobileDeviceSelector />
                         ) : (

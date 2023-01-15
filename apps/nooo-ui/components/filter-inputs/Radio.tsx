@@ -58,7 +58,7 @@ export const Radio = (
       <div className='flex items-stretch border-b dark:border-gray-800 transition'>
          <div
             aria-label='left-area'
-            className='w-52 dark:bg-gray-900 dark:text-white transition bg-gray-50 flex items-center justify-center p-2 '
+            className='sm:w-52 flex-none dark:bg-gray-900 dark:text-white transition bg-gray-50 flex items-center justify-center py-2 px-4'
          >
             {props.title}
          </div>

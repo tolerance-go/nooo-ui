@@ -16,7 +16,7 @@ const Home = async () => {
                className='bg-gray-50 dark:bg-gray-900 transition border-b border-b-gray-200 dark:border-b-gray-800'
             >
                <div className='mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-0'>
-                  <div className='flex items-center sm:justify-between sm:space-x-4'>
+                  <div className='flex items-center justify-between'>
                      <div className='inline-flex space-x-3 items-center'>
                         <Logo />
                         <span className='uppercase font-bold text-lg dark:text-white'>
@@ -64,7 +64,7 @@ const Home = async () => {
                   </div>
                   <div className='mt-20 text-center'>
                      <h1 className='text-2xl font-bold text-gray-900 sm:text-4xl dark:text-gray-100 transition'>
-                        Nooo-UI 线上 tailwindcss 设计集散地
+                        开源在线 tailwindcss 设计集散地
                      </h1>
                      <p className='mt-2 text-sm text-gray-500 dark:text-gray-400 transition'>
                         300+ 组件设计模板，50+ 分类类目 🚀 支持多种格式导出 🌱

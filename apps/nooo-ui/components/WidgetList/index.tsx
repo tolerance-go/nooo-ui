@@ -25,7 +25,7 @@ export const WidgetList = () => {
 
    return (
       <>
-         <div className='max-w-screen-2xl mx-auto mt-11 flex justify-between items-center'>
+         <div className='max-w-screen-2xl mx-auto mt-11 flex justify-between items-center px-2 lg:px-0'>
             <div>
                <span className='text-xl transition dark:text-white'>
                   {onlyShowCollected
@@ -37,7 +37,7 @@ export const WidgetList = () => {
             </div>
             <OnlyCollectedToggle setOnlyShowCollected={setOnlyShowCollected} />
          </div>
-         <div className='max-w-screen-2xl mx-auto mt-3'>
+         <div className='max-w-screen-2xl mx-auto mt-3 px-2 lg:px-0'>
             {resultsFilterByCollection.map((item) => {
                return <WidgetPanel key={item.key} data={item} />
             })}

@@ -22,7 +22,7 @@ export const WidgetsFilterToggler = (props: {
          >
             <svg
                className={clsx(
-                  'w-7 h-7 p-1.5 transition text-gray-400 dark:text-gray-600 hover:text-gray-900 dark:hover:text-gray-100',
+                  'w-6 h-6 p-1 lg:w-7 lg:h-7 lg:p-1.5 transition text-gray-400 dark:text-gray-600 hover:text-gray-900 dark:hover:text-gray-100',
                   open ? 'rotate-180' : null,
                )}
                viewBox='0 0 1024 1024'
