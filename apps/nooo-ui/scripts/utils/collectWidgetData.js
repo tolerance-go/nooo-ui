@@ -24,10 +24,17 @@ const copyAssetsToPublic = (/** @type {string} */ assetsPath) => {
    }
 }
 
-const removeTailwindConfigTypeImports = (code) => {
+const replaceTailwindConfigTypeImports = (code) => {
    return code.replace(
-      /\/\*\* @type \{import\('(\.\.\/)*typings\/widgets'\)\.WidgetTailwindConfig\} \*\/\n/,
-      '',
+      /\/\*\* @type \{import\('(\.\.\/)*typings\/widgets'\)\.WidgetTailwindConfig\} \*\//,
+      `/** @type {import('tailwindcss').Config} */`,
+   )
+}
+
+const replaceTailwindConfigPluginsImports = (code) => {
+   return code.replace(
+      /require\('(\.\.\/)*tailwindcss-lib\/plugins\/(.*?)\/(.*?)'\)/g,
+      `require('$2') /** $2@$3 */`,
    )
 }
 
@@ -122,7 +129,9 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       }),
       meta,
       tailwindConfig,
-      tailwindConfigCode: removeTailwindConfigTypeImports(tailwindConfigCode),
+      tailwindConfigCode: replaceTailwindConfigPluginsImports(
+         replaceTailwindConfigTypeImports(tailwindConfigCode),
+      ),
       segmentedMetas,
       key: path.relative(process.cwd(), widgetPath).replace(/\//g, '_'),
    }
@@ -132,4 +141,7 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
 
 module.exports.copyAssetsToPublic = copyAssetsToPublic
 module.exports.collectSegmentedMetas = collectSegmentedMetas
-module.exports.removeTailwindConfigTypeImports = removeTailwindConfigTypeImports
+module.exports.replaceTailwindConfigTypeImports =
+   replaceTailwindConfigTypeImports
+module.exports.replaceTailwindConfigPluginsImports =
+   replaceTailwindConfigPluginsImports

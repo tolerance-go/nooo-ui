@@ -1,0 +1,12 @@
+{
+   "name": "kutty-3.2.4",
+   "version": "1.0.0",
+   "description": "",
+   "license": "ISC",
+   "author": "",
+   "main": "index.js",
+   "scripts": {},
+   "dependencies": {
+      "kutty": "0.6.0"
+   }
+}
