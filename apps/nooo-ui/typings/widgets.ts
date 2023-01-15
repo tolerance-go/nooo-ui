@@ -15,6 +15,9 @@ export type WidgetItemProps = {
 
 export type WidgetBaseFrameworks = {
    alpine?: string
+}
+
+export type WidgetBasePlugins = {
    daisyui?: string
    kutty?: string
 }
@@ -22,6 +25,7 @@ export type WidgetBaseFrameworks = {
 export type WidgetItemMeta = {
    props: WidgetItemProps
    frameworks?: WidgetBaseFrameworks
+   plugins?: WidgetBasePlugins
    tailwindcssVersion: string
    mobile?:
       | boolean

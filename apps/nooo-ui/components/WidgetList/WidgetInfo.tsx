@@ -1,8 +1,13 @@
 import clsx from 'clsx'
 import { WidgetData } from 'typings/widgets'
 
+type LiteItem = {
+   title: string
+   content: React.ReactNode
+}
+
 export const WidgetInfo = ({ data }: { data: WidgetData }) => {
-   const list = [
+   const list: LiteItem[] = [
       {
          title: '搜索关键字',
          content: data.meta.props.keywords.join(', '),
@@ -22,6 +27,30 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
          content: data.meta.tailwindcssVersion,
       },
    ]
+      .concat(
+         data.meta.frameworks
+            ? {
+                 title: '框架版本',
+                 content: Object.entries(data.meta.frameworks)
+                    .map(([name, version]) => {
+                       return `${name}@${version}`
+                    })
+                    .join(', '),
+              }
+            : [],
+      )
+      .concat(
+         data.meta.plugins
+            ? {
+                 title: '插件版本',
+                 content: Object.entries(data.meta.plugins)
+                    .map(([name, version]) => {
+                       return `${name}@${version}`
+                    })
+                    .join(', '),
+              }
+            : [],
+      )
    return (
       <div className='w-9 h-9 flex justify-center dark:hover:bg-gray-900 dark:border-gray-700 transition hover:bg-gray-50 hover:text-sky-600 items-center border rounded-md group relative cursor-pointer'>
          <svg
@@ -39,7 +68,7 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
                d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
             />
          </svg>
-         <div className='group-hover:block hidden absolute top-full right-1/2 bg-white dark:bg-black transition shadow-lg dark:shadow-none dark:border dark:border-gray-800 rounded-lg -translate-y-2'>
+         <div className='group-hover:block hidden absolute z-10 top-full right-1/2 bg-white dark:bg-black transition shadow-lg dark:shadow-none dark:border dark:border-gray-800 rounded-lg -translate-y-2'>
             <div className='relative overflow-x-auto rounded-md w-max'>
                <table className='w-full text-xs text-left text-gray-500 transition'>
                   <tbody>

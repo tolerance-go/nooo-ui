@@ -1,18 +1,19 @@
 import clsx from 'clsx'
 import { ThemeType } from 'typings/theme'
-import { WidgetBaseFrameworks } from 'typings/widgets'
-import { getFrameScripts } from './getFrameScripts'
+import { WidgetData } from 'typings/widgets'
+import { getScriptsStr } from './getScriptsStr'
 
 export const getDoc = ({
    theme = 'light',
-   ...rest
+   bodyCss,
+   data,
 }: {
-   css: string
-   html: string
    bodyCss?: string
-   frameworks?: WidgetBaseFrameworks
    theme?: ThemeType
+   data: WidgetData
 }) => {
+   const scriptsStr = getScriptsStr(data)
+
    const srcDoc = /*html*/ `
 <!DOCTYPE html>
 <html class="${clsx({ dark: theme === 'dark' })}">
@@ -21,20 +22,20 @@ export const getDoc = ({
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style type="text/css">
-         ${rest.css}
+         ${data.css}
       </style>
       <style type="text/css">
          body {
             position: relative;
             width: 100%;
          
-            ${rest.bodyCss ?? ''}
+            ${bodyCss ?? ''}
          }
       </style>
-      ${rest.frameworks ? getFrameScripts(rest.frameworks).join('\n') : ''}
+      ${scriptsStr}
    </head>
    <body>
-      ${rest.html}
+      ${data.html}
    </body>
 </html>
  

@@ -124,7 +124,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                               </svg>
                            </div>
                         )}
-                        {data.meta.frameworks?.kutty && (
+                        {data.meta.plugins?.kutty && (
                            <div>
                               <svg
                                  className='h-4'
@@ -150,7 +150,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                               </svg>
                            </div>
                         )}
-                        {data.meta.frameworks && (
+                        {(data.meta.frameworks || data.meta.plugins) && (
                            <div className='text-gray-200 dark:text-gray-800 transition'>
                               |
                            </div>

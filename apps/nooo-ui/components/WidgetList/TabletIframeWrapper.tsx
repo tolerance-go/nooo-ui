@@ -12,10 +12,8 @@ export const TabletIframeWrapper = ({ data }: { data: WidgetData }) => {
          <iframe
             height={data.meta.frameHeight}
             srcDoc={getDoc({
-               html: data.html,
-               css: data.css,
-               frameworks: data.meta.frameworks,
                theme,
+               data,
             })}
             width={size === 'xs' ? '390px' : size === 'md' ? '768px' : '100%'}
          />
