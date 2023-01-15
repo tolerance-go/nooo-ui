@@ -1,3 +1,4 @@
+import { BacktopBtn } from 'components/BacktopBtn'
 import { FilterFormProvider } from 'components/FilterFormProvider'
 import { KeywordSearchBar } from 'components/KeywordSearchBar'
 import { Logo } from 'components/Logo'
@@ -83,6 +84,7 @@ const Home = async () => {
             aria-label='footer'
             className='bg-gray-50 dark:bg-gray-900 transition p-5 mt-10'
          ></div>
+         <BacktopBtn />
       </FilterFormProvider>
    )
 }
