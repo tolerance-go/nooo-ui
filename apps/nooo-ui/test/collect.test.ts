@@ -1,4 +1,5 @@
 import { collectSegmentedMetas } from 'scripts/utils/collectWidgetData'
+import { getMatchAvailableTwVersion } from 'scripts/utils/getTailwindcssFromHtml'
 import { describe, expect, test } from 'vitest'
 
 describe('collect', async () => {
@@ -12,6 +13,22 @@ describe('collect', async () => {
           {},
         ]
       `)
+   })
+
+   test('getMatchAvailableTwVersion', async () => {
+      expect(
+         getMatchAvailableTwVersion(['3.2.4', '3.3.0', '4.0.0'], '3.x'),
+      ).toBe('3.3.0')
+      expect(getMatchAvailableTwVersion(['3.2.4', '3.3.0', '4.0.0'], '4')).toBe(
+         '4.0.0',
+      )
+      expect(getMatchAvailableTwVersion(['3.2.4', '3.3.0', '4.0.0'], '5')).toBe(
+         undefined,
+      )
+
+      expect(getMatchAvailableTwVersion(['3.2.4', '3.3.0', '2.x'], '2.x')).toBe(
+         undefined,
+      )
    })
 
    // test('collectItem', async () => {

@@ -22,6 +22,7 @@ export type WidgetBaseFrameworks = {
 export type WidgetItemMeta = {
    props: WidgetItemProps
    frameworks?: WidgetBaseFrameworks
+   tailwindcssVersion: string
    mobile?:
       | boolean
       | {

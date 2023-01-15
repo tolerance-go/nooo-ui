@@ -1,0 +1,11 @@
+{
+   "name": "tailwindcss-2.2.19",
+   "version": "1.0.0",
+   "description": "",
+   "license": "ISC",
+   "author": "",
+   "main": "index.js",
+   "dependencies": {
+      "tailwindcss": "2.2.19"
+   }
+}

@@ -99,7 +99,11 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
    invariant(meta, `${metaPath} not find.`)
    invariant(tpl, `${tplPath} not find.`)
 
-   const css = await getTailwindcssFromHtml(tpl, tailwindConfig)
+   const css = await getTailwindcssFromHtml(
+      tpl,
+      tailwindConfig,
+      meta.tailwindcssVersion,
+   )
 
    /** @type {import('../../typings/widgets').WidgetData} */
    const data = {

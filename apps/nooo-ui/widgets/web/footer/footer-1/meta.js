@@ -16,6 +16,7 @@ module.exports = {
    createDate: '2023-01-01 00:00:00',
    updateDate: '2023-01-01 00:00:00',
    frameHeight: 585,
+   tailwindcssVersion: '3.2.x',
    theme: true,
    playgroundLink: 'https://play.tailwindcss.com/VHhQgZWtaX',
 }
