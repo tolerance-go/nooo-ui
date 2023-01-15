@@ -1,3 +1,4 @@
+import { widgetsData } from '.data/widgets-data'
 import { BacktopBtn } from 'components/BacktopBtn'
 import { FilterFormProvider } from 'components/FilterFormProvider'
 import { KeywordSearchBar } from 'components/KeywordSearchBar'
@@ -78,7 +79,7 @@ const Home = async () => {
             <div className='mx-auto max-w-screen-xl relative'>
                <WidgetsFilter />
             </div>
-            <WidgetList />
+            <WidgetList list={widgetsData} />
          </div>
          <div
             aria-label='footer'

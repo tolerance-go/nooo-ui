@@ -6,9 +6,9 @@ import { useState } from 'react'
 import { WidgetData } from 'typings/widgets'
 import { getFullPageHtmlCode } from 'utils/getFullPageHtmlCode'
 import { CodeFormatter } from './CodeFormatter'
+import { CodePreviewer } from './CodePreviewer'
 import { CollectionBtn } from './CollectionBtn'
 import { CopyBtn } from './CopyBtn'
-import { HTMLPreviewer } from './HTMLPreviewer'
 import { MobileDeviceSelector } from './MobileDeviceSelector'
 import { MobileDeviceSizeContextProvider } from './MobileDeviceSizeContext'
 import { Previewer } from './Previewer'
@@ -211,7 +211,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                            return (
                               <div className='relative'>
                                  <CopyBtn text={code} />
-                                 <HTMLPreviewer
+                                 <CodePreviewer
                                     code={code}
                                     language={'markup'}
                                  />
@@ -226,7 +226,34 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                            return (
                               <div className='relative'>
                                  <CopyBtn text={code} />
-                                 <HTMLPreviewer
+                                 <CodePreviewer
+                                    code={code}
+                                    language={'markup'}
+                                 />
+                              </div>
+                           )
+                        }}
+                     </CodeFormatter>
+                  )}
+                  {activeTabKey === 'React' && (
+                     <CodeFormatter code={data.jsx} type='html'>
+                        {(code) => {
+                           return (
+                              <div className='relative'>
+                                 <CopyBtn text={code} />
+                                 <CodePreviewer code={code} language={'jsx'} />
+                              </div>
+                           )
+                        }}
+                     </CodeFormatter>
+                  )}
+                  {activeTabKey === 'Vue' && (
+                     <CodeFormatter code={data.vue} type='html'>
+                        {(code) => {
+                           return (
+                              <div className='relative'>
+                                 <CopyBtn text={code} />
+                                 <CodePreviewer
                                     code={code}
                                     language={'markup'}
                                  />
@@ -241,7 +268,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                            return (
                               <div className='relative'>
                                  <CopyBtn text={code} />
-                                 <HTMLPreviewer
+                                 <CodePreviewer
                                     code={code}
                                     language={'javascript'}
                                  />

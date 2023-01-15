@@ -1,18 +1,25 @@
 'use client'
 
-import { widgetsData } from '.data/widgets-data'
 import { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
+import { WidgetData } from 'typings/widgets'
 import { getFilterWidgetsData } from 'utils/getFilterWidgetsData'
 import { getCollectedKeys } from './getCollectedKeys'
 import { OnlyCollectedToggle } from './OnlyCollectedToggle'
 import { WidgetPanel } from './WidgetPanel'
 
-export const WidgetList = () => {
+export const WidgetList = ({
+   list,
+}: {
+   list: (WidgetData & {
+      jsx: string
+      vue: string
+   })[]
+}) => {
    const { watch } = useFormContext()
    const watchAllFields = watch()
 
-   const results = getFilterWidgetsData(watchAllFields, widgetsData)
+   const results = getFilterWidgetsData(watchAllFields, list)
 
    const [onlyShowCollected, setOnlyShowCollected] = useState(false)
 

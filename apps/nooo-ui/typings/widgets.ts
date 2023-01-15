@@ -46,6 +46,8 @@ export type WidgetData = {
    tailwindConfigCode: string
    css: string
    html: string
+   jsx: string
+   vue: string
    meta: WidgetItemMeta
    segmentedMetas: WidgetSegmentedMeta[]
    key: string

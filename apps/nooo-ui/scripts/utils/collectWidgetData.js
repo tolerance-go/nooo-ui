@@ -3,6 +3,7 @@ const { Random } = require('mockjs')
 const Mustache = require('mustache')
 const path = require('path')
 const invariant = require('tiny-invariant')
+const { convertHTMLToJSX } = require('./convertHTMLToJSX')
 const { getTailwindcssFromHtml } = require('./getTailwindcssFromHtml')
 const requireUncached = require('./requireUncached')
 
@@ -112,21 +113,27 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       meta.tailwindcssVersion,
    )
 
+   const html = Mustache.render(tpl, {
+      // https://github.com/nuysoft/Mock/wiki/Mock.Random
+      title: () => Random.ctitle(),
+      word: () => Random.cword(),
+      'word-2': () => Random.cword(2),
+      paragraph: () => Random.cparagraph(3, 7),
+      sentence: () => Random.csentence(12, 18),
+      // 类尺寸 api，返回固定数值而不是范围，利于精确设计布局
+      'sentence-lg': () => Random.csentence(25),
+      first: () => Random.cfirst(),
+      name: () => Random.cname(),
+   })
+
    /** @type {import('../../typings/widgets').WidgetData} */
    const data = {
       css,
-      html: Mustache.render(tpl, {
-         // https://github.com/nuysoft/Mock/wiki/Mock.Random
-         title: () => Random.ctitle(),
-         word: () => Random.cword(),
-         'word-2': () => Random.cword(2),
-         paragraph: () => Random.cparagraph(3, 7),
-         sentence: () => Random.csentence(12, 18),
-         // 类尺寸 api，返回固定数值而不是范围，利于精确设计布局
-         'sentence-lg': () => Random.csentence(25),
-         first: () => Random.cfirst(),
-         name: () => Random.cname(),
-      }),
+      html,
+      jsx: convertHTMLToJSX(html),
+      vue: `<template>
+      ${html}
+      </template>`,
       meta,
       tailwindConfig,
       tailwindConfigCode: replaceTailwindConfigPluginsImports(

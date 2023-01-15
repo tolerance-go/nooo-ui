@@ -6,7 +6,7 @@ import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import vsDark from 'prism-react-renderer/themes/vsDark'
 import vsLight from 'prism-react-renderer/themes/vsLight'
 
-export const HTMLPreviewer = (props: { code: string; language: Language }) => {
+export const CodePreviewer = (props: { code: string; language: Language }) => {
    const { theme } = useSiteThemeContext()
 
    return (
