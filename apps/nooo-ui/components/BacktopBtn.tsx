@@ -3,7 +3,7 @@
 export const BacktopBtn = () => {
    return (
       <div
-         className='fixed right-5 bottom-10 p-2 rounded-full shadow-xl hover:bg-gray-50 dark:hover:bg-gray-900 dark:shadow-none border dark:text-white dark:border-gray-600 border-transparent cursor-pointer transition'
+         className='fixed right-5 bottom-10 p-2 rounded-full text-gray-500 dark:text-gray-400 hover:text-black shadow-xl hover:bg-gray-50 dark:hover:bg-gray-900 dark:shadow-none border dark:hover:text-white dark:border-gray-700 border-transparent cursor-pointer transition'
          onClick={() => {
             document.querySelector('html')?.scrollTo({
                top: 0,
