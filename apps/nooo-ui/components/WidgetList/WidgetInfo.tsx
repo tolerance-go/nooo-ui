@@ -24,7 +24,7 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
                         setValue('keywords', item)
                         backPageTop()
                      }}
-                     className='px-3 py-1.5 dark:bg-sky-800 rounded-full text-xs hover:underline cursor-pointer'
+                     className='px-3 py-1.5 dark:bg-sky-800 rounded-full text-xs hover:underline cursor-pointer bg-sky-100'
                      key={item}
                   >
                      {item}
