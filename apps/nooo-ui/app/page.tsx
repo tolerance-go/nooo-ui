@@ -65,7 +65,7 @@ const Home = async () => {
                   </div>
                   <div className='mt-20 text-center'>
                      <h1 className='text-2xl font-bold text-gray-900 sm:text-4xl dark:text-gray-100 transition'>
-                        开源在线 tailwindcss 设计集散地
+                        开源在线 Tailwindcss 设计集散地
                      </h1>
                      <p className='mt-2 text-sm text-gray-500 dark:text-gray-400 transition'>
                         300+ 组件设计模板，50+ 分类类目 🚀 支持多种格式导出 🌱
