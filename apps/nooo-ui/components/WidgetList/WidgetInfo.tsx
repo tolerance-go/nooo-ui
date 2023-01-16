@@ -16,18 +16,22 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
    const list: LiteItem[] = [
       {
          title: '搜索关键字',
-         content: data.meta.props.keywords.map((item) => (
-            <span
-               onClick={() => {
-                  setValue('keywords', item)
-                  backPageTop()
-               }}
-               className='px-3 py-1.5 dark:bg-sky-800 rounded-full text-xs hover:underline underline-offset-2 cursor-pointer'
-               key={item}
-            >
-               {item}
-            </span>
-         )),
+         content: (
+            <div className='inline-flex space-x-1'>
+               {data.meta.props.keywords.map((item) => (
+                  <span
+                     onClick={() => {
+                        setValue('keywords', item)
+                        backPageTop()
+                     }}
+                     className='px-3 py-1.5 dark:bg-sky-800 rounded-full text-xs hover:underline underline-offset-2 cursor-pointer'
+                     key={item}
+                  >
+                     {item}
+                  </span>
+               ))}
+            </div>
+         ),
       },
       {
          title: '类型',

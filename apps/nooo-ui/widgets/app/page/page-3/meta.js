@@ -1,7 +1,7 @@
 /** @type {import('../../../../typings/widgets').WidgetItemMeta} */
 module.exports = {
    props: {
-      keywords: ['首页', '三级资源'],
+      keywords: ['三级资源'],
       type: {
          label: 'app',
          value: 'app',
