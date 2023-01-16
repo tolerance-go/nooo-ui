@@ -1,6 +1,10 @@
+'use client'
+
 import { widgetsData } from '.data/widgets-data'
 import { MobileContainer } from 'components/WidgetList/MobileContainer'
+import { useThemeContext } from 'components/WidgetList/ThemeContext'
 import { defaultMobileSize } from 'constants/defaultMobileSize'
+import { getDoc } from 'utils/getDoc'
 import { getFullPageHtmlCode } from 'utils/getFullPageHtmlCode'
 
 const PreviewPage = (props: {
@@ -11,6 +15,7 @@ const PreviewPage = (props: {
    const target = widgetsData.find(
       (item) => item.key === props.searchParams.key,
    )
+   const { theme } = useThemeContext()
 
    if (!target) return <div>not match</div>
 
@@ -25,16 +30,14 @@ const PreviewPage = (props: {
                      : 'page'
                }
             >
-               <div
-                  style={{
-                     height: defaultMobileSize.height,
-                     width: defaultMobileSize.width,
-                  }}
-                  className='w-full h-full bg-white overflow-x-auto'
-                  dangerouslySetInnerHTML={{
-                     __html: getFullPageHtmlCode(target, true),
-                  }}
-               ></div>
+               <iframe
+                  className='w-full h-full'
+                  srcDoc={getDoc({
+                     bodyCss: `background-color: white; overflow-x: hidden; height: ${defaultMobileSize.height}px; width: ${defaultMobileSize.width}px;`,
+                     theme,
+                     data: target,
+                  })}
+               />
             </MobileContainer>
          </div>
       )
