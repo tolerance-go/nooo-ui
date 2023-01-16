@@ -1,5 +1,9 @@
+'use client'
+
 import clsx from 'clsx'
+import { useFormContext } from 'react-hook-form'
 import { WidgetData } from 'typings/widgets'
+import { backPageTop } from 'utils/backPageTop'
 
 type LiteItem = {
    title: string
@@ -7,10 +11,23 @@ type LiteItem = {
 }
 
 export const WidgetInfo = ({ data }: { data: WidgetData }) => {
+   const { setValue } = useFormContext()
+
    const list: LiteItem[] = [
       {
          title: '搜索关键字',
-         content: data.meta.props.keywords.join(', '),
+         content: data.meta.props.keywords.map((item) => (
+            <span
+               onClick={() => {
+                  setValue('keywords', item)
+                  backPageTop()
+               }}
+               className='px-3 py-1.5 dark:bg-sky-800 rounded-full text-xs hover:underline underline-offset-2 cursor-pointer'
+               key={item}
+            >
+               {item}
+            </span>
+         )),
       },
       {
          title: '类型',
@@ -68,7 +85,7 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
                d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
             />
          </svg>
-         <div className='group-hover:block hidden absolute z-10 top-full right-1/2 bg-white dark:bg-black transition shadow-lg dark:shadow-none dark:border dark:border-gray-800 rounded-lg -translate-y-2'>
+         <div className='group-hover:block hidden absolute z-10 top-full right-1/2 bg-white dark:bg-black transition shadow-lg dark:shadow-none dark:border dark:border-gray-800 rounded-lg -translate-y-2 cursor-default'>
             <div className='relative overflow-x-auto rounded-md w-max'>
                <table className='w-full text-xs text-left text-gray-500 transition'>
                   <tbody>
