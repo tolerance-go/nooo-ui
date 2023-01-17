@@ -3,16 +3,18 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useLocaleContext } from './LocaleContext'
 
 export const DocMenu = () => {
    const pathname = usePathname()
+   const { lang } = useLocaleContext()
    const routes = [
       {
          title: '介绍',
          children: [
             {
                title: '什么是 Nooo-UI？',
-               path: '/docs/introduction/what-is-nooo-ui',
+               path: `/${lang}/docs/introduction/what-is-nooo-ui`,
             },
          ],
       },

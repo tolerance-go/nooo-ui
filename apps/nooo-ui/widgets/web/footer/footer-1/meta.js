@@ -2,16 +2,8 @@
 module.exports = {
    props: {
       keywords: ['页脚'],
-      type: {
-         label: 'web',
-         value: 'web',
-      },
-      categories: [
-         {
-            label: 'footer',
-            value: 'footer',
-         },
-      ],
+      type: 'web',
+      categories: ['footer'],
    },
    createDate: '2023-01-01 00:00:00',
    updateDate: '2023-01-01 00:00:00',

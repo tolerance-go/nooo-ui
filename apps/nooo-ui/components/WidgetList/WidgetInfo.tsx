@@ -1,6 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
+import { useLocaleContext } from 'components/LocaleContext'
 import { useFormContext } from 'react-hook-form'
 import { WidgetData } from 'typings/widgets'
 import { backPageTop } from 'utils/backPageTop'
@@ -12,10 +13,11 @@ type LiteItem = {
 
 export const WidgetInfo = ({ data }: { data: WidgetData }) => {
    const { setValue } = useFormContext()
+   const { dictionary } = useLocaleContext()
 
    const list: LiteItem[] = [
       {
-         title: '搜索关键字',
+         title: dictionary.widgetPanel.info.keywords,
          content: (
             <div className='inline-flex space-x-1'>
                {data.meta.props.keywords.map((item) => (
@@ -34,24 +36,24 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
          ),
       },
       {
-         title: '类型',
+         title: dictionary.filters.type,
          content: data.meta.props.type.label,
       },
       {
-         title: '分类',
+         title: dictionary.filters.categories,
          content: data.meta.props.categories
             .map((item) => item.label)
             .join(', '),
       },
       {
-         title: 'tailwindcss 版本',
+         title: dictionary.widgetPanel.info.tailwindcssVersion,
          content: data.meta.tailwindcssVersion,
       },
    ]
       .concat(
          data.meta.frameworks
             ? {
-                 title: '框架版本',
+                 title: dictionary.widgetPanel.info.frameworksVersion,
                  content: Object.entries(data.meta.frameworks)
                     .map(([name, version]) => {
                        return `${name}@${version}`
@@ -63,7 +65,7 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
       .concat(
          data.meta.plugins
             ? {
-                 title: '插件版本',
+                 title: dictionary.widgetPanel.info.pluginsVersion,
                  content: Object.entries(data.meta.plugins)
                     .map(([name, version]) => {
                        return `${name}@${version}`

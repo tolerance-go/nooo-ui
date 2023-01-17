@@ -115,15 +115,15 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
 
    const html = Mustache.render(tpl, {
       // https://github.com/nuysoft/Mock/wiki/Mock.Random
-      title: () => Random.ctitle(),
-      word: () => Random.cword(),
-      'word-2': () => Random.cword(2),
-      paragraph: () => Random.cparagraph(3, 7),
-      sentence: () => Random.csentence(12, 18),
+      ctitle: () => Random.ctitle(),
+      cword: () => Random.cword(),
+      'cword-2': () => Random.cword(2),
+      cparagraph: () => Random.cparagraph(3, 7),
+      csentence: () => Random.csentence(12, 18),
       // 类尺寸 api，返回固定数值而不是范围，利于精确设计布局
-      'sentence-lg': () => Random.csentence(25),
-      first: () => Random.cfirst(),
-      name: () => Random.cname(),
+      'csentence-lg': () => Random.csentence(25),
+      cfirst: () => Random.cfirst(),
+      cname: () => Random.cname(),
    })
 
    /** @type {import('../../typings/widgets').WidgetData} */

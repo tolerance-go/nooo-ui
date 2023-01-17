@@ -1,0 +1,30 @@
+{
+   "siteTitle": "An online design hub based on tailwindcss",
+   "subTitle": "{{componentsNum}}+ design components and templates, {{typesNum}}+ classifications and categories 🚀 Support multiple export formats 🌱",
+   "nav": {
+      "doc": "Document"
+   },
+   "searchPlaceholder": "search templates by keyword",
+   "colon": ":",
+   "searchResults": "search results",
+   "item": "item",
+   "items": "items",
+   "onlyCollection": "just look at favorites",
+   "widgetPanel": {
+      "nav": {
+         "preview": "Preview",
+         "config": "Config"
+      },
+      "info": {
+         "keywords": "keywords",
+         "tailwindcssVersion": "tailwindcss version",
+         "frameworksVersion": "frameworks version",
+         "pluginsVersion": "plugins version"
+      }
+   },
+   "filters": {
+      "categories": "categories",
+      "type": "type",
+      "radioAllOption": "all"
+   }
+}

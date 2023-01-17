@@ -1,21 +1,23 @@
 import { DocMenu } from 'components/DocMenu'
 import { Logo } from 'components/Logo'
 import { ThemeSwitchBtn } from 'components/SiteThemeSwitchBtn'
+import { Locale } from 'i18n-config'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 import './prose.css'
 
 const DocLayout = (
    props: PropsWithChildren<{
-      //   meta: {
-      //      author?: string
-      //   }
+      params: { lang: Locale }
    }>,
 ) => {
    return (
       <div>
          <div className='px-4 md:px-10 py-4 border-b sm:fixed sm:top-0 w-full doc-header flex items-center justify-between dark:bg-black dark:border-b-gray-800 transition'>
-            <Link className='inline-flex space-x-3 items-center' href={'/'}>
+            <Link
+               className='inline-flex space-x-3 items-center'
+               href={`/${props.params.lang}`}
+            >
                <Logo />
                <span className='uppercase font-bold text-lg dark:text-white transition'>
                   Nooo-UI

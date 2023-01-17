@@ -2,15 +2,22 @@ import { widgetsData } from '.data/widgets-data'
 import { BacktopBtn } from 'components/BacktopBtn'
 import { FilterFormProvider } from 'components/FilterFormProvider'
 import { KeywordSearchBar } from 'components/KeywordSearchBar'
+import { LangSwitcher } from 'components/LangSwitcher'
 import { Logo } from 'components/Logo'
 import { ThemeSwitchBtn } from 'components/SiteThemeSwitchBtn'
 import { WidgetList } from 'components/WidgetList'
 import { WidgetsFilter } from 'components/WidgetsFilter'
+import { getDictionary } from 'get-dictionary'
+import { Locale } from 'i18n-config'
+import Mustache from 'mustache'
 import Link from 'next/link'
+import { getFormConfigs } from 'utils/getFormConfigs'
 
-const Home = async () => {
+const Home = async ({ params }: { params: { lang: Locale } }) => {
+   const dictionary = await getDictionary(params.lang)
+   const formConfigs = getFormConfigs(widgetsData, dictionary)
    return (
-      <FilterFormProvider>
+      <FilterFormProvider formConfigs={formConfigs}>
          <div className='min-h-screen'>
             <header
                aria-label='page-header'
@@ -27,10 +34,10 @@ const Home = async () => {
                      <div className='flex items-center justify-between space-x-4 sm:justify-end'>
                         <div className='flex space-x-4 items-center'>
                            <Link
-                              href='/docs/introduction/what-is-nooo-ui'
+                              href={`/${params.lang}/docs/introduction/what-is-nooo-ui`}
                               className='p-2.5 font-medium hover:underline underline-offset-2 dark:text-white'
                            >
-                              文档
+                              {dictionary.nav.doc}
                            </Link>
                            <Link
                               href='https://github.com/tolerance-go/nooo-ui'
@@ -39,6 +46,7 @@ const Home = async () => {
                            >
                               Github
                            </Link>
+                           <LangSwitcher />
                         </div>
                         {/* <div className='text-gray-300'>|</div> */}
                         <ThemeSwitchBtn />
@@ -65,10 +73,13 @@ const Home = async () => {
                   </div>
                   <div className='mt-20 text-center'>
                      <h1 className='text-2xl font-bold text-gray-900 sm:text-4xl dark:text-gray-100 transition'>
-                        开源在线 Tailwindcss 设计集散地
+                        {dictionary.siteTitle}
                      </h1>
                      <p className='mt-2 text-sm text-gray-500 dark:text-gray-400 transition'>
-                        300+ 组件设计模板，50+ 分类类目 🚀 支持多种格式导出 🌱
+                        {Mustache.render(dictionary.subTitle, {
+                           componentsNum: 300,
+                           typesNum: 50,
+                        })}
                      </p>
                   </div>
                   <div className='mt-11'>

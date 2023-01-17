@@ -1,6 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
+import { useLocaleContext } from 'components/LocaleContext'
 import Link from 'next/link'
 import { useState } from 'react'
 import { WidgetData } from 'typings/widgets'
@@ -20,6 +21,7 @@ import { WidgetInfo } from './WidgetInfo'
 
 export const WidgetPanel = ({ data }: { data: WidgetData }) => {
    const [activeTabKey, setActiveTabKey] = useState<string>('preview')
+   const { dictionary, lang } = useLocaleContext()
 
    return (
       <MobileDeviceSizeContextProvider>
@@ -34,12 +36,18 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                      <div className='flex space-x-2 flex-wrap'>
                         {(
                            [
-                              { value: 'preview', label: '预览' },
+                              {
+                                 value: 'preview',
+                                 label: dictionary.widgetPanel.nav.preview,
+                              },
                               { value: 'HTML', label: 'HTML' },
                               { value: 'HTML-snippet', label: 'HTML-snippet' },
                               { value: 'React', label: 'React' },
                               { value: 'Vue', label: 'Vue' },
-                              { value: 'tailwindConfig', label: '配置' },
+                              {
+                                 value: 'tailwindConfig',
+                                 label: dictionary.widgetPanel.nav.config,
+                              },
                            ] as {
                               value: string
                               label: string
@@ -179,7 +187,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                         )}
 
                         <Link
-                           href={`/preview?key=${data.key}`}
+                           href={`/${lang}/preview?key=${data.key}`}
                            target='_blank'
                            className='w-9 h-9 flex justify-center transition hover:bg-gray-50 dark:hover:bg-gray-900 dark:border-gray-700 hover:text-sky-600 items-center border rounded-md'
                         >

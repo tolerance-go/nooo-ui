@@ -20,6 +20,8 @@ importers:
 
   apps/nooo-ui:
     specifiers:
+      '@formatjs/intl-localematcher': ^0.2.32
+      '@headlessui/react': ^1.7.7
       '@mdx-js/loader': ^2.2.1
       '@mdx-js/react': ^2.2.1
       '@next/mdx': ^13.1.1
@@ -31,6 +33,7 @@ importers:
       '@types/lodash-es': ^4.17.6
       '@types/mockjs': ^1.0.7
       '@types/mustache': ^4.2.2
+      '@types/negotiator': ^0.6.1
       '@types/nprogress': ^0.2.0
       '@types/prettier': ^2.7.2
       '@types/qs': ^6.9.7
@@ -53,6 +56,7 @@ importers:
       lodash-es: ^4.17.21
       mockjs: ^1.1.0
       mustache: ^4.2.0
+      negotiator: ^0.6.3
       next: 13.1.3-canary.0
       postcss: ^8.4.19
       prettier: ^2.8.2
@@ -66,6 +70,7 @@ importers:
       react-dom: ^18.2.0
       react-hook-form: ^7.41.5
       semver: ^7.3.8
+      server-only: ^0.0.1
       store: ^2.0.12
       swr: ^1.3.0
       tailwindcss: ^3.2.4
@@ -78,6 +83,8 @@ importers:
       vitest: ^0.27.0
       zx: ^7.1.1
     dependencies:
+      '@formatjs/intl-localematcher': 0.2.32
+      '@headlessui/react': 1.7.7_biqbaboplfbrettd7655fr4n2y
       '@mdx-js/loader': 2.2.1_webpack@5.75.0
       '@mdx-js/react': 2.2.1_react@18.2.0
       '@next/mdx': 13.1.1_vvg67iglxhejglpl7nsv3pjzui
@@ -93,6 +100,7 @@ importers:
       lodash-es: 4.17.21
       mockjs: 1.1.0
       mustache: 4.2.0
+      negotiator: 0.6.3
       next: 13.1.3-canary.0_biqbaboplfbrettd7655fr4n2y
       prettier: 2.8.2
       prism-react-renderer: 1.3.5_react@18.2.0
@@ -105,6 +113,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-hook-form: 7.41.5_react@18.2.0
       semver: 7.3.8
+      server-only: 0.0.1
       store: 2.0.12
       swr: 1.3.0_react@18.2.0
       tiny-invariant: 1.3.1
@@ -118,6 +127,7 @@ importers:
       '@types/lodash-es': 4.17.6
       '@types/mockjs': 1.0.7
       '@types/mustache': 4.2.2
+      '@types/negotiator': 0.6.1
       '@types/nprogress': 0.2.0
       '@types/prettier': 2.7.2
       '@types/qs': 6.9.7
@@ -608,6 +618,24 @@ packages:
       - supports-color
     dev: true
 
+  /@formatjs/intl-localematcher/0.2.32:
+    resolution: {integrity: sha512-k/MEBstff4sttohyEpXxCmC3MqbUn9VvHGlZ8fauLzkbwXmVrEeyzS+4uhrvAk9DWU9/7otYWxyDox4nT/KVLQ==}
+    dependencies:
+      tslib: 2.4.1
+    dev: false
+
+  /@headlessui/react/1.7.7_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-BqDOd/tB9u2tA0T3Z0fn18ktw+KbVwMnkxxsGPIH2hzssrQhKB5n/6StZOyvLYP/FsYtvuXfi9I0YowKPv2c1w==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
     engines: {node: '>=10.10.0'}
@@ -1002,13 +1030,13 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.10
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
     dev: false
 
   /@types/eslint/8.4.10:
     resolution: {integrity: sha512-Sl/HOqN8NKPmhWo2VBEPm0nvHnu2LL3v9vKo8MEq0EtbJ4eVzGPl41VNPvn5E1i5poMk4/XD8UriLHpJvEP/Nw==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
     dev: false
 
@@ -1128,6 +1156,10 @@ packages:
 
   /@types/mustache/4.2.2:
     resolution: {integrity: sha512-MUSpfpW0yZbTgjekDbH0shMYBUD+X/uJJJMm9LXN1d5yjl5lCY1vN/eWKD6D1tOtjA6206K0zcIPnUaFMurdNA==}
+    dev: true
+
+  /@types/negotiator/0.6.1:
+    resolution: {integrity: sha512-c4mvXFByghezQ/eVGN5HvH/jI63vm3B7FiE81BUzDAWmuiohRecCO6ddU60dfq29oKUMiQujsoB2h0JQC7JHKA==}
     dev: true
 
   /@types/node/12.20.55:
@@ -4820,6 +4852,11 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
+  /negotiator/0.6.3:
+    resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
+    engines: {node: '>= 0.6'}
+    dev: false
+
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: false
@@ -6153,6 +6190,10 @@ packages:
     resolution: {integrity: sha512-owoXEFjWRllis8/M1Q+Cw5k8ZH40e3zhp/ovX+Xr/vi1qj6QesbyXXViFbpNvWvPNAD62SutwEXavefrLJWj7w==}
     dependencies:
       randombytes: 2.1.0
+    dev: false
+
+  /server-only/0.0.1:
+    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
     dev: false
 
   /set-blocking/2.0.0:

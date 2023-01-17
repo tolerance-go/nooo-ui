@@ -1,0 +1,30 @@
+{
+   "siteTitle": "一个基于 tailwindcss 的线上设计集散地",
+   "subTitle": "{{componentsNum}}+ 设计组件和模板，{{typesNum}}+ 分类和类目 🚀 支持多种格式导出 🌱",
+   "nav": {
+      "doc": "文档"
+   },
+   "colon": "：",
+   "searchPlaceholder": "关键字搜索模板",
+   "searchResults": "搜索结果",
+   "item": "项",
+   "items": "项",
+   "onlyCollection": "只看收藏",
+   "widgetPanel": {
+      "nav": {
+         "preview": "预览",
+         "config": "配置"
+      },
+      "info": {
+         "keywords": "搜索关键字",
+         "tailwindcssVersion": "tailwindcss 版本",
+         "frameworksVersion": "框架版本",
+         "pluginsVersion": "插件版本"
+      }
+   },
+   "filters": {
+      "categories": "分类",
+      "type": "类型",
+      "radioAllOption": "全部"
+   }
+}

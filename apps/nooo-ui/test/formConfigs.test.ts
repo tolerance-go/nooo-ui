@@ -1,3 +1,4 @@
+import dict from 'dictionaries/en.json'
 import { getDefaultFormValuesFromFormConfigs } from 'utils/getDefaultFormValuesFromFormConfigs'
 import { getFilterWidgetsData, keywordIsHit } from 'utils/getFilterWidgetsData'
 import { getFormConfigs } from 'utils/getFormConfigs'
@@ -6,78 +7,61 @@ import { describe, expect, test } from 'vitest'
 describe('formConfigs', async () => {
    test('getFormConfigs', async () => {
       expect(
-         getFormConfigs([
-            {
-               css: '',
-               html: '',
-               meta: {
-                  props: {
-                     keywords: [],
-                     type: { label: 'app', value: 'app' },
-                     categories: [{ label: 'page', value: 'page' }],
-                  },
-                  createDate: '2023-01-01 00:00:00',
-                  updateDate: '2023-01-01 00:00:00',
-                  mobile: { type: 'page' },
-               },
-               tailwindConfig: {},
-               tailwindConfigCode: '',
-               segmentedMetas: [{ asdfasdfff: 'true' }, { ff: 'true' }],
-               key: 'widgets/app/page/page-1',
-            },
-            {
-               css: '',
-               html: '',
-               meta: {
-                  props: {
-                     keywords: [],
-                     type: { label: 'web', value: 'web' },
-                     categories: [{ label: 'banner', value: 'banner' }],
-                  },
-                  createDate: '2023-01-01 00:00:00',
-                  updateDate: '2023-01-01 00:00:00',
-                  frameHeight: 750,
-               },
-               tailwindConfig: { darkMode: 'class' },
-               tailwindConfigCode: "module.exports = { darkMode: 'class' };",
-               segmentedMetas: [{ asdfasdfff: 'true' }],
-               key: 'widgets/web/banner/banner-1',
-            },
-         ]),
-      ).toEqual({
-         categories: {
-            options: [
+         getFormConfigs(
+            [
                {
-                  label: 'page',
-                  value: 'page',
-               },
-               {
-                  label: 'banner',
-                  value: 'banner',
+                  css: '',
+                  html: '',
+                  meta: {
+                     props: {
+                        keywords: [],
+                        type: 'app',
+                        categories: ['page'],
+                     },
+                     createDate: '2023-01-01 00:00:00',
+                     updateDate: '2023-01-01 00:00:00',
+                     mobile: { type: 'page' },
+                     tailwindcssVersion: '',
+                  },
+                  jsx: '',
+                  vue: '',
+                  tailwindConfig: {},
+                  tailwindConfigCode: '',
+                  segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
+                  key: 'widgets/app/page/page-1',
                },
             ],
-            title: '分类',
-            type: 'checkbox',
-         },
-         type: {
-            options: [
-               {
-                  label: '全部',
-                  value: 'all',
-               },
-               {
-                  label: 'app',
-                  value: 'app',
-               },
-               {
-                  label: 'web',
-                  value: 'web',
-               },
+            dict,
+         ),
+      ).toMatchInlineSnapshot(`
+        {
+          "categories": {
+            "options": [
+              {
+                "label": "page",
+                "value": "page",
+                "zhLabel": "页面",
+              },
             ],
-            title: '类型',
-            type: 'radio',
-         },
-      })
+            "title": "categories",
+            "type": "checkbox",
+          },
+          "type": {
+            "options": [
+              {
+                "label": "all",
+                "value": "all",
+              },
+              {
+                "label": "app",
+                "value": "app",
+              },
+            ],
+            "title": "type",
+            "type": "radio",
+          },
+        }
+      `)
    })
 
    test('getFilterWidgetsData categories all false', async () => {
@@ -96,19 +80,21 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: { label: 'app', value: 'app' },
-                        categories: [{ label: 'page', value: 'page' }],
+                        type: 'app',
+                        categories: ['page'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
-
                      mobile: {
                         type: 'page',
                      },
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: {},
                   tailwindConfigCode: '',
-                  segmentedMetas: [{ asdfasdfff: 'true' }, { ff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
                },
                {
@@ -117,21 +103,24 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: { label: 'web', value: 'web' },
-                        categories: [{ label: 'banner', value: 'banner' }],
+                        type: 'app',
+                        categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
                      frameHeight: 750,
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: { darkMode: 'class' },
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
-                  segmentedMetas: [{ asdfasdfff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
                },
             ],
          ),
-      ).toEqual([])
+      ).toMatchInlineSnapshot('[]')
    })
 
    test('getFilterWidgetsData categories some true', async () => {
@@ -150,8 +139,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: { label: 'app', value: 'app' },
-                        categories: [{ label: 'page', value: 'page' }],
+                        type: 'app',
+                        categories: ['page'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -159,10 +148,13 @@ describe('formConfigs', async () => {
                      mobile: {
                         type: 'page',
                      },
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: {},
                   tailwindConfigCode: '',
-                  segmentedMetas: [{ asdfasdfff: 'true' }, { ff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
                },
                {
@@ -171,40 +163,56 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: { label: 'web', value: 'web' },
-                        categories: [{ label: 'banner', value: 'banner' }],
+                        type: 'app',
+                        categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
                      frameHeight: 750,
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: { darkMode: 'class' },
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
-                  segmentedMetas: [{ asdfasdfff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
                },
             ],
          ),
-      ).toEqual([
-         {
-            css: '',
-            html: '',
-            meta: {
-               props: {
-                  keywords: [],
-                  type: { label: 'web', value: 'web' },
-                  categories: [{ label: 'banner', value: 'banner' }],
-               },
-               createDate: '2023-01-01 00:00:00',
-               updateDate: '2023-01-01 00:00:00',
-               frameHeight: 750,
+      ).toMatchInlineSnapshot(`
+        [
+          {
+            "css": "",
+            "html": "",
+            "jsx": "",
+            "key": "widgets/web/banner/banner-1",
+            "meta": {
+              "createDate": "2023-01-01 00:00:00",
+              "frameHeight": 750,
+              "props": {
+                "categories": [
+                  "banner",
+                ],
+                "keywords": [],
+                "type": "app",
+              },
+              "tailwindcssVersion": "",
+              "updateDate": "2023-01-01 00:00:00",
             },
-            tailwindConfig: { darkMode: 'class' },
-            tailwindConfigCode: "module.exports = { darkMode: 'class' };",
-            segmentedMetas: [{ asdfasdfff: 'true' }],
-            key: 'widgets/web/banner/banner-1',
-         },
-      ])
+            "segmentedMetas": [
+              {
+                "gg": "true",
+              },
+            ],
+            "tailwindConfig": {
+              "darkMode": "class",
+            },
+            "tailwindConfigCode": "module.exports = { darkMode: 'class' };",
+            "vue": "",
+          },
+        ]
+      `)
    })
 
    test('getFilterWidgetsData keywords empty', async () => {
@@ -220,8 +228,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: ['home'],
-                        type: { label: 'app', value: 'app' },
-                        categories: [{ label: 'page', value: 'page' }],
+                        type: 'app',
+                        categories: ['page'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -229,10 +237,13 @@ describe('formConfigs', async () => {
                      mobile: {
                         type: 'page',
                      },
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: {},
                   tailwindConfigCode: '',
-                  segmentedMetas: [{ asdfasdfff: 'true' }, { ff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
                },
                {
@@ -241,21 +252,24 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: { label: 'web', value: 'web' },
-                        categories: [{ label: 'banner', value: 'banner' }],
+                        type: 'app',
+                        categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
                      frameHeight: 750,
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: { darkMode: 'class' },
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
-                  segmentedMetas: [{ asdfasdfff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
                },
             ],
          ),
-      ).toEqual([])
+      ).toMatchInlineSnapshot('[]')
    })
 
    test('keywordIsHit', () => {
@@ -278,8 +292,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: ['home'],
-                        type: { label: 'app', value: 'app' },
-                        categories: [{ label: 'page', value: 'page' }],
+                        type: 'app',
+                        categories: ['page'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -287,10 +301,13 @@ describe('formConfigs', async () => {
                      mobile: {
                         type: 'page',
                      },
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: {},
                   tailwindConfigCode: '',
-                  segmentedMetas: [{ asdfasdfff: 'true' }, { ff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
                },
                {
@@ -299,57 +316,61 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: { label: 'web', value: 'web' },
-                        categories: [{ label: 'banner', value: 'banner' }],
+                        type: 'app',
+                        categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
                      frameHeight: 750,
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: { darkMode: 'class' },
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
-                  segmentedMetas: [{ asdfasdfff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
                },
             ],
          ),
-      ).toEqual([
-         {
-            css: '',
-            html: '',
-            key: 'widgets/app/page/page-1',
-            meta: {
-               createDate: '2023-01-01 00:00:00',
-               mobile: {
-                  type: 'page',
-               },
-               props: {
-                  categories: [
-                     {
-                        label: 'page',
-                        value: 'page',
-                     },
-                  ],
-                  keywords: ['home'],
-                  type: {
-                     label: 'app',
-                     value: 'app',
-                  },
-               },
-               updateDate: '2023-01-01 00:00:00',
+      ).toMatchInlineSnapshot(`
+        [
+          {
+            "css": "",
+            "html": "",
+            "jsx": "",
+            "key": "widgets/app/page/page-1",
+            "meta": {
+              "createDate": "2023-01-01 00:00:00",
+              "mobile": {
+                "type": "page",
+              },
+              "props": {
+                "categories": [
+                  "page",
+                ],
+                "keywords": [
+                  "home",
+                ],
+                "type": "app",
+              },
+              "tailwindcssVersion": "",
+              "updateDate": "2023-01-01 00:00:00",
             },
-            segmentedMetas: [
-               {
-                  asdfasdfff: 'true',
-               },
-               {
-                  ff: 'true',
-               },
+            "segmentedMetas": [
+              {
+                "gg": "true",
+              },
+              {
+                "ff": "true",
+              },
             ],
-            tailwindConfig: {},
-            tailwindConfigCode: '',
-         },
-      ])
+            "tailwindConfig": {},
+            "tailwindConfigCode": "",
+            "vue": "",
+          },
+        ]
+      `)
    })
 
    test('getFilterWidgetsData type all', async () => {
@@ -365,8 +386,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: { label: 'app', value: 'app' },
-                        categories: [{ label: 'page', value: 'page' }],
+                        type: 'app',
+                        categories: ['page'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -374,10 +395,13 @@ describe('formConfigs', async () => {
                      mobile: {
                         type: 'page',
                      },
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: {},
                   tailwindConfigCode: '',
-                  segmentedMetas: [{ asdfasdfff: 'true' }, { ff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
                },
                {
@@ -386,89 +410,88 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: { label: 'web', value: 'web' },
-                        categories: [{ label: 'banner', value: 'banner' }],
+                        type: 'app',
+                        categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
                      frameHeight: 750,
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: { darkMode: 'class' },
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
-                  segmentedMetas: [{ asdfasdfff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
                },
             ],
          ),
-      ).toEqual([
-         {
-            css: '',
-            html: '',
-            key: 'widgets/app/page/page-1',
-            meta: {
-               createDate: '2023-01-01 00:00:00',
-               mobile: {
-                  type: 'page',
-               },
-               props: {
-                  keywords: [],
-                  categories: [
-                     {
-                        label: 'page',
-                        value: 'page',
-                     },
-                  ],
-                  type: {
-                     label: 'app',
-                     value: 'app',
-                  },
-               },
-               updateDate: '2023-01-01 00:00:00',
+      ).toMatchInlineSnapshot(`
+        [
+          {
+            "css": "",
+            "html": "",
+            "jsx": "",
+            "key": "widgets/app/page/page-1",
+            "meta": {
+              "createDate": "2023-01-01 00:00:00",
+              "mobile": {
+                "type": "page",
+              },
+              "props": {
+                "categories": [
+                  "page",
+                ],
+                "keywords": [],
+                "type": "app",
+              },
+              "tailwindcssVersion": "",
+              "updateDate": "2023-01-01 00:00:00",
             },
-            segmentedMetas: [
-               {
-                  asdfasdfff: 'true',
-               },
-               {
-                  ff: 'true',
-               },
+            "segmentedMetas": [
+              {
+                "gg": "true",
+              },
+              {
+                "ff": "true",
+              },
             ],
-            tailwindConfig: {},
-            tailwindConfigCode: '',
-         },
-         {
-            css: '',
-            html: '',
-            key: 'widgets/web/banner/banner-1',
-            meta: {
-               createDate: '2023-01-01 00:00:00',
-               frameHeight: 750,
-               props: {
-                  keywords: [],
-                  categories: [
-                     {
-                        label: 'banner',
-                        value: 'banner',
-                     },
-                  ],
-                  type: {
-                     label: 'web',
-                     value: 'web',
-                  },
-               },
-               updateDate: '2023-01-01 00:00:00',
+            "tailwindConfig": {},
+            "tailwindConfigCode": "",
+            "vue": "",
+          },
+          {
+            "css": "",
+            "html": "",
+            "jsx": "",
+            "key": "widgets/web/banner/banner-1",
+            "meta": {
+              "createDate": "2023-01-01 00:00:00",
+              "frameHeight": 750,
+              "props": {
+                "categories": [
+                  "banner",
+                ],
+                "keywords": [],
+                "type": "app",
+              },
+              "tailwindcssVersion": "",
+              "updateDate": "2023-01-01 00:00:00",
             },
-            segmentedMetas: [
-               {
-                  asdfasdfff: 'true',
-               },
+            "segmentedMetas": [
+              {
+                "gg": "true",
+              },
             ],
-            tailwindConfig: {
-               darkMode: 'class',
+            "tailwindConfig": {
+              "darkMode": "class",
             },
-            tailwindConfigCode: "module.exports = { darkMode: 'class' };",
-         },
-      ])
+            "tailwindConfigCode": "module.exports = { darkMode: 'class' };",
+            "vue": "",
+          },
+        ]
+      `)
    })
 
    test('getFilterWidgetsData type app', async () => {
@@ -484,8 +507,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: { label: 'app', value: 'app' },
-                        categories: [{ label: 'page', value: 'page' }],
+                        type: 'app',
+                        categories: ['page'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -493,10 +516,13 @@ describe('formConfigs', async () => {
                      mobile: {
                         type: 'page',
                      },
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: {},
                   tailwindConfigCode: '',
-                  segmentedMetas: [{ asdfasdfff: 'true' }, { ff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
                },
                {
@@ -505,43 +531,88 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: { label: 'web', value: 'web' },
-                        categories: [{ label: 'banner', value: 'banner' }],
+                        type: 'app',
+                        categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
                      frameHeight: 750,
+                     tailwindcssVersion: '',
                   },
+                  jsx: '',
+                  vue: '',
                   tailwindConfig: { darkMode: 'class' },
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
-                  segmentedMetas: [{ asdfasdfff: 'true' }],
+                  segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
                },
             ],
          ),
-      ).toEqual([
-         {
-            css: '',
-            html: '',
-            meta: {
-               props: {
-                  keywords: [],
-                  type: { label: 'app', value: 'app' },
-                  categories: [{ label: 'page', value: 'page' }],
-               },
-               createDate: '2023-01-01 00:00:00',
-               updateDate: '2023-01-01 00:00:00',
-
-               mobile: {
-                  type: 'page',
-               },
+      ).toMatchInlineSnapshot(`
+        [
+          {
+            "css": "",
+            "html": "",
+            "jsx": "",
+            "key": "widgets/app/page/page-1",
+            "meta": {
+              "createDate": "2023-01-01 00:00:00",
+              "mobile": {
+                "type": "page",
+              },
+              "props": {
+                "categories": [
+                  "page",
+                ],
+                "keywords": [],
+                "type": "app",
+              },
+              "tailwindcssVersion": "",
+              "updateDate": "2023-01-01 00:00:00",
             },
-            tailwindConfig: {},
-            tailwindConfigCode: '',
-            segmentedMetas: [{ asdfasdfff: 'true' }, { ff: 'true' }],
-            key: 'widgets/app/page/page-1',
-         },
-      ])
+            "segmentedMetas": [
+              {
+                "gg": "true",
+              },
+              {
+                "ff": "true",
+              },
+            ],
+            "tailwindConfig": {},
+            "tailwindConfigCode": "",
+            "vue": "",
+          },
+          {
+            "css": "",
+            "html": "",
+            "jsx": "",
+            "key": "widgets/web/banner/banner-1",
+            "meta": {
+              "createDate": "2023-01-01 00:00:00",
+              "frameHeight": 750,
+              "props": {
+                "categories": [
+                  "banner",
+                ],
+                "keywords": [],
+                "type": "app",
+              },
+              "tailwindcssVersion": "",
+              "updateDate": "2023-01-01 00:00:00",
+            },
+            "segmentedMetas": [
+              {
+                "gg": "true",
+              },
+            ],
+            "tailwindConfig": {
+              "darkMode": "class",
+            },
+            "tailwindConfigCode": "module.exports = { darkMode: 'class' };",
+            "vue": "",
+          },
+        ]
+      `)
    })
 
    test('form configs', async () => {
@@ -580,12 +651,14 @@ describe('formConfigs', async () => {
                type: 'radio',
             },
          }),
-      ).toEqual({
-         categories: {
-            banner: true,
-            page: true,
-         },
-         type: 'all',
-      })
+      ).toMatchInlineSnapshot(`
+        {
+          "categories": {
+            "banner": true,
+            "page": true,
+          },
+          "type": "all",
+        }
+      `)
    })
 })

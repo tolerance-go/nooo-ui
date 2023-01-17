@@ -1,3 +1,4 @@
+import { useLocaleContext } from 'components/LocaleContext'
 import { Dispatch, SetStateAction } from 'react'
 
 export const OnlyCollectedToggle = ({
@@ -5,9 +6,12 @@ export const OnlyCollectedToggle = ({
 }: {
    setOnlyShowCollected: Dispatch<SetStateAction<boolean>>
 }) => {
+   const { dictionary } = useLocaleContext()
    return (
       <div className='flex items-center space-x-2 h-full'>
-         <span className='text-sm text-gray-500'>只看收藏</span>
+         <span className='text-sm text-gray-500'>
+            {dictionary.onlyCollection}
+         </span>
          <label className='relative inline-flex items-center cursor-pointer'>
             <input
                type='checkbox'

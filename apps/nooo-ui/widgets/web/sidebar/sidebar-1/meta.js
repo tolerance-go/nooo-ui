@@ -8,16 +8,8 @@ module.exports = {
    },
    props: {
       keywords: ['管理系统'],
-      type: {
-         label: 'web',
-         value: 'web',
-      },
-      categories: [
-         {
-            label: 'sidebar',
-            value: 'sidebar',
-         },
-      ],
+      type: 'web',
+      categories: ['sidebar'],
    },
    createDate: '2023-01-01 00:00:00',
    updateDate: '2023-01-01 00:00:00',

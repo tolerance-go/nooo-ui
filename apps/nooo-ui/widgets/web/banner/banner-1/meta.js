@@ -2,16 +2,8 @@
 module.exports = {
    props: {
       keywords: ['首页'],
-      type: {
-         label: 'web',
-         value: 'web',
-      },
-      categories: [
-         {
-            label: 'banner',
-            value: 'banner',
-         },
-      ],
+      type: 'web',
+      categories: ['banner'],
    },
    createDate: '2023-01-01 00:00:00',
    updateDate: '2023-01-01 00:00:00',

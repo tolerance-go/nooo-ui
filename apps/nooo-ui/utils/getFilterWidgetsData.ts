@@ -1,5 +1,7 @@
 import { FieldValues } from 'react-hook-form'
-import { OptionItem, WidgetData } from 'typings/widgets'
+import { WidgetData } from 'typings/widgets'
+import { formConfigsAllOptions } from '../constants/formConfigsAllOptions'
+import { ensureArray } from './ensureArray'
 
 export const keywordIsHit = (keyword: string, keywords: string[]) => {
    if (keywords.some((item) => item.indexOf(keyword) > -1) === false) {
@@ -7,6 +9,12 @@ export const keywordIsHit = (keyword: string, keywords: string[]) => {
    }
 
    return true
+}
+
+export const convertMetaPropsValueEnumToOption = (key: string | string[]) => {
+   return ensureArray(key)
+      .map((key) => formConfigsAllOptions[key])
+      .filter(Boolean)
 }
 
 export const getFilterWidgetsData = (
@@ -27,9 +35,11 @@ export const getFilterWidgetsData = (
 
             if (key === 'categories' && key in watchAllFields) {
                if (
-                  (targetProps as OptionItem[]).some((item) => {
-                     return watchAllFields[key][item.value] === false
-                  })
+                  convertMetaPropsValueEnumToOption(targetProps).some(
+                     (item) => {
+                        return watchAllFields[key][item.value] === false
+                     },
+                  )
                ) {
                   return false
                }
@@ -38,7 +48,8 @@ export const getFilterWidgetsData = (
             if (key === 'type' && key in watchAllFields) {
                if (watchAllFields[key] !== 'all') {
                   if (
-                     (targetProps as OptionItem).value !== watchAllFields[key]
+                     convertMetaPropsValueEnumToOption(targetProps)[0].value !==
+                     watchAllFields[key]
                   ) {
                      return false
                   }

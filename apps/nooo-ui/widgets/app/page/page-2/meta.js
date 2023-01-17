@@ -2,16 +2,8 @@
 module.exports = {
    props: {
       keywords: ['三级资源'],
-      type: {
-         label: 'app',
-         value: 'app',
-      },
-      categories: [
-         {
-            label: 'page',
-            value: 'page',
-         },
-      ],
+      type: 'app',
+      categories: ['page'],
    },
    createDate: '2023-01-01 00:00:00',
    updateDate: '2023-01-01 00:00:00',

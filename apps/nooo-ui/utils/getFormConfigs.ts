@@ -1,37 +1,56 @@
+import { DictionaryType } from 'get-dictionary'
+import { FormConfigs } from 'typings/formConfigs'
 import { OptionItem, WidgetData } from 'typings/widgets'
+import { formConfigsAllOptions } from '../constants/formConfigsAllOptions'
+import { ensureArray } from './ensureArray'
 
-export type MultipleConfig = {
-   title: string
-   type: 'radio' | 'select' | 'multiple-select' | 'checkbox'
-   options: {
-      value: string
-      label: string
-   }[]
+export const getDefaultFormConfigs = (dict?: DictionaryType): FormConfigs => {
+   return {
+      categories: {
+         type: 'checkbox',
+         options: [],
+         title: dict?.filters.categories ?? '',
+      },
+      type: {
+         type: 'radio',
+         options: [
+            {
+               value: 'all',
+               label: dict?.filters.radioAllOption ?? '',
+            },
+         ],
+         title: dict?.filters.type ?? '',
+      },
+   }
 }
 
-export type FormConfigs = {
-   categories: MultipleConfig
-   type: MultipleConfig
-}
+export const defaultFormConfigs: FormConfigs = getDefaultFormConfigs()
 
-export const getFormConfigs = (widgetsData: WidgetData[]) => {
+// @TODO 动态获取，属性联动，同时数据字典懒加载
+export const getFormConfigs = (
+   widgetsData: WidgetData[],
+   dict?: DictionaryType,
+) => {
    const formConfigs: FormConfigs = widgetsData.reduce(
       (distFormConfigs, next) => {
          return Object.entries(next.meta.props).reduce(
             (_distFormConfigs, [key, config]) => {
                if (key === 'type' || key === 'categories') {
                   // 手动具体的类型
-                  const specificConfig = config as OptionItem | OptionItem[]
+                  const specificConfig = ensureArray(config).map((item) =>
+                     item in formConfigsAllOptions
+                        ? formConfigsAllOptions[item]
+                        : undefined,
+                  )
                   _distFormConfigs[key].options.push(
-                     ...(Array.isArray(specificConfig)
-                        ? specificConfig
-                        : [specificConfig]
-                     ).filter(
+                     ...specificConfig.filter(
                         // 过滤重复
-                        (item) =>
-                           !_distFormConfigs[key].options.find(
-                              (it) => it.value === item.value,
-                           ),
+                        (item): item is OptionItem =>
+                           item
+                              ? !_distFormConfigs[key].options.find(
+                                   (it) => it.value === item.value,
+                                )
+                              : false,
                      ),
                   )
                   return _distFormConfigs
@@ -44,23 +63,7 @@ export const getFormConfigs = (widgetsData: WidgetData[]) => {
             distFormConfigs,
          )
       },
-      {
-         categories: {
-            type: 'checkbox',
-            options: [],
-            title: '分类',
-         },
-         type: {
-            type: 'radio',
-            options: [
-               {
-                  value: 'all',
-                  label: '全部',
-               },
-            ],
-            title: '类型',
-         },
-      } as FormConfigs,
+      getDefaultFormConfigs(dict),
    )
 
    return formConfigs

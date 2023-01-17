@@ -3,9 +3,11 @@
 import { debounce } from 'lodash-es'
 import { ChangeEvent, useRef } from 'react'
 import { useFormContext } from 'react-hook-form'
+import { useLocaleContext } from './LocaleContext'
 
 export const KeywordSearchBar = () => {
    const { register } = useFormContext()
+   const { dictionary } = useLocaleContext()
 
    const inputRef = useRef<HTMLInputElement | null>()
 
@@ -17,7 +19,7 @@ export const KeywordSearchBar = () => {
             className='h-16 w-full rounded-lg border-none bg-white pl-5 pr-20 text-lg shadow-md focus:ring-transparent focus:outline-sky-600 focus:shadow-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white transition'
             id='search'
             type='search'
-            placeholder='关键字搜索设计模板...'
+            placeholder={`${dictionary.searchPlaceholder}...`}
             {...registerProps}
             onChange={debounce((event: ChangeEvent<HTMLInputElement>) => {
                onChange(event)

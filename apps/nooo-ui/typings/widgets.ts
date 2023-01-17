@@ -4,12 +4,13 @@ export type WidgetTailwindConfig = Omit<Config, 'content'>
 
 export type OptionItem = {
    label: string
+   zhLabel?: string
    value: string
 }
 
 export type WidgetItemProps = {
-   categories: OptionItem[]
-   type: OptionItem
+   categories: string[]
+   type: string
    keywords: string[]
 }
 
