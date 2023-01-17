@@ -33,7 +33,7 @@ const Home = async () => {
                               文档
                            </Link>
                            <Link
-                              href='https://github.com/nooo-ui/nooo-ui'
+                              href='https://github.com/tolerance-go/nooo-ui'
                               target='_blank'
                               className='p-2.5 font-medium hover:underline underline-offset-2 dark:text-white'
                            >
