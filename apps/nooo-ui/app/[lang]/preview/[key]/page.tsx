@@ -1,11 +1,12 @@
 import { widgetsData } from '.data/widgets-data'
 import { WidgetPreview } from 'components/WidgetPreview'
-import { PageProps } from 'typings/next'
 
-const PreviewPage = async (props: PageProps) => {
-   const target = widgetsData.find(
-      (item) => item.key === props.searchParams?.key,
-   )
+const PreviewPage = async (props: {
+   params: {
+      key: string
+   }
+}) => {
+   const target = widgetsData.find((item) => item.key === props.params.key)
 
    if (!target) return <div>not match</div>
 

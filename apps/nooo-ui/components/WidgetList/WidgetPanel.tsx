@@ -187,7 +187,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                         )}
 
                         <Link
-                           href={`/${lang}/preview?key=${data.key}`}
+                           href={`/${lang}/preview/${data.key}`}
                            target='_blank'
                            className='w-9 h-9 flex justify-center transition hover:bg-gray-50 dark:hover:bg-gray-900 dark:border-gray-700 hover:text-sky-600 items-center border rounded-md'
                         >
