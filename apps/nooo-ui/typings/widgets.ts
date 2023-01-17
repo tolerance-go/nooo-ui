@@ -12,6 +12,7 @@ export type WidgetItemProps = {
    categories: string[]
    type: string
    keywords: string[]
+   zhKeywords?: string[]
 }
 
 export type WidgetBaseFrameworks = {

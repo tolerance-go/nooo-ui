@@ -7,7 +7,8 @@ module.exports = {
       alpine: '2.8.0',
    },
    props: {
-      keywords: ['管理系统'],
+      keywords: ['admin'],
+      zhKeywords: ['管理系统'],
       type: 'web',
       categories: ['sidebar'],
    },

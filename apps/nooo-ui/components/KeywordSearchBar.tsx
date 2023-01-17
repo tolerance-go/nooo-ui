@@ -16,7 +16,7 @@ export const KeywordSearchBar = () => {
    return (
       <div className='relative w-full px-2 sm:px-0 sm:w-2/3 mx-auto'>
          <input
-            className='h-16 w-full rounded-lg border-none bg-white pl-5 pr-20 text-lg shadow-md focus:ring-transparent focus:outline-sky-600 focus:shadow-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white transition'
+            className='h-16 w-full rounded-lg border-none bg-white pl-5 pr-20 text-lg shadow-md focus:ring-transparent focus:outline-sky-600 focus:shadow-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white transition-colors'
             id='search'
             type='search'
             placeholder={`${dictionary.searchPlaceholder}...`}

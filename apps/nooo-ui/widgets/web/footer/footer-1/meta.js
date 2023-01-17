@@ -1,7 +1,8 @@
 /** @type {import('../../../../typings/widgets').WidgetItemMeta} */
 module.exports = {
    props: {
-      keywords: ['页脚'],
+      keywords: ['footer'],
+      zhKeywords: ['页脚'],
       type: 'web',
       categories: ['footer'],
    },

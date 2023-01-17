@@ -14,14 +14,17 @@ type LiteItem = {
 
 export const WidgetInfo = ({ data }: { data: WidgetData }) => {
    const { setValue } = useFormContext()
-   const { dictionary } = useLocaleContext()
+   const { dictionary, lang } = useLocaleContext()
 
    const list: LiteItem[] = [
       {
          title: dictionary.widgetPanel.info.keywords,
          content: (
             <div className='inline-flex space-x-1'>
-               {data.meta.props.keywords.map((item) => (
+               {(lang === 'en'
+                  ? data.meta.props.keywords
+                  : data.meta.props.zhKeywords ?? data.meta.props.keywords
+               ).map((item) => (
                   <span
                      onClick={() => {
                         setValue('keywords', item)

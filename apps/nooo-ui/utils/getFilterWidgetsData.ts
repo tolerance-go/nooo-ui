@@ -1,6 +1,7 @@
 import { FieldValues } from 'react-hook-form'
 import { WidgetData } from 'typings/widgets'
 import { formConfigsAllOptions } from '../constants/formConfigsAllOptions'
+import { Locale } from './../i18n-config'
 import { ensureArray } from './ensureArray'
 
 export const keywordIsHit = (keyword: string, keywords: string[]) => {
@@ -20,24 +21,30 @@ export const convertMetaPropsValueEnumToOption = (key: string | string[]) => {
 export const getFilterWidgetsData = (
    watchAllFields: FieldValues,
    widgetsData: WidgetData[],
+   lang: Locale = 'en',
 ) => {
    return widgetsData.filter((widgetData) => {
       return Object.entries(widgetData.meta.props).every(
-         ([key, targetProps]) => {
-            if (key === 'keywords' && watchAllFields[key]) {
+         ([prop, targetProps]) => {
+            if (
+               (lang === 'en' ? prop === 'keywords' : prop === 'zhKeywords') &&
+               watchAllFields['keywords']
+            ) {
                if (
-                  keywordIsHit(watchAllFields[key], targetProps as string[]) ===
-                  false
+                  keywordIsHit(
+                     watchAllFields['keywords'],
+                     targetProps as string[],
+                  ) === false
                ) {
                   return false
                }
             }
 
-            if (key === 'categories' && key in watchAllFields) {
+            if (prop === 'categories' && prop in watchAllFields) {
                if (
                   convertMetaPropsValueEnumToOption(targetProps).some(
                      (item) => {
-                        return watchAllFields[key][item.value] === false
+                        return watchAllFields[prop][item.value] === false
                      },
                   )
                ) {
@@ -45,11 +52,11 @@ export const getFilterWidgetsData = (
                }
             }
 
-            if (key === 'type' && key in watchAllFields) {
-               if (watchAllFields[key] !== 'all') {
+            if (prop === 'type' && prop in watchAllFields) {
+               if (watchAllFields[prop] !== 'all') {
                   if (
                      convertMetaPropsValueEnumToOption(targetProps)[0].value !==
-                     watchAllFields[key]
+                     watchAllFields[prop]
                   ) {
                      return false
                   }
