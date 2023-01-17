@@ -1,4 +1,4 @@
-import { FormConfigs, MultipleConfig } from './getFormConfigs'
+import { FormConfigs, MultipleConfig } from 'typings/formConfigs'
 
 export const getDefaultFormValuesFromFormConfigs = (
    formConfigs: FormConfigs,

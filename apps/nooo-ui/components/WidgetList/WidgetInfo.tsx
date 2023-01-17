@@ -2,6 +2,7 @@
 
 import clsx from 'clsx'
 import { useLocaleContext } from 'components/LocaleContext'
+import { formConfigsAllOptions } from 'constants/formConfigsAllOptions'
 import { useFormContext } from 'react-hook-form'
 import { WidgetData } from 'typings/widgets'
 import { backPageTop } from 'utils/backPageTop'
@@ -37,12 +38,12 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
       },
       {
          title: dictionary.filters.type,
-         content: data.meta.props.type.label,
+         content: formConfigsAllOptions[data.meta.props.type].label,
       },
       {
          title: dictionary.filters.categories,
          content: data.meta.props.categories
-            .map((item) => item.label)
+            .map((item) => formConfigsAllOptions[item].label)
             .join(', '),
       },
       {
