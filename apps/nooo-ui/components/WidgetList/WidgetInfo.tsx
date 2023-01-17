@@ -41,12 +41,21 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
       },
       {
          title: dictionary.filters.type,
-         content: formConfigsAllOptions[data.meta.props.type].label,
+         content:
+            lang === 'en'
+               ? formConfigsAllOptions[data.meta.props.type].label
+               : formConfigsAllOptions[data.meta.props.type].zhLabel ??
+                 formConfigsAllOptions[data.meta.props.type].label,
       },
       {
          title: dictionary.filters.categories,
          content: data.meta.props.categories
-            .map((item) => formConfigsAllOptions[item].label)
+            .map((item) =>
+               lang === 'en'
+                  ? formConfigsAllOptions[item].label
+                  : formConfigsAllOptions[item].zhLabel ??
+                    formConfigsAllOptions[item].label,
+            )
             .join(', '),
       },
       {
