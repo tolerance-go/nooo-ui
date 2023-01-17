@@ -38,5 +38,5 @@ dist
 .data/
 
 
-public/widgets/
+public/_assets/widgets/
 .temp/

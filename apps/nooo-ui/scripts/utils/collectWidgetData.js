@@ -9,17 +9,18 @@ const requireUncached = require('./requireUncached')
 
 const widgetRootPath = path.join(process.cwd(), 'widgets')
 const publicPath = path.join(process.cwd(), 'public')
+const publicAssetsPath = path.join(publicPath, '_assets')
 
 const copyAssetsToPublic = (/** @type {string} */ assetsPath) => {
    const relativeAssetsPath = path.relative(process.cwd(), assetsPath)
 
    if (fs.existsSync(assetsPath) && fs.statSync(assetsPath).isDirectory()) {
       fs.readdirSync(assetsPath).forEach((asset) => {
-         fs.emptyDirSync(path.join(publicPath, relativeAssetsPath))
+         fs.emptyDirSync(path.join(publicAssetsPath, relativeAssetsPath))
 
          fs.copyFileSync(
             path.join(assetsPath, asset),
-            path.join(publicPath, relativeAssetsPath, asset),
+            path.join(publicAssetsPath, relativeAssetsPath, asset),
          )
       })
    }

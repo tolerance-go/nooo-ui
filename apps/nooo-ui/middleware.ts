@@ -20,7 +20,11 @@ function getLocale(request: NextRequest): string | undefined {
 
 export function middleware(request: NextRequest) {
    // Skip next internal requests
-   if (request.nextUrl.pathname.startsWith('/_next')) return
+   if (
+      request.nextUrl.pathname.startsWith('/_next') ||
+      request.nextUrl.pathname.startsWith('/_assets')
+   )
+      return
 
    // Check if there is any supported locale in the pathname
    const pathname = request.nextUrl.pathname
