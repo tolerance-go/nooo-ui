@@ -7,6 +7,7 @@ import { Logo } from 'components/Logo'
 import { ThemeSwitchBtn } from 'components/SiteThemeSwitchBtn'
 import { WidgetList } from 'components/WidgetList'
 import { WidgetsFilter } from 'components/WidgetsFilter'
+import { formConfigsAllOptions } from 'constants/formConfigsAllOptions'
 import { getDictionary } from 'get-dictionary'
 import { Locale } from 'i18n-config'
 import Mustache from 'mustache'
@@ -77,8 +78,8 @@ const Home = async ({ params }: { params: { lang: Locale } }) => {
                      </h1>
                      <p className='mt-2 text-sm text-gray-500 dark:text-gray-400 transition'>
                         {Mustache.render(dictionary.subTitle, {
-                           componentsNum: 300,
-                           typesNum: 50,
+                           componentsNum: widgetsData.length,
+                           typesNum: Object.keys(formConfigsAllOptions).length,
                         })}
                      </p>
                   </div>

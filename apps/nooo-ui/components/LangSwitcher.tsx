@@ -4,21 +4,35 @@ import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 import { i18n } from 'i18n-config'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useCookies } from 'react-cookie'
 import { useLocaleContext } from './LocaleContext'
 
 const localeTexts = {
    en: 'English',
-   'zh-CN': '简体中文',
+   'zh-CN': '中文',
 }
 
 export const LangSwitcher = () => {
    const { lang } = useLocaleContext()
+   const [, setCookie] = useCookies(['lang'])
 
    const text = localeTexts[lang]
 
+   const pathname = usePathname()
+
+   const redirectedPathName = (locale: string) => {
+      if (!pathname) return '/'
+      const segments = pathname.split('/')
+      segments[1] = locale
+      return segments.join('/')
+   }
+
    return (
       <Popover className='relative'>
-         <Popover.Button className={'flex items-center focus:outline-none'}>
+         <Popover.Button
+            className={'flex items-center focus:outline-none dark:text-white'}
+         >
             <a
                href='#'
                aria-haspopup='true'
@@ -44,22 +58,25 @@ export const LangSwitcher = () => {
             leaveTo='transform scale-95 opacity-0'
          >
             <Popover.Panel className='absolute z-10 top-1.5'>
-               <ul className='dark:border dark:border-gray-200 text-sm min-w-max dark:shadow-none p-2 py-2.5 rounded-md bg-white shadow-md'>
+               <ul className='dark:border dark:border-gray-800 dark:bg-black text-sm min-w-max dark:shadow-none p-2 py-2.5 rounded-md bg-white shadow-md'>
                   {i18n.locales.map((locale) => {
                      return (
-                        <li
+                        <Link
                            key={locale}
+                           href={redirectedPathName(locale)}
                            className={clsx(
-                              'px-2 py-1 hover:bg-gray-100 rounded-md mb-1 last:mb-0',
+                              'block px-3 py-2 hover:bg-gray-100 rounded-md mb-1 last:mb-0 dark:text-white dark:hover:bg-gray-900 dark:bg-black',
                               {
-                                 'bg-gray-100 text-sky-600': lang === locale,
+                                 'bg-gray-100 dark:bg-gray-900 text-sky-600':
+                                    lang === locale,
                               },
                            )}
+                           onClick={() => {
+                              setCookie('lang', locale, { path: '/' })
+                           }}
                         >
-                           <Link href={`/${locale}`}>
-                              {localeTexts[locale]}
-                           </Link>
-                        </li>
+                           <li>{localeTexts[locale]}</li>
+                        </Link>
                      )
                   })}
                </ul>

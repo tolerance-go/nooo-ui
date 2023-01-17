@@ -1,4 +1,5 @@
 import { DocMenu } from 'components/DocMenu'
+import { LangSwitcher } from 'components/LangSwitcher'
 import { Logo } from 'components/Logo'
 import { ThemeSwitchBtn } from 'components/SiteThemeSwitchBtn'
 import { Locale } from 'i18n-config'
@@ -31,6 +32,7 @@ const DocLayout = (
                >
                   Github
                </Link>
+               <LangSwitcher />
                <ThemeSwitchBtn />
             </div>
          </div>
