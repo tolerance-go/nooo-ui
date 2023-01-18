@@ -36,4 +36,9 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'sidebar',
       zhLabel: '侧边栏',
    },
+   alert: {
+      label: 'alert',
+      value: 'alert',
+      zhLabel: '通知框',
+   },
 }
