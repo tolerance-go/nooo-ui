@@ -15,7 +15,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -46,6 +47,11 @@ describe('formConfigs', async () => {
                 "label": "all",
                 "value": "platform_all",
               },
+              {
+                "label": "mobile",
+                "value": "mobile",
+                "zhLabel": "移动端",
+              },
             ],
             "title": "type",
             "type": "radio",
@@ -57,9 +63,9 @@ describe('formConfigs', async () => {
                 "value": "type_all",
               },
               {
-                "label": "mobile",
-                "value": "mobile",
-                "zhLabel": "移动端",
+                "label": "page",
+                "value": "page",
+                "zhLabel": "页面",
               },
             ],
             "title": "type",
@@ -85,7 +91,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -108,7 +115,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -140,7 +148,8 @@ describe('formConfigs', async () => {
               "props": {
                 "categories": [],
                 "keywords": [],
-                "type": "mobile",
+                "platform": "mobile",
+                "type": "page",
               },
               "tailwindcssVersion": "",
               "updateDate": "2023-01-01 00:00:00",
@@ -177,7 +186,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -201,7 +211,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -233,7 +244,8 @@ describe('formConfigs', async () => {
               "props": {
                 "categories": [],
                 "keywords": [],
-                "type": "mobile",
+                "platform": "mobile",
+                "type": "page",
               },
               "tailwindcssVersion": "",
               "updateDate": "2023-01-01 00:00:00",
@@ -263,7 +275,8 @@ describe('formConfigs', async () => {
                   "banner",
                 ],
                 "keywords": [],
-                "type": "mobile",
+                "platform": "mobile",
+                "type": "page",
               },
               "tailwindcssVersion": "",
               "updateDate": "2023-01-01 00:00:00",
@@ -296,7 +309,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: ['home'],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -320,7 +334,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -360,7 +375,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: ['home'],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -384,7 +400,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -418,7 +435,8 @@ describe('formConfigs', async () => {
                 "keywords": [
                   "home",
                 ],
-                "type": "mobile",
+                "platform": "mobile",
+                "type": "page",
               },
               "tailwindcssVersion": "",
               "updateDate": "2023-01-01 00:00:00",
@@ -452,7 +470,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -476,7 +495,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -500,7 +520,8 @@ describe('formConfigs', async () => {
       expect(
          getFilterWidgetsData(
             {
-               type: 'mobile',
+               type: 'page',
+               platform: 'mobile',
             },
             [
                {
@@ -509,7 +530,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -533,7 +555,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'mobile',
+                        type: 'page',
+                        platform: 'mobile',
                         categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -565,7 +588,8 @@ describe('formConfigs', async () => {
               "props": {
                 "categories": [],
                 "keywords": [],
-                "type": "mobile",
+                "platform": "mobile",
+                "type": "page",
               },
               "tailwindcssVersion": "",
               "updateDate": "2023-01-01 00:00:00",
@@ -595,7 +619,8 @@ describe('formConfigs', async () => {
                   "banner",
                 ],
                 "keywords": [],
-                "type": "mobile",
+                "platform": "mobile",
+                "type": "page",
               },
               "tailwindcssVersion": "",
               "updateDate": "2023-01-01 00:00:00",
@@ -636,7 +661,25 @@ describe('formConfigs', async () => {
                options: [
                   {
                      label: '全部',
-                     value: 'all',
+                     value: 'type_all',
+                  },
+                  {
+                     label: 'app',
+                     value: 'app',
+                  },
+                  {
+                     label: 'web',
+                     value: 'web',
+                  },
+               ],
+               title: '类型',
+               type: 'radio',
+            },
+            platform: {
+               options: [
+                  {
+                     label: '全部',
+                     value: 'platform_all',
                   },
                   {
                      label: 'app',
@@ -657,6 +700,7 @@ describe('formConfigs', async () => {
             "banner": true,
             "page": true,
           },
+          "platform": "platform_all",
           "type": "type_all",
         }
       `)
