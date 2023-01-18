@@ -20,7 +20,7 @@ export const getDefaultFormValuesFromFormConfigs = (
          if (config.type === 'radio') {
             return {
                ...distDefaultFromValues,
-               [key]: 'all',
+               [key]: `${key}_all`,
             }
          }
 

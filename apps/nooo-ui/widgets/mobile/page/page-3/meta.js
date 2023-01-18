@@ -3,8 +3,9 @@ module.exports = {
    props: {
       keywords: ['tertiary resources'],
       zhKeywords: ['三级资源'],
-      type: 'app',
-      categories: ['page'],
+      type: 'page',
+      platform: 'mobile',
+      categories: [],
    },
    createDate: '2023-01-01 00:00:00',
    updateDate: '2023-01-01 00:00:00',

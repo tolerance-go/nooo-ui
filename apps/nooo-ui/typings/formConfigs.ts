@@ -9,4 +9,5 @@ export type MultipleConfig = {
 export type FormConfigs = {
    categories: MultipleConfig
    type: MultipleConfig
+   platform: MultipleConfig
 }

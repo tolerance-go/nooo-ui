@@ -9,7 +9,8 @@ module.exports = {
    props: {
       keywords: ['admin'],
       zhKeywords: ['管理系统'],
-      type: 'web',
+      type: 'block',
+      platform: 'pc',
       categories: ['sidebar'],
    },
    createDate: '2023-01-01 00:00:00',

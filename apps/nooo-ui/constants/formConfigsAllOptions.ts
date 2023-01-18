@@ -6,13 +6,20 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'page',
       zhLabel: '页面',
    },
-   app: {
-      label: 'app',
-      value: 'app',
+   block: {
+      label: 'block',
+      value: 'block',
+      zhLabel: '区块',
    },
-   web: {
-      label: 'web',
-      value: 'web',
+   mobile: {
+      label: 'mobile',
+      value: 'mobile',
+      zhLabel: '移动端',
+   },
+   pc: {
+      label: 'pc',
+      value: 'pc',
+      zhLabel: 'PC 端',
    },
    banner: {
       label: 'banner',

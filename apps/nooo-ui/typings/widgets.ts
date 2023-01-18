@@ -11,6 +11,7 @@ export type OptionItem = {
 export type WidgetItemProps = {
    categories: string[]
    type: string
+   platform: string
    keywords: string[]
    zhKeywords?: string[]
 }

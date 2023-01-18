@@ -52,8 +52,11 @@ export const getFilterWidgetsData = (
                }
             }
 
-            if (prop === 'type' && prop in watchAllFields) {
-               if (watchAllFields[prop] !== 'all') {
+            if (
+               (prop === 'type' || prop === 'platform') &&
+               prop in watchAllFields
+            ) {
+               if (watchAllFields[prop] !== `${prop}_all`) {
                   if (
                      convertMetaPropsValueEnumToOption(targetProps)[0].value !==
                      watchAllFields[prop]

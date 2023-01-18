@@ -15,7 +15,17 @@ export const getDefaultFormConfigs = (dict?: DictionaryType): FormConfigs => {
          type: 'radio',
          options: [
             {
-               value: 'all',
+               value: 'type_all',
+               label: dict?.filters.radioAllOption ?? '',
+            },
+         ],
+         title: dict?.filters.type ?? '',
+      },
+      platform: {
+         type: 'radio',
+         options: [
+            {
+               value: 'platform_all',
                label: dict?.filters.radioAllOption ?? '',
             },
          ],
@@ -35,7 +45,11 @@ export const getFormConfigs = (
       (distFormConfigs, next) => {
          return Object.entries(next.meta.props).reduce(
             (_distFormConfigs, [key, config]) => {
-               if (key === 'type' || key === 'categories') {
+               if (
+                  key === 'type' ||
+                  key === 'categories' ||
+                  key === 'platform'
+               ) {
                   // 手动具体的类型
                   const specificConfig = ensureArray(config).map((item) =>
                      item in formConfigsAllOptions
