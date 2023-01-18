@@ -41,4 +41,9 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'alert',
       zhLabel: '通知框',
    },
+   list: {
+      label: 'list',
+      value: 'list',
+      zhLabel: '列表',
+   },
 }

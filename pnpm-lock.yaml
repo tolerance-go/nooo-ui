@@ -45,6 +45,7 @@ importers:
       autoprefixer: ^10.4.13
       axios: ^1.2.0
       cac: ^6.7.14
+      chokidar: ^3.5.3
       clsx: ^1.2.1
       concurrently: ^7.6.0
       cssnano: ^5.1.14
@@ -91,6 +92,7 @@ importers:
       animate.css: 4.1.1
       axios: 1.2.2
       cac: 6.7.14
+      chokidar: 3.5.3
       clsx: 1.2.1
       cssnano: 5.1.14_postcss@8.4.21
       fast-glob: 3.2.12

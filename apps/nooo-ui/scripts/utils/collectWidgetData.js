@@ -121,10 +121,21 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       'cword-2': () => Random.cword(2),
       cparagraph: () => Random.cparagraph(3, 7),
       csentence: () => Random.csentence(12, 18),
+      'csentence-sm': () => Random.csentence(6, 12),
       // 类尺寸 api，返回固定数值而不是范围，利于精确设计布局
       'csentence-lg': () => Random.csentence(25),
       cfirst: () => Random.cfirst(),
       cname: () => Random.cname(),
+
+      title: () => Random.title(),
+      word: () => Random.word(),
+      'word-2': () => Random.word(2),
+      paragraph: () => Random.paragraph(3, 7),
+      sentence: () => Random.sentence(12, 18),
+      'sentence-sm': () => Random.sentence(6, 12),
+      'sentence-lg': () => Random.sentence(25),
+      first: () => Random.first(),
+      name: () => Random.name(),
    })
 
    /** @type {import('../../typings/widgets').WidgetData} */
