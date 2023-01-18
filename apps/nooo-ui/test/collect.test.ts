@@ -8,11 +8,7 @@ describe('collect', async () => {
          await collectSegmentedMetas(
             `${process.cwd()}/widgets/app/button/button-1`,
          ),
-      ).toMatchInlineSnapshot(`
-        [
-          {},
-        ]
-      `)
+      ).toMatchInlineSnapshot('[]')
    })
 
    test('getMatchAvailableTwVersion', async () => {

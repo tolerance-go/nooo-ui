@@ -15,8 +15,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'app',
-                        categories: ['page'],
+                        type: 'mobile',
+                        categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -36,25 +36,30 @@ describe('formConfigs', async () => {
       ).toMatchInlineSnapshot(`
         {
           "categories": {
-            "options": [
-              {
-                "label": "page",
-                "value": "page",
-                "zhLabel": "页面",
-              },
-            ],
+            "options": [],
             "title": "categories",
             "type": "checkbox",
+          },
+          "platform": {
+            "options": [
+              {
+                "label": "all",
+                "value": "platform_all",
+              },
+            ],
+            "title": "type",
+            "type": "radio",
           },
           "type": {
             "options": [
               {
                 "label": "all",
-                "value": "all",
+                "value": "type_all",
               },
               {
-                "label": "app",
-                "value": "app",
+                "label": "mobile",
+                "value": "mobile",
+                "zhLabel": "移动端",
               },
             ],
             "title": "type",
@@ -80,8 +85,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'app',
-                        categories: ['page'],
+                        type: 'mobile',
+                        categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -103,67 +108,7 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'app',
-                        categories: ['banner'],
-                     },
-                     createDate: '2023-01-01 00:00:00',
-                     updateDate: '2023-01-01 00:00:00',
-                     frameHeight: 750,
-                     tailwindcssVersion: '',
-                  },
-                  jsx: '',
-                  vue: '',
-                  tailwindConfig: { darkMode: 'class' },
-                  tailwindConfigCode: "module.exports = { darkMode: 'class' };",
-                  segmentedMetas: [{ gg: 'true' }],
-                  key: 'widgets/web/banner/banner-1',
-               },
-            ],
-         ),
-      ).toMatchInlineSnapshot('[]')
-   })
-
-   test('getFilterWidgetsData categories some true', async () => {
-      expect(
-         getFilterWidgetsData(
-            {
-               categories: {
-                  banner: true,
-                  page: false,
-               },
-            },
-            [
-               {
-                  css: '',
-                  html: '',
-                  meta: {
-                     props: {
-                        keywords: [],
-                        type: 'app',
-                        categories: ['page'],
-                     },
-                     createDate: '2023-01-01 00:00:00',
-                     updateDate: '2023-01-01 00:00:00',
-
-                     mobile: {
-                        type: 'page',
-                     },
-                     tailwindcssVersion: '',
-                  },
-                  jsx: '',
-                  vue: '',
-                  tailwindConfig: {},
-                  tailwindConfigCode: '',
-                  segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
-                  key: 'widgets/app/page/page-1',
-               },
-               {
-                  css: '',
-                  html: '',
-                  meta: {
-                     props: {
-                        keywords: [],
-                        type: 'app',
+                        type: 'mobile',
                         categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -186,6 +131,129 @@ describe('formConfigs', async () => {
             "css": "",
             "html": "",
             "jsx": "",
+            "key": "widgets/app/page/page-1",
+            "meta": {
+              "createDate": "2023-01-01 00:00:00",
+              "mobile": {
+                "type": "page",
+              },
+              "props": {
+                "categories": [],
+                "keywords": [],
+                "type": "mobile",
+              },
+              "tailwindcssVersion": "",
+              "updateDate": "2023-01-01 00:00:00",
+            },
+            "segmentedMetas": [
+              {
+                "gg": "true",
+              },
+              {
+                "ff": "true",
+              },
+            ],
+            "tailwindConfig": {},
+            "tailwindConfigCode": "",
+            "vue": "",
+          },
+        ]
+      `)
+   })
+
+   test('getFilterWidgetsData categories some true', async () => {
+      expect(
+         getFilterWidgetsData(
+            {
+               categories: {
+                  banner: true,
+                  page: false,
+               },
+            },
+            [
+               {
+                  css: '',
+                  html: '',
+                  meta: {
+                     props: {
+                        keywords: [],
+                        type: 'mobile',
+                        categories: [],
+                     },
+                     createDate: '2023-01-01 00:00:00',
+                     updateDate: '2023-01-01 00:00:00',
+
+                     mobile: {
+                        type: 'page',
+                     },
+                     tailwindcssVersion: '',
+                  },
+                  jsx: '',
+                  vue: '',
+                  tailwindConfig: {},
+                  tailwindConfigCode: '',
+                  segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
+                  key: 'widgets/app/page/page-1',
+               },
+               {
+                  css: '',
+                  html: '',
+                  meta: {
+                     props: {
+                        keywords: [],
+                        type: 'mobile',
+                        categories: ['banner'],
+                     },
+                     createDate: '2023-01-01 00:00:00',
+                     updateDate: '2023-01-01 00:00:00',
+                     frameHeight: 750,
+                     tailwindcssVersion: '',
+                  },
+                  jsx: '',
+                  vue: '',
+                  tailwindConfig: { darkMode: 'class' },
+                  tailwindConfigCode: "module.exports = { darkMode: 'class' };",
+                  segmentedMetas: [{ gg: 'true' }],
+                  key: 'widgets/web/banner/banner-1',
+               },
+            ],
+         ),
+      ).toMatchInlineSnapshot(`
+        [
+          {
+            "css": "",
+            "html": "",
+            "jsx": "",
+            "key": "widgets/app/page/page-1",
+            "meta": {
+              "createDate": "2023-01-01 00:00:00",
+              "mobile": {
+                "type": "page",
+              },
+              "props": {
+                "categories": [],
+                "keywords": [],
+                "type": "mobile",
+              },
+              "tailwindcssVersion": "",
+              "updateDate": "2023-01-01 00:00:00",
+            },
+            "segmentedMetas": [
+              {
+                "gg": "true",
+              },
+              {
+                "ff": "true",
+              },
+            ],
+            "tailwindConfig": {},
+            "tailwindConfigCode": "",
+            "vue": "",
+          },
+          {
+            "css": "",
+            "html": "",
+            "jsx": "",
             "key": "widgets/web/banner/banner-1",
             "meta": {
               "createDate": "2023-01-01 00:00:00",
@@ -195,7 +263,7 @@ describe('formConfigs', async () => {
                   "banner",
                 ],
                 "keywords": [],
-                "type": "app",
+                "type": "mobile",
               },
               "tailwindcssVersion": "",
               "updateDate": "2023-01-01 00:00:00",
@@ -228,8 +296,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: ['home'],
-                        type: 'app',
-                        categories: ['page'],
+                        type: 'mobile',
+                        categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -252,7 +320,7 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'app',
+                        type: 'mobile',
                         categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -292,8 +360,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: ['home'],
-                        type: 'app',
-                        categories: ['page'],
+                        type: 'mobile',
+                        categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -316,7 +384,7 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'app',
+                        type: 'mobile',
                         categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -346,13 +414,11 @@ describe('formConfigs', async () => {
                 "type": "page",
               },
               "props": {
-                "categories": [
-                  "page",
-                ],
+                "categories": [],
                 "keywords": [
                   "home",
                 ],
-                "type": "app",
+                "type": "mobile",
               },
               "tailwindcssVersion": "",
               "updateDate": "2023-01-01 00:00:00",
@@ -386,8 +452,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'app',
-                        categories: ['page'],
+                        type: 'mobile',
+                        categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -410,7 +476,7 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'app',
+                        type: 'mobile',
                         categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -427,78 +493,14 @@ describe('formConfigs', async () => {
                },
             ],
          ),
-      ).toMatchInlineSnapshot(`
-        [
-          {
-            "css": "",
-            "html": "",
-            "jsx": "",
-            "key": "widgets/app/page/page-1",
-            "meta": {
-              "createDate": "2023-01-01 00:00:00",
-              "mobile": {
-                "type": "page",
-              },
-              "props": {
-                "categories": [
-                  "page",
-                ],
-                "keywords": [],
-                "type": "app",
-              },
-              "tailwindcssVersion": "",
-              "updateDate": "2023-01-01 00:00:00",
-            },
-            "segmentedMetas": [
-              {
-                "gg": "true",
-              },
-              {
-                "ff": "true",
-              },
-            ],
-            "tailwindConfig": {},
-            "tailwindConfigCode": "",
-            "vue": "",
-          },
-          {
-            "css": "",
-            "html": "",
-            "jsx": "",
-            "key": "widgets/web/banner/banner-1",
-            "meta": {
-              "createDate": "2023-01-01 00:00:00",
-              "frameHeight": 750,
-              "props": {
-                "categories": [
-                  "banner",
-                ],
-                "keywords": [],
-                "type": "app",
-              },
-              "tailwindcssVersion": "",
-              "updateDate": "2023-01-01 00:00:00",
-            },
-            "segmentedMetas": [
-              {
-                "gg": "true",
-              },
-            ],
-            "tailwindConfig": {
-              "darkMode": "class",
-            },
-            "tailwindConfigCode": "module.exports = { darkMode: 'class' };",
-            "vue": "",
-          },
-        ]
-      `)
+      ).toMatchInlineSnapshot('[]')
    })
 
    test('getFilterWidgetsData type app', async () => {
       expect(
          getFilterWidgetsData(
             {
-               type: 'app',
+               type: 'mobile',
             },
             [
                {
@@ -507,8 +509,8 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'app',
-                        categories: ['page'],
+                        type: 'mobile',
+                        categories: [],
                      },
                      createDate: '2023-01-01 00:00:00',
                      updateDate: '2023-01-01 00:00:00',
@@ -531,7 +533,7 @@ describe('formConfigs', async () => {
                   meta: {
                      props: {
                         keywords: [],
-                        type: 'app',
+                        type: 'mobile',
                         categories: ['banner'],
                      },
                      createDate: '2023-01-01 00:00:00',
@@ -561,11 +563,9 @@ describe('formConfigs', async () => {
                 "type": "page",
               },
               "props": {
-                "categories": [
-                  "page",
-                ],
+                "categories": [],
                 "keywords": [],
-                "type": "app",
+                "type": "mobile",
               },
               "tailwindcssVersion": "",
               "updateDate": "2023-01-01 00:00:00",
@@ -595,7 +595,7 @@ describe('formConfigs', async () => {
                   "banner",
                 ],
                 "keywords": [],
-                "type": "app",
+                "type": "mobile",
               },
               "tailwindcssVersion": "",
               "updateDate": "2023-01-01 00:00:00",
@@ -657,7 +657,7 @@ describe('formConfigs', async () => {
             "banner": true,
             "page": true,
           },
-          "type": "all",
+          "type": "type_all",
         }
       `)
    })
