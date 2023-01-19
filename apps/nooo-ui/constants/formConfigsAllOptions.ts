@@ -26,6 +26,16 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'banner',
       zhLabel: '横幅',
    },
+   button: {
+      label: 'button',
+      value: 'button',
+      zhLabel: '按钮',
+   },
+   login: {
+      label: 'login',
+      value: 'login',
+      zhLabel: '登录',
+   },
    footer: {
       label: 'footer',
       value: 'footer',

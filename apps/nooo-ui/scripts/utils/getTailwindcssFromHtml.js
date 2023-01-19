@@ -20,6 +20,7 @@ module.exports.getTailwindcssFromHtml = async (
    /** @type {string} */ html,
    /** @type {import('../../typings/widgets').WidgetTailwindConfig} */ configs,
    /** @type {string} */ tailwindcssVersion,
+   /** @type {string} */ tailwindEntry = '@tailwind base; @tailwind components; @tailwind utilities',
 ) => {
    const twPath = path.join(process.cwd(), 'tailwindcss-lib', 'tailwindcss')
    // 所有可用 tw 版本
@@ -48,7 +49,7 @@ module.exports.getTailwindcssFromHtml = async (
       autoprefixer(),
       cssnano(),
    ])
-      .process('@tailwind base; @tailwind components; @tailwind utilities', {
+      .process(tailwindEntry, {
          from: undefined,
       })
       .then((result) => result.css)

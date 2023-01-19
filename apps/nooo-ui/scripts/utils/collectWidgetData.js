@@ -73,6 +73,7 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
    const metaPath = path.join(widgetPath, 'meta.js')
    const tailwindConfigPath = path.join(widgetPath, 'tailwind.config.js')
    const tplPath = path.join(widgetPath, 'template.html')
+   const frameWrapPath = path.join(widgetPath, 'frame-wrap.html')
 
    const assetsPath = path.join(widgetPath, 'assets')
    copyAssetsToPublic(assetsPath)
@@ -87,6 +88,13 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
 
    /** @type {import('../../typings/widgets').WidgetTailwindConfig | undefined} */
    let tailwindConfig
+
+   /** @type {string | undefined} */
+   let frameWrap
+
+   if (fs.existsSync(frameWrapPath)) {
+      frameWrap = fs.readFileSync(frameWrapPath, { encoding: 'utf-8' })
+   }
 
    if (fs.existsSync(metaPath)) {
       meta = requireUncached(metaPath)
@@ -107,12 +115,6 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
    invariant(tailwindConfig, `${tailwindConfigPath} not find.`)
    invariant(meta, `${metaPath} not find.`)
    invariant(tpl, `${tplPath} not find.`)
-
-   const css = await getTailwindcssFromHtml(
-      tpl,
-      tailwindConfig,
-      meta.tailwindcssVersion,
-   )
 
    const html = Mustache.render(tpl, {
       // https://github.com/nuysoft/Mock/wiki/Mock.Random
@@ -138,10 +140,27 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       name: () => Random.name(),
    })
 
+   const css = await getTailwindcssFromHtml(
+      html,
+      tailwindConfig,
+      meta.tailwindcssVersion,
+   )
+
+   const frameWrapCss =
+      frameWrap &&
+      (await getTailwindcssFromHtml(
+         frameWrap,
+         tailwindConfig,
+         meta.tailwindcssVersion,
+         '@tailwind utilities',
+      ))
+
    /** @type {import('../../typings/widgets').WidgetData} */
    const data = {
       css,
       html,
+      frameWrap,
+      frameWrapCss,
       jsx: convertHTMLToJSX(html),
       vue: `<template>
       ${html}

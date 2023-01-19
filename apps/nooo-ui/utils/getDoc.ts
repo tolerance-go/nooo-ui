@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import mustache from 'mustache'
 import { ThemeType } from 'typings/theme'
 import { WidgetData } from 'typings/widgets'
 import { getScriptsStr } from './getScriptsStr'
@@ -24,6 +25,13 @@ export const getDoc = ({
       <style type="text/css">
          ${data.css}
       </style>
+      ${
+         data.frameWrapCss
+            ? /*html*/ `<style type="text/css">
+                           ${data.frameWrapCss}
+                        </style>`
+            : ''
+      }
       <style type="text/css">
          body {
             position: relative;
@@ -35,7 +43,13 @@ export const getDoc = ({
       ${scriptsStr}
    </head>
    <body>
-      ${data.html}
+      ${
+         data.frameWrap
+            ? mustache.render(data.frameWrap, {
+                 template: data.html,
+              })
+            : data.html
+      }
    </body>
 </html>
  
