@@ -32,8 +32,8 @@ describe('replaces', async () => {
         "
                      const {
                        colors,
-                     } = require('tailwindcss/3.2.4');
-                     const plugin = require('tailwindcss/3.2.4');
+                     } = require('tailwindcss/colors');
+                     const plugin = require('tailwindcss/plugin');
                     "
       `)
    })
