@@ -18,12 +18,12 @@ export type WidgetItemProps = {
 
 export type WidgetBaseFrameworks = {
    alpine?: string
-}
+} & Record<string, string>
 
 export type WidgetBasePlugins = {
    daisyui?: string
    kutty?: string
-}
+} & Record<string, string>
 
 export type WidgetItemMeta = {
    props: WidgetItemProps
