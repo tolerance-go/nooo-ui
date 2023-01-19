@@ -1,8 +1,5 @@
 /** @type {import('../../../../typings/widgets').WidgetItemMeta} */
 module.exports = {
-   plugins: {
-      kutty: '0.6.0',
-   },
    frameworks: {
       alpine: '2.8.0',
    },

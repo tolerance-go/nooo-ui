@@ -1,5 +1,7 @@
-const { colors } = require('tailwindcss/colors')
-const plugin = require('tailwindcss/plugin')
+const {
+   colors,
+} = require('../../../../tailwindcss-lib/tailwindcss/3.2.4/node_modules/tailwindcss/colors')
+const plugin = require('../../../../tailwindcss-lib/tailwindcss/3.2.4/node_modules/tailwindcss/plugin')
 
 /** @type {import('../../../../typings/widgets').WidgetTailwindConfig} */
 module.exports = {
@@ -69,10 +71,10 @@ module.exports = {
       },
    },
    plugins: [
-      require('@tailwindcss/typography'),
-      require('@tailwindcss/line-clamp'),
-      require('@tailwindcss/forms'),
-      require('tailwindcss-animate'),
+      require('../../../../tailwindcss-lib/plugins/@tailwindcss/typography/0.5.9'),
+      require('../../../../tailwindcss-lib/plugins/@tailwindcss/line-clamp/0.4.2'),
+      require('../../../../tailwindcss-lib/plugins/@tailwindcss/forms/0.5.3'),
+      require('../../../../tailwindcss-lib/plugins/tailwindcss-animate/1.0.5'),
       plugin(({ addVariant }) => {
          addVariant('radix-side-top', '&[data-side="top"]')
          addVariant('radix-side-bottom', '&[data-side="bottom"]')

@@ -39,14 +39,19 @@ const replaceTailwindConfigTypeImports = (code) => {
    )
 }
 
-const replaceTailwindConfigPluginsImports = (code) => {
+const replaceTailwindConfigPluginsImports = (
+   code,
+   /** @type {((pluginName, version) => {}) | undefined} */ callback,
+) => {
    return code.replace(
       /require\('(\.\.\/)*tailwindcss-lib\/plugins\/(.*?)\/(.*?)(\/(.*?))?'\)/g,
       (a, b, c, d, e) => {
          if (c.startsWith('@')) {
+            callback?.(`${c}/${d}`, e.slice(1))
             return `require('${c}/${d}') /** ${c}/${d}@${e.slice(1)} */`
          }
 
+         callback?.(c, d)
          return `require('${c}') /** ${c}@${d} */`
       },
    )
@@ -170,6 +175,27 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
          '@tailwind utilities',
       ))
 
+   const plugins = {}
+
+   const nextTailwindConfigCode = replaceTailwindConfigSubImports(
+      replaceTailwindConfigPluginsImports(
+         replaceTailwindConfigTypeImports(tailwindConfigCode),
+         (pluginName, version) => {
+            plugins[pluginName] = version
+         },
+      ),
+   )
+
+   const p = {
+      ...plugins,
+      ...meta.plugins,
+   }
+
+   const nextMeta = {
+      ...meta,
+      plugins: Object.keys(p).length ? p : undefined,
+   }
+
    /** @type {import('../../typings/widgets').WidgetData} */
    const data = {
       css,
@@ -180,13 +206,9 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       vue: `<template>
       ${html}
       </template>`,
-      meta,
+      meta: nextMeta,
       tailwindConfig,
-      tailwindConfigCode: replaceTailwindConfigSubImports(
-         replaceTailwindConfigPluginsImports(
-            replaceTailwindConfigTypeImports(tailwindConfigCode),
-         ),
-      ),
+      tailwindConfigCode: nextTailwindConfigCode,
       segmentedMetas,
       key: path.relative(process.cwd(), widgetPath).replace(/\//g, '_'),
    }

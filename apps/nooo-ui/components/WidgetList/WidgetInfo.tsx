@@ -129,7 +129,7 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
                               </th>
                               <td
                                  className={clsx(
-                                    'px-8 text-gray-900 dark:text-gray-100 transition',
+                                    'px-8 text-gray-900 dark:text-gray-100 transition max-w-md',
                                     index === 0
                                        ? 'pt-4 pb-3'
                                        : index === list.length - 1
