@@ -57,6 +57,7 @@
    },
    "devDependencies": {
       "@tailwindcss/forms": "^0.5.3",
+      "@tailwindcss/line-clamp": "^0.4.2",
       "@tailwindcss/typography": "^0.5.8",
       "@types/fs-extra": "^11.0.0",
       "@types/glob": "^8.0.0",
@@ -77,6 +78,7 @@
       "eslint-config-next": "^13.1.2",
       "postcss": "^8.4.19",
       "tailwindcss": "^3.2.4",
+      "tailwindcss-animate": "^1.0.5",
       "ts-node": "^10.9.1",
       "tsup": "^6.5.0",
       "tsx": "^3.12.1",

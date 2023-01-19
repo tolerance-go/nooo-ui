@@ -1,0 +1,1032 @@
+<div class="min-h-screen bg-black">
+   <style>
+      .background_main {
+         width: 100vw;
+         min-height: 100vh;
+         position: fixed;
+         display: flex;
+         justify-content: center;
+         padding: 120px 24px 160px 24px;
+         pointer-events: none;
+      }
+
+      .background_main:before {
+         background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #161616 100%);
+         position: absolute;
+         content: '';
+         z-index: 2;
+         width: 100%;
+         height: 100%;
+         top: 0;
+      }
+
+      .background_main:after {
+         content: '';
+         /* background-image: url("/_static/grid.svg"); */
+
+         z-index: 1;
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         top: 0;
+         inset: 0;
+         opacity: 0.3;
+         filter: invert(0.5);
+      }
+
+      .background_content {
+         height: fit-content;
+         z-index: 3;
+         width: 100%;
+         max-width: 640px;
+         background-image: radial-gradient(
+               at 27% 37%,
+               hsla(215, 98%, 61%, 1) 0px,
+               transparent 0%
+            ),
+            radial-gradient(at 97% 21%, #d80000 0px, transparent 50%),
+            radial-gradient(at 52% 99%, #bb2424 0px, transparent 50%),
+            radial-gradient(at 10% 29%, #d80039 0px, transparent 50%),
+            radial-gradient(at 97% 96%, rgb(228, 149, 149) 0px, transparent 50%),
+            radial-gradient(at 33% 50%, #ec4848 0px, transparent 50%),
+            radial-gradient(at 79% 53%, #e90e0e 0px, transparent 50%);
+         position: absolute;
+         content: '';
+         width: 100%;
+         height: 100%;
+         filter: blur(100px) saturate(150%);
+         top: 80px;
+         opacity: 0.15;
+      }
+
+      @media screen and (max-width: 640px) {
+         .background_content {
+            display: none;
+         }
+      }
+   </style>
+   <div class="flex min-h-screen flex-col">
+      <header class="container z-40">
+         <div class="flex h-16 items-center justify-between py-4">
+            <div class="flex gap-6 text-red-50 md:gap-10">
+               <a class="flex items-center space-x-2 text-2xl" href="/"
+                  ><svg
+                     stroke="currentColor"
+                     fill="currentColor"
+                     stroke-width="0"
+                     viewBox="0 0 512 512"
+                     color="white"
+                     style="color: white"
+                     height="32"
+                     width="32"
+                     xmlns="http://www.w3.org/2000/svg"
+                  >
+                     <path
+                        d="M196.14 78.192c-11.98 26.54-14.398 45.97-11.355 59.664 3.357 15.106 12.85 24.708 27.24 31.903l11.168 5.583-8.83 8.828c-.94.942-2.235 4.514-1.224 10.9 1.01 6.39 4.1 14.61 8.626 22.335 5.75 9.82 13.835 18.326 21.62 23.235L256 221.77l12.52 18.926c7.814-4.9 15.94-13.433 21.714-23.29 4.526-7.727 7.617-15.947 8.627-22.335 1.012-6.386-.282-9.958-1.223-10.9l-8.83-8.827 11.168-5.584c14.39-7.196 23.883-16.798 27.24-31.904 3.043-13.694.626-33.125-11.354-59.664-25.09 13.792-37.177 28.03-51.32 70.46L256 174.27l-8.54-25.617c-14.143-42.43-26.23-56.67-51.32-70.46zM96 97.808c-3.376 19.912-5.288 41.53 10.314 58.623C53.46 233.354 16 377.273 16 433.81c5.024-10.05 13.206-23.25 23.055-35.647 1.14-66.82 33.374-161.227 81.228-240.983l4.63-7.717 7.718 4.63c20.08 12.047 41.164 20.96 62.73 26.745-7.74-5.074-14.54-11.42-19.673-19.15-17.93-7.796-34.227-18.417-47.687-31.877-18.968-1.448-25.344-16.872-32-32zm320 0c-6.656 15.128-13.032 30.552-32 32-13.46 13.46-29.756 24.08-47.688 31.877-5.133 7.73-11.93 14.076-19.673 19.15 21.566-5.785 42.65-14.698 62.73-26.744l7.718-4.63 4.63 7.717c47.853 79.756 80.088 174.163 81.227 240.984 9.85 12.397 18.03 25.6 23.055 35.648 0-56.536-37.46-200.455-90.314-277.377 15.602-17.093 13.69-38.71 10.314-58.622zm-192 80c11.588 8.65 18.698 11.698 32 16 13.302-4.302 20.412-7.35 32-16 2.458 4.566 0 16 0 16-11.948 5.447-21.853 2.208-32 0-10.147 2.208-20.052 5.447-32 0 0 0-2.458-11.434 0-16zm-71.854 6.525c1.817 4.383 3.522 9.017 5.143 13.88 5.98 17.942 10.558 38.886 13.62 60.32 5.243 36.7 6.394 74.3.945 101.388 8.74-.234 17.477 2.767 26.21 8.274L166.41 392.56l20.268-4.795-8.55 33.595L208 403.77l1.057 20.8 13.615-34.794c.632.695 1.264 1.432 1.896 2.145-4.088-5.556-7.65-12.068-10.78-19.37-9.34-21.792-14.788-50.772-14.788-82.742 0-22.842 2.793-44.14 7.787-62.397-.18-.302-.375-.603-.553-.907-5.21-8.898-9-18.256-10.636-27.26-14.738-3.625-29.273-8.592-43.452-14.91zm207.708 0c-14.18 6.318-28.714 11.285-43.452 14.91-1.637 9.004-5.425 18.362-10.636 27.26-.178.304-.372.605-.553.908C310.207 245.67 313 266.967 313 289.81c0 31.97-5.448 60.95-14.787 82.742-2.734 6.378-5.807 12.136-9.262 17.2.085-.095.17-.198.253-.292l13.74 35.11L304 403.772l29.87 17.59-8.548-33.595 20.268 4.795-32.195-24.782c8.94-5.75 17.842-8.698 26.73-7.957-5.425-27.08-4.27-64.633.965-101.286 3.062-21.435 7.64-42.38 13.62-60.322 1.622-4.862 3.327-9.496 5.144-13.88zm-227.268.64c-12.714 64.79-23.21 127.977-15.46 180.256 12.15-9.62 24.292-10.477 36.362-5.83 4.968-22.784 4.842-61.64-.398-98.32-2.938-20.563-7.36-40.62-12.88-57.177-2.344-7.035-4.942-13.425-7.624-18.93zm246.828 0c-2.682 5.505-5.28 11.895-7.625 18.93-5.52 16.557-9.942 36.614-12.88 57.178-5.19 36.34-5.364 74.816-.537 97.683 12.897-3.96 24.765-2.81 36.5 6.468 7.75-52.28-2.745-115.467-15.46-180.256zm-271.6 33.74c-26.35 55.316-44.32 113.17-49.365 158.712 13.07-11.5 27.16-18.727 39.995-15.59-5.553-44.21.388-93.13 9.368-143.123zm296.374 0c8.98 49.993 14.92 98.912 9.367 143.122 12.835-3.137 26.925 4.09 39.996 15.59-5.044-45.542-23.014-103.396-49.363-158.713zm-183.22 27.466c-2.517 13.256-3.968 28.045-3.968 43.628 0 6.126.233 12.123.656 17.963 1.642 22.645 6.29 42.786 12.676 57.688 4.017 9.372 8.73 16.627 13.307 21.143 4.575 4.517 8.57 6.208 12.36 6.208 3.79 0 7.785-1.69 12.36-6.207 4.577-4.515 9.29-11.77 13.308-21.142 6.386-14.902 11.034-35.043 12.676-57.687.423-5.84.656-11.836.656-17.962 0-15.583-1.45-30.372-3.97-43.63-9.624 9.87-21.444 16.92-35.03 16.92-13.586 0-25.406-7.05-35.03-16.92zm9.805 153.007c8.413 10.265 16.82 22.012 25.227 34.62 8.136-12.204 16.2-23.596 24.207-33.636-6.772 6.394-15.1 10.638-24.207 10.638-9.465 0-18.096-4.578-25.006-11.397-.074-.072-.147-.15-.22-.223z"
+                     ></path></svg
+                  ><span class="hidden font-bold sm:inline-block">Vamp</span></a
+               >
+            </div>
+            <nav class="flex gap-4">
+               <a href="/browse"
+                  ><button
+                     class="button flex items-center justify-center shadow-sm transition-all duration-150 font-medium disabled:opacity-60 disabled:pointer-events-none disabled:cursor-not-allowed focus:outline-none focus:ring-0 text-brandtext-500 hover:text-white px-5 py-2.5 text-sm rounded-full"
+                  >
+                     Bounties
+                  </button></a
+               ><!--$--><a href="/login"
+                  ><button
+                     class="button flex items-center justify-center shadow-sm transition-all duration-150 font-medium disabled:opacity-60 disabled:pointer-events-none disabled:cursor-not-allowed focus:outline-none focus:ring-0 bg-rose-600 text-white hover:bg-rose-500 px-5 py-2.5 text-sm rounded-full"
+                  >
+                     Login
+                  </button></a
+               ><!--/$-->
+            </nav>
+         </div>
+      </header>
+      <main class="z-10 flex-1">
+         <div
+            class="mx-auto mt-24 mb-10 max-w-md px-2.5 text-center sm:max-w-xl sm:px-0"
+         >
+            <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+               <div
+                  class="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-brandtext-500/10 hover:ring-white/20"
+               >
+                  <span class="text-brandtext-500"
+                     >Announcing Vamp.sh.<!-- -->
+                     <a href="#" class="font-semibold text-rose-600"
+                        ><span
+                           class="absolute inset-0"
+                           aria-hidden="true"
+                        ></span
+                        >Read more <span aria-hidden="true">→</span></a
+                     ></span
+                  >
+               </div>
+            </div>
+            <h1
+               class="mt-5 inline bg-gradient-to-r from-white to-brandtext-500 bg-clip-text text-5xl font-extrabold leading-[1.15] tracking-tight text-white text-transparent sm:text-7xl sm:leading-[1.15]"
+            >
+               Contribute to Open Source<br /><span
+                  class="red-glow bg-gradient-to-r from-rose-600 to-rose-500 bg-clip-text text-transparent"
+                  >Get Paid</span
+               >
+            </h1>
+            <h2 class="mt-5 text-lg text-brandtext-500 sm:text-xl">
+               Vamp is an open-source bounty platform designed to empower
+               project maintainers, and the contributors that make them great.
+            </h2>
+            <div class="mx-auto mt-10 flex max-w-fit space-x-4">
+               <a href="/browse"
+                  ><button
+                     class="button flex items-center justify-center shadow-sm transition-all duration-150 font-medium disabled:opacity-60 disabled:pointer-events-none disabled:cursor-not-allowed focus:outline-none focus:ring-0 bg-rose-600 text-white hover:bg-rose-500 px-5 py-2.5 text-sm rounded-lg"
+                  >
+                     Browse Bounties
+                  </button></a
+               ><a
+                  class="hover:text-brandtext-500 hover:underline hover:brightness-150"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href="https://github.com/DavidTParks/vamp"
+                  ><button
+                     class="button flex items-center justify-center shadow-sm transition-all duration-150 font-medium disabled:opacity-60 disabled:pointer-events-none disabled:cursor-not-allowed focus:outline-none focus:ring-0 bg-secondary-button text-white border border-raised-border brightness-100 hover:brightness-150 px-5 py-2.5 text-sm rounded-lg"
+                  >
+                     <p class="mr-2 text-sm">Star on GitHub</p>
+                     <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-star"
+                     >
+                        <polygon
+                           points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                        ></polygon>
+                     </svg></button
+               ></a>
+            </div>
+         </div>
+         <section
+            class="container grid place-items-center items-center justify-center gap-6 py-8 text-center md:py-12 lg:py-24"
+         >
+            <div
+               class="mx-auto flex flex-col items-center gap-4 md:max-w-[52rem]"
+            >
+               <h2
+                  class="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-clip-text font-display text-4xl font-extrabold leading-tight text-transparent sm:text-5xl sm:leading-tight"
+               >
+                  Sync Github Issues with ease
+               </h2>
+               <p
+                  class="max-w-[85%] leading-normal text-brandtext-600 sm:text-lg sm:leading-7"
+               >
+                  Link existing Github repositories and post bounties by
+                  referencing issues directly.
+               </p>
+            </div>
+            <div
+               class="flex h-full w-full items-center justify-center overflow-hidden rounded-lg"
+            >
+               <img src="https://source.unsplash.com/random/800x400" />
+            </div>
+         </section>
+         <section
+            class="container grid gap-6 py-8 text-center md:py-12 lg:py-24"
+         >
+            <div
+               class="mx-auto flex flex-col items-center gap-4 md:max-w-[52rem]"
+            >
+               <h2
+                  class="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-clip-text font-display text-4xl font-extrabold leading-tight text-transparent sm:text-5xl sm:leading-tight"
+               >
+                  Make your mark
+               </h2>
+               <p
+                  class="max-w-[85%] leading-normal text-brandtext-600 sm:text-lg sm:leading-7"
+               >
+                  Collect Blood for each accepted bounty submission. Climb the
+                  leaderboard and make a name for yourself!
+               </p>
+            </div>
+            <!--$-->
+            <div class="sm:px-6 lg:px-8">
+               <div class="mt-8 flex flex-col">
+                  <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                     <div
+                        class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8"
+                     >
+                        <div
+                           class="overflow-hidden shadow ring-1 ring-palette-300 md:rounded-lg"
+                        >
+                           <table
+                              class="min-w-full divide-y divide-palette-300"
+                           >
+                              <thead class="bg-appbg">
+                                 <tr>
+                                    <th
+                                       scope="col"
+                                       class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-brandtext-500 sm:pl-6"
+                                    >
+                                       Place
+                                    </th>
+                                    <th
+                                       scope="col"
+                                       class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-brandtext-500 sm:pl-6"
+                                    >
+                                       Name
+                                    </th>
+                                    <th
+                                       scope="col"
+                                       class="inline-flex items-center gap-2 px-3 py-3.5 text-left text-sm font-semibold text-brandtext-500"
+                                    >
+                                       Blood<!-- -->
+                                       <img
+                                          alt="blood icon"
+                                          src="/_assets/widgets/pc/hero/hero-1/assets/blood.png?w=48&q=75"
+                                          width="24"
+                                          height="24"
+                                          decoding="async"
+                                          data-nimg="1"
+                                          loading="lazy"
+                                          style="color: transparent"
+                                       />
+                                    </th>
+                                 </tr>
+                              </thead>
+                              <tbody
+                                 class="divide-y divide-palette-300 bg-appbg"
+                              >
+                                 <tr>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start gap-4"
+                                       >
+                                          1<img
+                                             alt="gold"
+                                             src="/_assets/widgets/pc/hero/hero-1/assets/gold.png?w=48&q=75"
+                                             width="24"
+                                             height="24"
+                                             decoding="async"
+                                             data-nimg="1"
+                                             loading="lazy"
+                                             style="color: transparent"
+                                          />
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start"
+                                       >
+                                          <div class="h-10 w-10 flex-shrink-0">
+                                             <span
+                                                class="relative flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full border border-zinc-700/50 bg-zinc-800 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5"
+                                                ><img
+                                                   alt="David Parks avatar"
+                                                   src="{{avatar}}"
+                                                   width="32"
+                                                   height="32"
+                                                   decoding="async"
+                                                   data-nimg="1"
+                                                   class="border-sm h-8 w-8 overflow-hidden rounded-full border border-zinc-700/50"
+                                                   loading="lazy"
+                                                   style="color: transparent"
+                                             /></span>
+                                          </div>
+                                          <a href="/u/clbhbhn5j0000mk08ks6h4xrt"
+                                             ><div
+                                                class="ml-2 hover:underline hover:brightness-150"
+                                             >
+                                                <div class="text-brandtext-500">
+                                                   David Parks
+                                                </div>
+                                             </div></a
+                                          >
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap px-3 py-4 text-sm text-brandtext-500"
+                                    >
+                                       0
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start gap-4"
+                                       >
+                                          2<img
+                                             alt="silver"
+                                             src="/_assets/widgets/pc/hero/hero-1/assets/silver.png?w=48&q=75"
+                                             width="24"
+                                             height="24"
+                                             decoding="async"
+                                             data-nimg="1"
+                                             loading="lazy"
+                                             style="color: transparent"
+                                          />
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start"
+                                       >
+                                          <div class="h-10 w-10 flex-shrink-0">
+                                             <span
+                                                class="relative flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full border border-zinc-700/50 bg-zinc-800 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5"
+                                                ><img
+                                                   alt="Alex / KATT avatar"
+                                                   src="{{avatar}}"
+                                                   width="32"
+                                                   height="32"
+                                                   decoding="async"
+                                                   data-nimg="1"
+                                                   class="border-sm h-8 w-8 overflow-hidden rounded-full border border-zinc-700/50"
+                                                   loading="lazy"
+                                                   style="color: transparent"
+                                             /></span>
+                                          </div>
+                                          <a href="/u/clbts0jzq0000mi08yrwnbquu"
+                                             ><div
+                                                class="ml-2 hover:underline hover:brightness-150"
+                                             >
+                                                <div class="text-brandtext-500">
+                                                   Alex / KATT
+                                                </div>
+                                             </div></a
+                                          >
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap px-3 py-4 text-sm text-brandtext-500"
+                                    >
+                                       0
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start gap-4"
+                                       >
+                                          3<img
+                                             alt="bronze"
+                                             src="/_assets/widgets/pc/hero/hero-1/assets/bronze.png?w=48&q=75"
+                                             width="24"
+                                             height="24"
+                                             decoding="async"
+                                             data-nimg="1"
+                                             loading="lazy"
+                                             style="color: transparent"
+                                          />
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start"
+                                       >
+                                          <div class="h-10 w-10 flex-shrink-0">
+                                             <span
+                                                class="relative flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full border border-zinc-700/50 bg-zinc-800 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5"
+                                                ><img
+                                                   alt="Markas Klapovščiuk avatar"
+                                                   src="{{avatar}}"
+                                                   width="32"
+                                                   height="32"
+                                                   decoding="async"
+                                                   data-nimg="1"
+                                                   class="border-sm h-8 w-8 overflow-hidden rounded-full border border-zinc-700/50"
+                                                   loading="lazy"
+                                                   style="color: transparent"
+                                             /></span>
+                                          </div>
+                                          <a href="/u/clckvr35q0000l808bv2ffgfo"
+                                             ><div
+                                                class="ml-2 hover:underline hover:brightness-150"
+                                             >
+                                                <div class="text-brandtext-500">
+                                                   Markas Klapovščiuk
+                                                </div>
+                                             </div></a
+                                          >
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap px-3 py-4 text-sm text-brandtext-500"
+                                    >
+                                       0
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start gap-4"
+                                       >
+                                          4
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start"
+                                       >
+                                          <div class="h-10 w-10 flex-shrink-0">
+                                             <span
+                                                class="relative flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full border border-zinc-700/50 bg-zinc-800 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5"
+                                                ><img
+                                                   alt="Alvaro Aquije avatar"
+                                                   src="{{avatar}}"
+                                                   width="32"
+                                                   height="32"
+                                                   decoding="async"
+                                                   data-nimg="1"
+                                                   class="border-sm h-8 w-8 overflow-hidden rounded-full border border-zinc-700/50"
+                                                   loading="lazy"
+                                                   style="color: transparent"
+                                             /></span>
+                                          </div>
+                                          <a href="/u/clckwbnan0000md083n96s9dr"
+                                             ><div
+                                                class="ml-2 hover:underline hover:brightness-150"
+                                             >
+                                                <div class="text-brandtext-500">
+                                                   Alvaro Aquije
+                                                </div>
+                                             </div></a
+                                          >
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap px-3 py-4 text-sm text-brandtext-500"
+                                    >
+                                       0
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start gap-4"
+                                       >
+                                          5
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start"
+                                       >
+                                          <div class="h-10 w-10 flex-shrink-0">
+                                             <span
+                                                class="relative flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full border border-zinc-700/50 bg-zinc-800 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5"
+                                                ><img
+                                                   alt="Poke avatar"
+                                                   src="{{avatar}}"
+                                                   width="32"
+                                                   height="32"
+                                                   decoding="async"
+                                                   data-nimg="1"
+                                                   class="border-sm h-8 w-8 overflow-hidden rounded-full border border-zinc-700/50"
+                                                   loading="lazy"
+                                                   style="color: transparent"
+                                             /></span>
+                                          </div>
+                                          <a href="/u/clcnl4q5q0000l708tcfc8aru"
+                                             ><div
+                                                class="ml-2 hover:underline hover:brightness-150"
+                                             >
+                                                <div class="text-brandtext-500">
+                                                   Poke
+                                                </div>
+                                             </div></a
+                                          >
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap px-3 py-4 text-sm text-brandtext-500"
+                                    >
+                                       0
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start gap-4"
+                                       >
+                                          6
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start"
+                                       >
+                                          <div class="h-10 w-10 flex-shrink-0">
+                                             <span
+                                                class="relative flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full border border-zinc-700/50 bg-zinc-800 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5"
+                                                ><img
+                                                   alt="Kyle DePace avatar"
+                                                   src="{{avatar}}"
+                                                   width="32"
+                                                   height="32"
+                                                   decoding="async"
+                                                   data-nimg="1"
+                                                   class="border-sm h-8 w-8 overflow-hidden rounded-full border border-zinc-700/50"
+                                                   loading="lazy"
+                                                   style="color: transparent"
+                                             /></span>
+                                          </div>
+                                          <a href="/u/clcnlc3wn0006l70853ulakbn"
+                                             ><div
+                                                class="ml-2 hover:underline hover:brightness-150"
+                                             >
+                                                <div class="text-brandtext-500">
+                                                   Kyle DePace
+                                                </div>
+                                             </div></a
+                                          >
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap px-3 py-4 text-sm text-brandtext-500"
+                                    >
+                                       0
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start gap-4"
+                                       >
+                                          7
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start"
+                                       >
+                                          <div class="h-10 w-10 flex-shrink-0">
+                                             <span
+                                                class="relative flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full border border-zinc-700/50 bg-zinc-800 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5"
+                                                ><img
+                                                   alt="Alex Lane avatar"
+                                                   src="{{avatar}}"
+                                                   width="32"
+                                                   height="32"
+                                                   decoding="async"
+                                                   data-nimg="1"
+                                                   class="border-sm h-8 w-8 overflow-hidden rounded-full border border-zinc-700/50"
+                                                   loading="lazy"
+                                                   style="color: transparent"
+                                             /></span>
+                                          </div>
+                                          <a href="/u/clcnlnvjh0000l408q8avjtia"
+                                             ><div
+                                                class="ml-2 hover:underline hover:brightness-150"
+                                             >
+                                                <div class="text-brandtext-500">
+                                                   Alex Lane
+                                                </div>
+                                             </div></a
+                                          >
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap px-3 py-4 text-sm text-brandtext-500"
+                                    >
+                                       0
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start gap-4"
+                                       >
+                                          8
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start"
+                                       >
+                                          <div class="h-10 w-10 flex-shrink-0">
+                                             <span
+                                                class="relative flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full border border-zinc-700/50 bg-zinc-800 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5"
+                                                ><img
+                                                   alt="Paul Valladares avatar"
+                                                   src="{{avatar}}"
+                                                   width="32"
+                                                   height="32"
+                                                   decoding="async"
+                                                   data-nimg="1"
+                                                   class="border-sm h-8 w-8 overflow-hidden rounded-full border border-zinc-700/50"
+                                                   loading="lazy"
+                                                   style="color: transparent"
+                                             /></span>
+                                          </div>
+                                          <a href="/u/clcnm0x9b0000ms086x9beg2j"
+                                             ><div
+                                                class="ml-2 hover:underline hover:brightness-150"
+                                             >
+                                                <div class="text-brandtext-500">
+                                                   Paul Valladares
+                                                </div>
+                                             </div></a
+                                          >
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap px-3 py-4 text-sm text-brandtext-500"
+                                    >
+                                       0
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start gap-4"
+                                       >
+                                          9
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start"
+                                       >
+                                          <div class="h-10 w-10 flex-shrink-0">
+                                             <span
+                                                class="relative flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full border border-zinc-700/50 bg-zinc-800 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5"
+                                                ><img
+                                                   alt="Jakub Hašek avatar"
+                                                   src="{{avatar}}"
+                                                   width="32"
+                                                   height="32"
+                                                   decoding="async"
+                                                   data-nimg="1"
+                                                   class="border-sm h-8 w-8 overflow-hidden rounded-full border border-zinc-700/50"
+                                                   loading="lazy"
+                                                   style="color: transparent"
+                                             /></span>
+                                          </div>
+                                          <a href="/u/clcojisx50000k1089dv7z85y"
+                                             ><div
+                                                class="ml-2 hover:underline hover:brightness-150"
+                                             >
+                                                <div class="text-brandtext-500">
+                                                   Jakub Hašek
+                                                </div>
+                                             </div></a
+                                          >
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap px-3 py-4 text-sm text-brandtext-500"
+                                    >
+                                       0
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start gap-4"
+                                       >
+                                          10
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6"
+                                    >
+                                       <div
+                                          class="flex items-center justify-start"
+                                       >
+                                          <div class="h-10 w-10 flex-shrink-0">
+                                             <span
+                                                class="relative flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full border border-zinc-700/50 bg-zinc-800 shadow-md shadow-zinc-800/5 ring-0 ring-zinc-900/5"
+                                                ><img
+                                                   alt="v avatar"
+                                                   src="{{avatar}}"
+                                                   width="32"
+                                                   height="32"
+                                                   decoding="async"
+                                                   data-nimg="1"
+                                                   class="border-sm h-8 w-8 overflow-hidden rounded-full border border-zinc-700/50"
+                                                   loading="lazy"
+                                                   style="color: transparent"
+                                             /></span>
+                                          </div>
+                                          <a href="/u/clcp72toi0000l308iew75vu9"
+                                             ><div
+                                                class="ml-2 hover:underline hover:brightness-150"
+                                             >
+                                                <div class="text-brandtext-500">
+                                                   v
+                                                </div>
+                                             </div></a
+                                          >
+                                       </div>
+                                    </td>
+                                    <td
+                                       class="whitespace-nowrap px-3 py-4 text-sm text-brandtext-500"
+                                    >
+                                       0
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="mx-auto flex w-full max-w-md justify-center">
+               <a href="/leaderboard"
+                  ><button
+                     class="button justify-center shadow-sm transition-all duration-150 font-medium disabled:opacity-60 disabled:pointer-events-none disabled:cursor-not-allowed focus:outline-none focus:ring-0 bg-rose-600 text-white hover:bg-rose-500 px-5 py-2.5 text-sm rounded-lg inline-flex items-center gap-2"
+                  >
+                     <img
+                        alt="gold"
+                        src="/_assets/widgets/pc/hero/hero-1/assets/gold.png?w=48&q=75"
+                        width="16"
+                        height="16"
+                        decoding="async"
+                        data-nimg="1"
+                        loading="lazy"
+                        style="color: transparent"
+                     />View Leaderboard
+                  </button></a
+               >
+            </div>
+            <!--/$-->
+         </section>
+         <section
+            class="container grid place-items-center items-center justify-center gap-6 py-8 text-center md:py-12 lg:py-24"
+         >
+            <div
+               class="mx-auto flex flex-col items-center gap-4 md:max-w-[52rem]"
+            >
+               <h2
+                  class="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-clip-text font-display text-4xl font-extrabold leading-tight text-transparent sm:text-5xl sm:leading-tight"
+               >
+                  Completely Open Source
+               </h2>
+               <p
+                  class="max-w-[85%] leading-normal text-brandtext-600 sm:text-lg sm:leading-7"
+               >
+                  We support open source, so why not make our site open source!
+                  Feel free to read, review, or contribute.
+               </p>
+            </div>
+            <a
+               class="hover:text-brandtext-500 hover:underline hover:brightness-150"
+               rel="noopener noreferrer"
+               target="_blank"
+               href="https://github.com/DavidTParks/vamp"
+               ><button
+                  class="button flex items-center justify-center shadow-sm transition-all duration-150 font-medium disabled:opacity-60 disabled:pointer-events-none disabled:cursor-not-allowed focus:outline-none focus:ring-0 bg-rose-600 text-white hover:bg-rose-500 px-5 py-2.5 text-sm rounded-lg"
+               >
+                  <div
+                     class="flex h-10 w-10 items-center justify-center space-x-2 rounded-md border border-slate-600 bg-slate-800"
+                  >
+                     <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        class="h-5 w-5 text-white"
+                     >
+                        <path
+                           d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                        ></path>
+                     </svg>
+                  </div>
+                  <div class="flex items-center">
+                     <div
+                        class="h-4 w-4 border-y-8 border-r-8 border-l-0 border-solid border-y-transparent border-r-slate-800"
+                     ></div>
+                     <div
+                        class="flex h-10 items-center rounded-md border border-slate-800 bg-slate-800 px-4 font-medium text-slate-200"
+                     >
+                        21<!-- -->
+                        stars on GitHub
+                     </div>
+                  </div>
+               </button></a
+            >
+         </section>
+         <div class="bg-transparent">
+            <div class="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8">
+               <div class="lg:mx-auto lg:max-w-2xl lg:text-center">
+                  <h2
+                     class="text-3xl font-bold tracking-tight text-brandtext-500 sm:text-4xl"
+                  >
+                     Frequently asked questions
+                  </h2>
+                  <p class="mt-4 text-brandtext-600">
+                     If you have any other questions please get in touch.
+                  </p>
+               </div>
+               <div class="mt-20">
+                  <dl
+                     class="space-y-10 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10 lg:space-y-0"
+                  >
+                     <div>
+                        <dt class="font-semibold text-brandtext-500">
+                           Who is this platform for?
+                        </dt>
+                        <dd class="mt-3 text-brandtext-600">
+                           Vamp is useful for both open-source maintainers and
+                           open-source contributors. If you are a project
+                           maintainer, or somebody looking to dip your toes into
+                           open-source and make money while doing it, Vamp is
+                           for you!
+                        </dd>
+                     </div>
+                     <div>
+                        <dt class="font-semibold text-brandtext-500">
+                           How is this different from other bounty platforms?
+                        </dt>
+                        <dd class="mt-3 text-brandtext-600">
+                           Vamp is open-source, so there is full transparency
+                           how the platform operates. Also, Vamp offers
+                           extremely low fees, and does not impose withdrawal
+                           fees or inactivity fees like other bounty platforms.
+                        </dd>
+                     </div>
+                     <div>
+                        <dt class="font-semibold text-brandtext-500">
+                           How do I get paid out?
+                        </dt>
+                        <dd class="mt-3 text-brandtext-600">
+                           Once your bounty submission is accepted and paid out
+                           by a project owner, payouts are handled through
+                           Stripe on a rolling daily basis. You will need to
+                           link a debit card or bank account via Stripe to
+                           handle receiving payments.
+                        </dd>
+                     </div>
+                     <div>
+                        <dt class="font-semibold text-brandtext-500">
+                           Is there a fee?
+                        </dt>
+                        <dd class="mt-3 text-brandtext-600">
+                           Vamp will charge a 5% fee + 50c for each payment made
+                           through our platform. If this is a deal-breaker for
+                           your project please get in touch.
+                        </dd>
+                     </div>
+                     <div>
+                        <dt class="font-semibold text-brandtext-500">
+                           How can I contribute?
+                        </dt>
+                        <dd class="mt-3 text-brandtext-600">
+                           Vamp is open-source! To contribute feel free to open
+                           an issue if you believe you've encountered a bug or
+                           make a pull request to add new features/make
+                           quality-of-life improvements/fix bugs.
+                        </dd>
+                     </div>
+                  </dl>
+               </div>
+            </div>
+         </div>
+         <div class="bg-palette-400/50">
+            <div
+               class="mx-auto max-w-2xl py-16 px-6 text-center sm:py-20 lg:px-8"
+            >
+               <h2
+                  class="text-3xl font-bold tracking-tight text-white sm:text-4xl"
+               >
+                  <span class="block">Make your mark.</span
+                  ><span class="block">Start using Vamp today.</span>
+               </h2>
+               <a href="/register"
+                  ><button
+                     class="button shadow-sm transition-all duration-150 font-medium disabled:opacity-60 disabled:pointer-events-none disabled:cursor-not-allowed focus:outline-none focus:ring-0 bg-rose-600 text-white hover:bg-rose-500 px-5 py-2.5 text-sm rounded-lg mt-8 inline-flex w-full items-center justify-center sm:w-auto"
+                  >
+                     Sign up for free
+                  </button></a
+               >
+            </div>
+         </div>
+      </main>
+      <div class="background_main">
+         <div class="background_content"></div>
+      </div>
+   </div>
+   <div
+      style="
+         position: fixed;
+         z-index: 9999;
+         top: 16px;
+         left: 16px;
+         right: 16px;
+         bottom: 16px;
+         pointer-events: none;
+      "
+   ></div>
+   <footer
+      class="max-w-container relative z-50 mx-auto mt-32 w-full px-4 sm:px-6 lg:px-8"
+   >
+      <div class="border-t border-raised-border py-10">
+         <div
+            class="mx-auto flex h-5 w-auto max-w-sm items-center justify-center gap-2 text-center font-bold text-brandtext-500"
+         >
+            <svg
+               stroke="currentColor"
+               fill="currentColor"
+               stroke-width="0"
+               viewBox="0 0 512 512"
+               height="24"
+               width="24"
+               xmlns="http://www.w3.org/2000/svg"
+            >
+               <path
+                  d="M196.14 78.192c-11.98 26.54-14.398 45.97-11.355 59.664 3.357 15.106 12.85 24.708 27.24 31.903l11.168 5.583-8.83 8.828c-.94.942-2.235 4.514-1.224 10.9 1.01 6.39 4.1 14.61 8.626 22.335 5.75 9.82 13.835 18.326 21.62 23.235L256 221.77l12.52 18.926c7.814-4.9 15.94-13.433 21.714-23.29 4.526-7.727 7.617-15.947 8.627-22.335 1.012-6.386-.282-9.958-1.223-10.9l-8.83-8.827 11.168-5.584c14.39-7.196 23.883-16.798 27.24-31.904 3.043-13.694.626-33.125-11.354-59.664-25.09 13.792-37.177 28.03-51.32 70.46L256 174.27l-8.54-25.617c-14.143-42.43-26.23-56.67-51.32-70.46zM96 97.808c-3.376 19.912-5.288 41.53 10.314 58.623C53.46 233.354 16 377.273 16 433.81c5.024-10.05 13.206-23.25 23.055-35.647 1.14-66.82 33.374-161.227 81.228-240.983l4.63-7.717 7.718 4.63c20.08 12.047 41.164 20.96 62.73 26.745-7.74-5.074-14.54-11.42-19.673-19.15-17.93-7.796-34.227-18.417-47.687-31.877-18.968-1.448-25.344-16.872-32-32zm320 0c-6.656 15.128-13.032 30.552-32 32-13.46 13.46-29.756 24.08-47.688 31.877-5.133 7.73-11.93 14.076-19.673 19.15 21.566-5.785 42.65-14.698 62.73-26.744l7.718-4.63 4.63 7.717c47.853 79.756 80.088 174.163 81.227 240.984 9.85 12.397 18.03 25.6 23.055 35.648 0-56.536-37.46-200.455-90.314-277.377 15.602-17.093 13.69-38.71 10.314-58.622zm-192 80c11.588 8.65 18.698 11.698 32 16 13.302-4.302 20.412-7.35 32-16 2.458 4.566 0 16 0 16-11.948 5.447-21.853 2.208-32 0-10.147 2.208-20.052 5.447-32 0 0 0-2.458-11.434 0-16zm-71.854 6.525c1.817 4.383 3.522 9.017 5.143 13.88 5.98 17.942 10.558 38.886 13.62 60.32 5.243 36.7 6.394 74.3.945 101.388 8.74-.234 17.477 2.767 26.21 8.274L166.41 392.56l20.268-4.795-8.55 33.595L208 403.77l1.057 20.8 13.615-34.794c.632.695 1.264 1.432 1.896 2.145-4.088-5.556-7.65-12.068-10.78-19.37-9.34-21.792-14.788-50.772-14.788-82.742 0-22.842 2.793-44.14 7.787-62.397-.18-.302-.375-.603-.553-.907-5.21-8.898-9-18.256-10.636-27.26-14.738-3.625-29.273-8.592-43.452-14.91zm207.708 0c-14.18 6.318-28.714 11.285-43.452 14.91-1.637 9.004-5.425 18.362-10.636 27.26-.178.304-.372.605-.553.908C310.207 245.67 313 266.967 313 289.81c0 31.97-5.448 60.95-14.787 82.742-2.734 6.378-5.807 12.136-9.262 17.2.085-.095.17-.198.253-.292l13.74 35.11L304 403.772l29.87 17.59-8.548-33.595 20.268 4.795-32.195-24.782c8.94-5.75 17.842-8.698 26.73-7.957-5.425-27.08-4.27-64.633.965-101.286 3.062-21.435 7.64-42.38 13.62-60.322 1.622-4.862 3.327-9.496 5.144-13.88zm-227.268.64c-12.714 64.79-23.21 127.977-15.46 180.256 12.15-9.62 24.292-10.477 36.362-5.83 4.968-22.784 4.842-61.64-.398-98.32-2.938-20.563-7.36-40.62-12.88-57.177-2.344-7.035-4.942-13.425-7.624-18.93zm246.828 0c-2.682 5.505-5.28 11.895-7.625 18.93-5.52 16.557-9.942 36.614-12.88 57.178-5.19 36.34-5.364 74.816-.537 97.683 12.897-3.96 24.765-2.81 36.5 6.468 7.75-52.28-2.745-115.467-15.46-180.256zm-271.6 33.74c-26.35 55.316-44.32 113.17-49.365 158.712 13.07-11.5 27.16-18.727 39.995-15.59-5.553-44.21.388-93.13 9.368-143.123zm296.374 0c8.98 49.993 14.92 98.912 9.367 143.122 12.835-3.137 26.925 4.09 39.996 15.59-5.044-45.542-23.014-103.396-49.363-158.713zm-183.22 27.466c-2.517 13.256-3.968 28.045-3.968 43.628 0 6.126.233 12.123.656 17.963 1.642 22.645 6.29 42.786 12.676 57.688 4.017 9.372 8.73 16.627 13.307 21.143 4.575 4.517 8.57 6.208 12.36 6.208 3.79 0 7.785-1.69 12.36-6.207 4.577-4.515 9.29-11.77 13.308-21.142 6.386-14.902 11.034-35.043 12.676-57.687.423-5.84.656-11.836.656-17.962 0-15.583-1.45-30.372-3.97-43.63-9.624 9.87-21.444 16.92-35.03 16.92-13.586 0-25.406-7.05-35.03-16.92zm9.805 153.007c8.413 10.265 16.82 22.012 25.227 34.62 8.136-12.204 16.2-23.596 24.207-33.636-6.772 6.394-15.1 10.638-24.207 10.638-9.465 0-18.096-4.578-25.006-11.397-.074-.072-.147-.15-.22-.223z"
+               ></path>
+            </svg>
+            Vamp
+         </div>
+         <div class="mt-8 flex justify-center space-x-6">
+            <a
+               target="_blank"
+               rel="noopener noreferrer"
+               href="https://twitter.com/Vampdotsh"
+               class="text-brandtext-500 hover:text-brandtext-500"
+               ><span class="sr-only">Twitter</span
+               ><svg
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  class="h-6 w-6"
+                  aria-hidden="true"
+               >
+                  <path
+                     d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                  ></path></svg></a
+            ><a
+               target="_blank"
+               rel="noopener noreferrer"
+               href="https://github.com/DavidTParks/vamp"
+               class="text-brandtext-500 hover:text-brandtext-500"
+               ><span class="sr-only">GitHub</span
+               ><svg
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  class="h-6 w-6"
+                  aria-hidden="true"
+               >
+                  <path
+                     fill-rule="evenodd"
+                     d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                     clip-rule="evenodd"
+                  ></path></svg
+            ></a>
+         </div>
+         <p class="mt-5 text-center text-sm leading-6 text-brandtext-500">
+            © 2023 David Parks. All rights reserved.
+         </p>
+         <div
+            class="mt-16 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-brandtext-500"
+         >
+            <a href="/privacy-policy">Privacy policy</a>
+            <div class="h-4 w-px bg-brandtext-500/20"></div>
+            <a href="/tos">Terms of Service</a>
+         </div>
+      </div>
+   </footer>
+</div>

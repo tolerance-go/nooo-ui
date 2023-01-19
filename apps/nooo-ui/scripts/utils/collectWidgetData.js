@@ -15,15 +15,21 @@ const copyAssetsToPublic = (/** @type {string} */ assetsPath) => {
    const relativeAssetsPath = path.relative(process.cwd(), assetsPath)
 
    if (fs.existsSync(assetsPath) && fs.statSync(assetsPath).isDirectory()) {
+      fs.emptyDirSync(path.join(publicAssetsPath, relativeAssetsPath))
       fs.readdirSync(assetsPath).forEach((asset) => {
-         fs.emptyDirSync(path.join(publicAssetsPath, relativeAssetsPath))
-
          fs.copyFileSync(
             path.join(assetsPath, asset),
             path.join(publicAssetsPath, relativeAssetsPath, asset),
          )
       })
    }
+}
+
+const replaceTailwindConfigSubImports = (code) => {
+   return code.replace(
+      /require\('(\.\.\/)*tailwindcss-lib\/tailwindcss\/(.*?)\/node_modules\/tailwindcss\/(.*?)'\)/g,
+      `require('tailwindcss/$3')`,
+   )
 }
 
 const replaceTailwindConfigTypeImports = (code) => {
@@ -35,8 +41,14 @@ const replaceTailwindConfigTypeImports = (code) => {
 
 const replaceTailwindConfigPluginsImports = (code) => {
    return code.replace(
-      /require\('(\.\.\/)*tailwindcss-lib\/plugins\/(.*?)\/(.*?)'\)/g,
-      `require('$2') /** $2@$3 */`,
+      /require\('(\.\.\/)*tailwindcss-lib\/plugins\/(.*?)\/(.*?)(\/(.*?))?'\)/g,
+      (a, b, c, d, e) => {
+         if (c.startsWith('@')) {
+            return `require('${c}/${d}') /** ${c}/${d}@${e.slice(1)} */`
+         }
+
+         return `require('${c}') /** ${c}@${d} */`
+      },
    )
 }
 
@@ -138,6 +150,9 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       'sentence-lg': () => Random.sentence(25),
       first: () => Random.first(),
       name: () => Random.name(),
+
+      avatar: () =>
+         `https://api.dicebear.com/5.x/identicon/svg?seed=${Math.random()}`,
    })
 
    const css = await getTailwindcssFromHtml(
@@ -167,8 +182,10 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       </template>`,
       meta,
       tailwindConfig,
-      tailwindConfigCode: replaceTailwindConfigPluginsImports(
-         replaceTailwindConfigTypeImports(tailwindConfigCode),
+      tailwindConfigCode: replaceTailwindConfigSubImports(
+         replaceTailwindConfigPluginsImports(
+            replaceTailwindConfigTypeImports(tailwindConfigCode),
+         ),
       ),
       segmentedMetas,
       key: path.relative(process.cwd(), widgetPath).replace(/\//g, '_'),
@@ -183,3 +200,5 @@ module.exports.replaceTailwindConfigTypeImports =
    replaceTailwindConfigTypeImports
 module.exports.replaceTailwindConfigPluginsImports =
    replaceTailwindConfigPluginsImports
+
+module.exports.replaceTailwindConfigSubImports = replaceTailwindConfigSubImports

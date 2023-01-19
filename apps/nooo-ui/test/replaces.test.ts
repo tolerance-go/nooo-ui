@@ -1,5 +1,6 @@
 import {
    replaceTailwindConfigPluginsImports,
+   replaceTailwindConfigSubImports,
    replaceTailwindConfigTypeImports,
 } from 'scripts/utils/collectWidgetData'
 import { describe, expect, test } from 'vitest'
@@ -17,10 +18,30 @@ describe('replaces', async () => {
       `)
    })
 
+   test('replaceTailwindConfigSubImports', async () => {
+      expect(
+         replaceTailwindConfigSubImports(
+            `
+             const {
+               colors,
+             } = require('../../../../tailwindcss-lib/tailwindcss/3.2.4/node_modules/tailwindcss/colors');
+             const plugin = require('../../../../tailwindcss-lib/tailwindcss/3.2.4/node_modules/tailwindcss/plugin');
+            `,
+         ),
+      ).toMatchInlineSnapshot(`
+        "
+                     const {
+                       colors,
+                     } = require('tailwindcss/3.2.4');
+                     const plugin = require('tailwindcss/3.2.4');
+                    "
+      `)
+   })
+
    test('replaceTailwindConfigPluginsImports', async () => {
       expect(
          replaceTailwindConfigPluginsImports(
-            `/** @type {import('../../../../typings/widgets').WidgetTailwindConfig} */
+            `
             module.exports = {
                darkMode: 'class',
                plugins: [require('../../../../tailwindcss-lib/plugins/kutty/0.6.0')],
@@ -28,7 +49,7 @@ describe('replaces', async () => {
             `,
          ),
       ).toMatchInlineSnapshot(`
-        "/** @type {import('../../../../typings/widgets').WidgetTailwindConfig} */
+        "
                     module.exports = {
                        darkMode: 'class',
                        plugins: [require('kutty') /** kutty@0.6.0 */],
@@ -38,7 +59,25 @@ describe('replaces', async () => {
 
       expect(
          replaceTailwindConfigPluginsImports(
-            `/** @type {import('../../../../typings/widgets').WidgetTailwindConfig} */
+            `
+            module.exports = {
+               darkMode: 'class',
+               plugins: [require('../../../../tailwindcss-lib/plugins/@tailwindcss/typography/0.5.9')],
+            }
+            `,
+         ),
+      ).toMatchInlineSnapshot(`
+        "
+                    module.exports = {
+                       darkMode: 'class',
+                       plugins: [require('@tailwindcss/typography') /** @tailwindcss/typography@0.5.9 */],
+                    }
+                    "
+      `)
+
+      expect(
+         replaceTailwindConfigPluginsImports(
+            `
             module.exports = {
                darkMode: 'class',
                plugins: [require('../../../../tailwindcss-lib/plugins/kutty/0.6.0'), require('../../../../tailwindcss-lib/plugins/other/0.6.0')],
@@ -46,7 +85,7 @@ describe('replaces', async () => {
             `,
          ),
       ).toMatchInlineSnapshot(`
-        "/** @type {import('../../../../typings/widgets').WidgetTailwindConfig} */
+        "
                     module.exports = {
                        darkMode: 'class',
                        plugins: [require('kutty') /** kutty@0.6.0 */, require('other') /** other@0.6.0 */],

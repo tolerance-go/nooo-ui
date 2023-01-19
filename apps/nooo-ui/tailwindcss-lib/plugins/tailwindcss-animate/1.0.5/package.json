@@ -1,0 +1,12 @@
+{
+   "name": "tailwindcss-animate-1.0.5",
+   "version": "1.0.0",
+   "description": "",
+   "license": "ISC",
+   "author": "",
+   "main": "index.js",
+   "scripts": {},
+   "dependencies": {
+      "tailwindcss-animate": "1.0.5"
+   }
+}

@@ -1,0 +1,12 @@
+{
+   "name": "@tailwindcss/typography-0.5.9",
+   "version": "1.0.0",
+   "description": "",
+   "license": "ISC",
+   "author": "",
+   "main": "index.js",
+   "scripts": {},
+   "dependencies": {
+      "@tailwindcss/typography": "0.5.9"
+   }
+}
