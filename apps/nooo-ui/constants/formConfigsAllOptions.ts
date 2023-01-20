@@ -75,4 +75,9 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'faq',
       zhLabel: '问答',
    },
+   header: {
+      label: 'header',
+      value: 'header',
+      zhLabel: '页头',
+   },
 }
