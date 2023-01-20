@@ -19,6 +19,7 @@
    "widgetPanel": {
       "nav": {
          "preview": "Preview",
+         "css": "CSS",
          "config": "Config"
       },
       "info": {

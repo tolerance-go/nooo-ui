@@ -4,7 +4,10 @@ const Mustache = require('mustache')
 const path = require('path')
 const invariant = require('tiny-invariant')
 const { convertHTMLToJSX } = require('./convertHTMLToJSX')
-const { getTailwindcssFromHtml } = require('./getTailwindcssFromHtml')
+const {
+   getTailwindcssFromHtml,
+   defaultTailwindEntryCss,
+} = require('./getTailwindcssFromHtml')
 const requireUncached = require('./requireUncached')
 
 const widgetRootPath = path.join(process.cwd(), 'widgets')
@@ -91,6 +94,7 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
    const tailwindConfigPath = path.join(widgetPath, 'tailwind.config.js')
    const tplPath = path.join(widgetPath, 'template.html')
    const frameWrapPath = path.join(widgetPath, 'frame-wrap.html')
+   const globalCssPath = path.join(widgetPath, 'global.css')
 
    const assetsPath = path.join(widgetPath, 'assets')
    copyAssetsToPublic(assetsPath)
@@ -108,6 +112,13 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
 
    /** @type {string | undefined} */
    let frameWrap
+
+   /** @type {string | undefined} */
+   let globalCss
+
+   if (fs.existsSync(globalCssPath)) {
+      globalCss = fs.readFileSync(globalCssPath, { encoding: 'utf-8' })
+   }
 
    if (fs.existsSync(frameWrapPath)) {
       frameWrap = fs.readFileSync(frameWrapPath, { encoding: 'utf-8' })
@@ -164,7 +175,10 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       html,
       tailwindConfig,
       meta.tailwindcssVersion,
+      globalCss,
    )
+
+   const tailwindEntryCss = globalCss ?? defaultTailwindEntryCss
 
    const frameWrapCss =
       frameWrap &&
@@ -202,6 +216,7 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
       html,
       frameWrap,
       frameWrapCss,
+      tailwindEntryCss,
       jsx: convertHTMLToJSX(html),
       vue: `<template>
       ${html}

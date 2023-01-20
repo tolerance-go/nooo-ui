@@ -75,9 +75,29 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'faq',
       zhLabel: '问答',
    },
+   card: {
+      label: 'card',
+      value: 'card',
+      zhLabel: '卡片',
+   },
    header: {
       label: 'header',
       value: 'header',
       zhLabel: '页头',
+   },
+   section: {
+      label: 'section',
+      value: 'section',
+      zhLabel: '区域',
+   },
+   feature: {
+      label: 'feature',
+      value: 'feature',
+      zhLabel: '功能介绍',
+   },
+   rotation: {
+      label: 'rotation',
+      value: 'rotation',
+      zhLabel: '轮播',
    },
 }

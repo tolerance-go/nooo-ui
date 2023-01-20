@@ -47,6 +47,7 @@ export type WidgetSegmentedMeta = {}
 export type WidgetData = {
    tailwindConfig: WidgetTailwindConfig
    tailwindConfigCode: string
+   tailwindEntryCss: string
    css: string
    html: string
    frameWrap?: string

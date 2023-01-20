@@ -3,11 +3,12 @@
 import { Options } from 'prettier'
 import babelParser from 'prettier/parser-babel'
 import htmlParser from 'prettier/parser-html'
+import postcssParser from 'prettier/parser-postcss'
 import prettier from 'prettier/standalone'
 import { useMemo } from 'react'
 export const CodeFormatter = (props: {
    code: string
-   type: 'html' | 'js'
+   type: 'html' | 'js' | 'css'
    children: (code: string) => React.ReactNode
 }) => {
    const config = useMemo((): Options | null => {
@@ -21,6 +22,12 @@ export const CodeFormatter = (props: {
          return {
             parser: 'babel',
             plugins: [babelParser],
+         }
+      }
+      if (props.type === 'css') {
+         return {
+            parser: 'css',
+            plugins: [postcssParser],
          }
       }
       return null

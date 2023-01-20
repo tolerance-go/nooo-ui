@@ -14,13 +14,18 @@ const getMatchAvailableTwVersion = (
       .sort((a, b) => (semver.eq(a, b) ? 0 : semver.gt(a, b) ? -1 : 1))[0]
 }
 
+const defaultTailwindEntryCss =
+   '@tailwind base; @tailwind components; @tailwind utilities'
+
+module.exports.defaultTailwindEntryCss = defaultTailwindEntryCss
+
 module.exports.getMatchAvailableTwVersion = getMatchAvailableTwVersion
 
 module.exports.getTailwindcssFromHtml = async (
    /** @type {string} */ html,
    /** @type {import('../../typings/widgets').WidgetTailwindConfig} */ configs,
    /** @type {string} */ tailwindcssVersion,
-   /** @type {string} */ tailwindEntry = '@tailwind base; @tailwind components; @tailwind utilities',
+   /** @type {string} */ tailwindEntry = defaultTailwindEntryCss,
 ) => {
    const twPath = path.join(process.cwd(), 'tailwindcss-lib', 'tailwindcss')
    // 所有可用 tw 版本

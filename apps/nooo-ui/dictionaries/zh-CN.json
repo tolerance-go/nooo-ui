@@ -19,7 +19,8 @@
    "widgetPanel": {
       "nav": {
          "preview": "预览",
-         "config": "配置"
+         "config": "配置",
+         "css": "CSS"
       },
       "info": {
          "keywords": "搜索关键字",
