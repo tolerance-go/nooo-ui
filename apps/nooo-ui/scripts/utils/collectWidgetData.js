@@ -169,6 +169,16 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
 
       avatar: () =>
          `https://api.dicebear.com/5.x/identicon/svg?seed=${Math.random()}`,
+      image: () =>
+         `https://source.unsplash.com/random/400x400?sig=${Math.floor(
+            Math.random() * 10,
+         )}`,
+      dummyImage50x50: () => `https://dummyimage.com/50x50`,
+      dummyImage100x100: () => `https://dummyimage.com/100x100`,
+      dummyImage200x100: () => `https://dummyimage.com/200x100`,
+      dummyImage800x400: () => `https://dummyimage.com/800x400`,
+      dummyImage800x200: () => `https://dummyimage.com/800x200`,
+      dummyImage800x800: () => `https://dummyimage.com/800x800`,
    })
 
    const css = await getTailwindcssFromHtml(
