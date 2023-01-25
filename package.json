@@ -10,7 +10,7 @@
       "bundle": "turbo run lint build test --concurrency=2 --filter={'./apps/*'}...",
       "ci": "git pull && pnpm install && pnpm prebuild && pnpm pretest && pnpm bundle && pnpm postbuild && pm2 restart nooo-ui",
       "clean": "git clean -dfX",
-      "dev": "pnpm -r --parallel --filter=@fenxing/nooo-ui... run dev",
+      "dev": "pnpm -r --parallel --filter=@nooo-ui/nooo-ui... run dev",
       "format": "prettier '**/*.{css,js,mjs,ts,tsx,md,mdx}' --write",
       "lint": "pnpm lint:format && pnpm lint:packages",
       "lint:format": "prettier '**/*.{css,js,mjs,ts,tsx,md,mdx}' --check",
