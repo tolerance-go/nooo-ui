@@ -23,12 +23,7 @@ export default async function RootLayout({
    return (
       <html className={theme} lang={params.lang}>
          <head></head>
-         <body
-            style={{
-               backgroundColor: theme === 'dark' ? '#000' : '#fff',
-            }}
-            className='bg-white dark:bg-black transition'
-         >
+         <body className='bg-white dark:bg-black transition'>
             <LocaleContextProvider lang={params.lang} dictionary={dictionary}>
                <SiteThemeContextProvider defaultTheme={theme}>
                   <CookiesProviderWrapper>{children}</CookiesProviderWrapper>

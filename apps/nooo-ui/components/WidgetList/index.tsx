@@ -12,6 +12,7 @@ import { WidgetPanel } from './WidgetPanel'
 export const WidgetList = ({ list }: { list: WidgetData[] }) => {
    const { watch } = useFormContext()
    const watchAllFields = watch()
+   console.log('watchAllFields', watchAllFields)
    const { dictionary, lang } = useLocaleContext()
 
    const results = getFilterWidgetsData(watchAllFields, list, lang)

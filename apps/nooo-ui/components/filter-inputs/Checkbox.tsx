@@ -9,7 +9,7 @@ export const Checkbox = (
       options: OptionItem[]
    },
 ) => {
-   const { register } = useFormContext()
+   const { register, setValue } = useFormContext()
    return (
       <div className='flex items-stretch border-b dark:border-gray-800 transition'>
          <div
@@ -19,7 +19,7 @@ export const Checkbox = (
             {props.title}
          </div>
          <div className='flex-grow p-2' aria-label='right-area'>
-            <div className='flex items-center h-full space-x-4'>
+            <div className='flex items-center h-full space-x-4 flex-wrap'>
                {props.options.map((item) => {
                   return (
                      <div className='flex items-center' key={item.value}>
@@ -38,6 +38,38 @@ export const Checkbox = (
                      </div>
                   )
                })}
+               <button
+                  className='text-sky-700 hover:text-sky-600 text-sm transition'
+                  onClick={() => {
+                     setValue(
+                        props.name,
+                        props.options.reduce((acc, next) => {
+                           return {
+                              ...acc,
+                              [next.value]: false,
+                           }
+                        }, {}),
+                     )
+                  }}
+               >
+                  全部取消
+               </button>
+               <button
+                  className='text-sky-700 hover:text-sky-600 text-sm transition'
+                  onClick={() => {
+                     setValue(
+                        props.name,
+                        props.options.reduce((acc, next) => {
+                           return {
+                              ...acc,
+                              [next.value]: true,
+                           }
+                        }, {}),
+                     )
+                  }}
+               >
+                  全部选中
+               </button>
             </div>
          </div>
       </div>

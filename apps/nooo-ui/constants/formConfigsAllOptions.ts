@@ -80,6 +80,11 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'card',
       zhLabel: '卡片',
    },
+   client: {
+      label: 'client',
+      value: 'client',
+      zhLabel: '客户展示',
+   },
    header: {
       label: 'header',
       value: 'header',

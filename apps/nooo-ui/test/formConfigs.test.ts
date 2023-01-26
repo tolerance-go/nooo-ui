@@ -30,6 +30,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: '',
                   segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
+                  tailwindEntryCss: '',
                },
             ],
             dict,
@@ -108,6 +109,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: '',
                   segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
+                  tailwindEntryCss: '',
                },
                {
                   css: '',
@@ -130,6 +132,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
                   segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
+                  tailwindEntryCss: '',
                },
             ],
          ),
@@ -164,6 +167,7 @@ describe('formConfigs', async () => {
             ],
             "tailwindConfig": {},
             "tailwindConfigCode": "",
+            "tailwindEntryCss": "",
             "vue": "",
           },
         ]
@@ -204,6 +208,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: '',
                   segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
+                  tailwindEntryCss: '',
                },
                {
                   css: '',
@@ -226,6 +231,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
                   segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
+                  tailwindEntryCss: '',
                },
             ],
          ),
@@ -260,6 +266,7 @@ describe('formConfigs', async () => {
             ],
             "tailwindConfig": {},
             "tailwindConfigCode": "",
+            "tailwindEntryCss": "",
             "vue": "",
           },
           {
@@ -290,6 +297,7 @@ describe('formConfigs', async () => {
               "darkMode": "class",
             },
             "tailwindConfigCode": "module.exports = { darkMode: 'class' };",
+            "tailwindEntryCss": "",
             "vue": "",
           },
         ]
@@ -327,6 +335,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: '',
                   segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
+                  tailwindEntryCss: '',
                },
                {
                   css: '',
@@ -349,6 +358,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
                   segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
+                  tailwindEntryCss: '',
                },
             ],
          ),
@@ -393,6 +403,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: '',
                   segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
+                  tailwindEntryCss: '',
                },
                {
                   css: '',
@@ -415,6 +426,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
                   segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
+                  tailwindEntryCss: '',
                },
             ],
          ),
@@ -451,6 +463,7 @@ describe('formConfigs', async () => {
             ],
             "tailwindConfig": {},
             "tailwindConfigCode": "",
+            "tailwindEntryCss": "",
             "vue": "",
           },
         ]
@@ -488,6 +501,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: '',
                   segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
+                  tailwindEntryCss: '',
                },
                {
                   css: '',
@@ -510,6 +524,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
                   segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
+                  tailwindEntryCss: '',
                },
             ],
          ),
@@ -548,6 +563,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: '',
                   segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
                   key: 'widgets/app/page/page-1',
+                  tailwindEntryCss: '',
                },
                {
                   css: '',
@@ -570,6 +586,7 @@ describe('formConfigs', async () => {
                   tailwindConfigCode: "module.exports = { darkMode: 'class' };",
                   segmentedMetas: [{ gg: 'true' }],
                   key: 'widgets/web/banner/banner-1',
+                  tailwindEntryCss: '',
                },
             ],
          ),
@@ -604,6 +621,7 @@ describe('formConfigs', async () => {
             ],
             "tailwindConfig": {},
             "tailwindConfigCode": "",
+            "tailwindEntryCss": "",
             "vue": "",
           },
           {
@@ -634,6 +652,7 @@ describe('formConfigs', async () => {
               "darkMode": "class",
             },
             "tailwindConfigCode": "module.exports = { darkMode: 'class' };",
+            "tailwindEntryCss": "",
             "vue": "",
           },
         ]

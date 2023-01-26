@@ -1,15 +1,15 @@
 /** @type {import('../../../../typings/widgets').WidgetItemMeta} */
 module.exports = {
    props: {
-      keywords: ['hero'],
-      zhKeywords: ['hero'],
+      keywords: ['header', 'navigation'],
+      zhKeywords: ['页头', '导航'],
       type: 'block',
       platform: 'pc',
-      categories: ['hero'],
+      categories: ['header'],
    },
    createDate: '2023-01-26 00:00:00',
    updateDate: '2023-01-26 00:00:00',
-   frameHeight: 900,
+   frameHeight: 200,
    tailwindcssVersion: '3.2.x',
    theme: true,
 }
