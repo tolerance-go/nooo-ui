@@ -174,6 +174,7 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
             Math.random() * 10,
          )}`,
       dummyImage50x50: () => `https://dummyimage.com/50x50`,
+      dummyImage100x50: () => `https://dummyimage.com/100x50`,
       dummyImage100x100: () => `https://dummyimage.com/100x100`,
       dummyImage200x100: () => `https://dummyimage.com/200x100`,
       dummyImage800x400: () => `https://dummyimage.com/800x400`,
