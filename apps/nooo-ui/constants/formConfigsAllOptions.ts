@@ -105,4 +105,9 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'rotation',
       zhLabel: '轮播',
    },
+   content: {
+      label: 'content',
+      value: 'content',
+      zhLabel: '内容',
+   },
 }
