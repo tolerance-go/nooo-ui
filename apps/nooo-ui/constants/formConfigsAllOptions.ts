@@ -110,4 +110,9 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'content',
       zhLabel: '内容',
    },
+   grid: {
+      label: 'grid',
+      value: 'grid',
+      zhLabel: '网格',
+   },
 }
