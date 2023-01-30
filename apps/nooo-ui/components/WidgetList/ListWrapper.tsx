@@ -35,7 +35,7 @@ export const ListWrapper = ({ list }: { list: WidgetData[] }) => {
                   {dictionary.loadMore}
                </button>
             ) : (
-               <div className='text-gray-400'>{dictionary.noMore}</div>
+               <div className='text-gray-500'>{dictionary.noMore}</div>
             )}
          </div>
       </>
