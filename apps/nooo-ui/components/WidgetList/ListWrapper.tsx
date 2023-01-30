@@ -2,6 +2,7 @@
 
 import { useLocaleContext } from 'components/LocaleContext'
 import { useState } from 'react'
+import { useUpdateEffect } from 'react-use'
 import { WidgetData } from 'typings/widgets'
 import { WidgetPanel } from './WidgetPanel'
 
@@ -18,6 +19,10 @@ export const ListWrapper = ({ list }: { list: WidgetData[] }) => {
        * 15 <= 15
        */
       list.length > end
+
+   useUpdateEffect(() => {
+      setEnd(pageSize)
+   }, [list.length])
 
    return (
       <>
