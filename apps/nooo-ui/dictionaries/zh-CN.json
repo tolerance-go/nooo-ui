@@ -22,6 +22,7 @@
       "nav": {
          "preview": "预览",
          "config": "配置",
+         "scss": "SCSS",
          "css": "CSS"
       },
       "info": {

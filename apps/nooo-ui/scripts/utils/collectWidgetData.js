@@ -9,6 +9,7 @@ const {
    defaultTailwindEntryCss,
 } = require('./getTailwindcssFromHtml')
 const requireUncached = require('./requireUncached')
+const sass = require('sass')
 
 const widgetRootPath = path.join(process.cwd(), 'widgets')
 const publicPath = path.join(process.cwd(), 'public')
@@ -95,6 +96,7 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
    const tplPath = path.join(widgetPath, 'template.html')
    const frameWrapPath = path.join(widgetPath, 'frame-wrap.html')
    const globalCssPath = path.join(widgetPath, 'global.css')
+   const globalScssPath = path.join(widgetPath, 'global.scss')
 
    const assetsPath = path.join(widgetPath, 'assets')
    copyAssetsToPublic(assetsPath)
@@ -115,6 +117,13 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
 
    /** @type {string | undefined} */
    let globalCss
+
+   /** @type {string | undefined} */
+   let globalScss
+
+   if (fs.existsSync(globalScssPath)) {
+      globalScss = fs.readFileSync(globalScssPath, { encoding: 'utf-8' })
+   }
 
    if (fs.existsSync(globalCssPath)) {
       globalCss = fs.readFileSync(globalCssPath, { encoding: 'utf-8' })
@@ -173,23 +182,30 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
          `https://source.unsplash.com/random/400x400?sig=${Math.floor(
             Math.random() * 10,
          )}`,
-      dummyImage50x50: () => `https://dummyimage.com/50x50`,
-      dummyImage100x50: () => `https://dummyimage.com/100x50`,
-      dummyImage100x100: () => `https://dummyimage.com/100x100`,
-      dummyImage200x100: () => `https://dummyimage.com/200x100`,
-      dummyImage800x400: () => `https://dummyimage.com/800x400`,
-      dummyImage800x200: () => `https://dummyimage.com/800x200`,
-      dummyImage800x800: () => `https://dummyimage.com/800x800`,
+      placeholderImage50x50: () => `https://dummyimage.com/50x50`,
+      placeholderImage100x50: () => `https://dummyimage.com/100x50`,
+      placeholderImage100x100: () => `https://dummyimage.com/100x100`,
+      placeholderImage200x100: () => `https://dummyimage.com/200x100`,
+      placeholderImage400x400: () => `https://dummyimage.com/400x400`,
+      placeholderImage800x400: () => `https://dummyimage.com/800x400`,
+      placeholderImage800x200: () => `https://dummyimage.com/800x200`,
+      placeholderImage600x600: () => `https://dummyimage.com/600x600`,
+      placeholderImage600x300: () => `https://dummyimage.com/600x300`,
+      placeholderImage800x800: () => `https://dummyimage.com/800x800`,
    })
+
+   const distGlobalCss = fs.existsSync(globalScssPath)
+      ? sass.compile(globalScssPath).css
+      : globalCss
 
    const css = await getTailwindcssFromHtml(
       html,
       tailwindConfig,
       meta.tailwindcssVersion,
-      globalCss,
+      distGlobalCss,
    )
 
-   const tailwindEntryCss = globalCss ?? defaultTailwindEntryCss
+   const tailwindEntryCss = globalScss ?? globalCss ?? defaultTailwindEntryCss
 
    const frameWrapCss =
       frameWrap &&
@@ -223,6 +239,7 @@ module.exports.collectWidgetData = async (/** @type {string} */ widgetPath) => {
 
    /** @type {import('../../typings/widgets').WidgetData} */
    const data = {
+      tailwindEntryIsScss: !!globalScss,
       css,
       html,
       frameWrap,

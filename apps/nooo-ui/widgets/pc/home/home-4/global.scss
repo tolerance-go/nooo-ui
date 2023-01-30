@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+   @apply antialiased;
+}
+
+.grid-margins {
+   @apply mx-15px;
+}
+
+h1 {
+   @apply font-display;
+
+   line-height: 1.2;
+   font-weight: 500;
+   font-size: 2.1875rem;
+   letter-spacing: -0.01em;
+}
+
+h2 {
+   @apply font-sans;
+
+   font-weight: 400;
+   font-size: 1.5rem;
+   line-height: 1.4;
+}
+
+@screen lg {
+   h1 {
+      font-size: 3.125rem;
+   }
+}
+
+@screen sm {
+   h2 {
+      font-size: 1.5rem;
+   }
+
+   h4 {
+      line-height: 1.4;
+   }
+}
+
+@screen md {
+   .grid-margins {
+      margin: 0 4%;
+   }
+}
+
+/* 1440 max width + 58px left & right padding */
+@media only screen and (min-width: 1556px) {
+   .grid-margins {
+      @apply max-w-screen-xxl mx-auto;
+   }
+}
+
+canvas {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   pointer-events: none;
+   user-select: none;
+}
+
+#toggle-animation {
+   background-color: rgba(6, 27, 45, 0.6);
+   min-width: initial;
+   border: none;
+   color: #8c9aa2;
+   z-index: 2;
+
+   &:hover {
+      @apply text-blueGreenLight;
+   }
+}
+.view-more {
+   z-index: 2;
+}
+.hero-container {
+   margin-top: 23vh;
+   z-index: 2;
+}
+.hero-container h2 {
+   font-size: 1.375rem;
+   font-weight: 200;
+   font-family: 'inter', sans-serif;
+   line-height: 2rem;
+}
+@media (max-width: 768px) {
+   .hero-container {
+      margin-top: 15vh;
+   }
+}
+@media (max-width: 640px) {
+   .hero-container h2 {
+      font-size: 1.1625rem;
+      line-height: 1.6rem;
+   }
+   .hero-container {
+      margin-top: 5vh;
+      padding: 0 10%;
+   }
+}
+@media (max-width: 420px) {
+   #stars {
+      min-height: 44rem;
+   }
+}

@@ -50,7 +50,9 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                               },
                               {
                                  value: 'tailwindEntryCss',
-                                 label: dictionary.widgetPanel.nav.css,
+                                 label: data.tailwindEntryIsScss
+                                    ? dictionary.widgetPanel.nav.scss
+                                    : dictionary.widgetPanel.nav.css,
                               },
                            ] as {
                               value: string
@@ -264,12 +266,20 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                      </CodeFormatter>
                   )}
                   {activeTabKey === 'tailwindEntryCss' && (
-                     <CodeFormatter code={data.tailwindEntryCss} type='css'>
+                     <CodeFormatter
+                        code={data.tailwindEntryCss}
+                        type={data.tailwindEntryIsScss ? 'scss' : 'css'}
+                     >
                         {(code) => {
                            return (
                               <div className='relative'>
                                  <CopyBtn text={code} />
-                                 <CodePreviewer code={code} language={'css'} />
+                                 <CodePreviewer
+                                    code={code}
+                                    language={
+                                       data.tailwindEntryIsScss ? 'scss' : 'css'
+                                    }
+                                 />
                               </div>
                            )
                         }}

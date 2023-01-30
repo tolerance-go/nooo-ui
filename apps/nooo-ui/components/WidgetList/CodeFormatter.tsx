@@ -8,7 +8,7 @@ import prettier from 'prettier/standalone'
 import { useMemo } from 'react'
 export const CodeFormatter = (props: {
    code: string
-   type: 'html' | 'js' | 'css'
+   type: 'html' | 'js' | 'css' | 'scss'
    children: (code: string) => React.ReactNode
 }) => {
    const config = useMemo((): Options | null => {
@@ -27,6 +27,12 @@ export const CodeFormatter = (props: {
       if (props.type === 'css') {
          return {
             parser: 'css',
+            plugins: [postcssParser],
+         }
+      }
+      if (props.type === 'scss') {
+         return {
+            parser: 'scss',
             plugins: [postcssParser],
          }
       }
