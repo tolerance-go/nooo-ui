@@ -10,6 +10,8 @@
    "nav": {
       "doc": "文档"
    },
+   "loadMore": "加载更多",
+   "noMore": "没有更多了",
    "colon": "：",
    "searchPlaceholder": "关键字搜索模板",
    "searchResults": "搜索结果",

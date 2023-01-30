@@ -6,8 +6,8 @@ import { useFormContext } from 'react-hook-form'
 import { WidgetData } from 'typings/widgets'
 import { getFilterWidgetsData } from 'utils/getFilterWidgetsData'
 import { getCollectedKeys } from './getCollectedKeys'
+import { ListWrapper } from './ListWrapper'
 import { OnlyCollectedToggle } from './OnlyCollectedToggle'
-import { WidgetPanel } from './WidgetPanel'
 
 export const WidgetList = ({ list }: { list: WidgetData[] }) => {
    const { watch } = useFormContext()
@@ -44,15 +44,13 @@ export const WidgetList = ({ list }: { list: WidgetData[] }) => {
             <OnlyCollectedToggle setOnlyShowCollected={setOnlyShowCollected} />
          </div>
          <div className='max-w-screen-2xl mx-auto mt-3 px-2 lg:px-0'>
-            {resultsFilterByCollection
-               .sort(
+            <ListWrapper
+               list={resultsFilterByCollection.sort(
                   (a, b) =>
                      new Date(b.meta.updateDate).getTime() -
                      new Date(a.meta.updateDate).getTime(),
-               )
-               .map((item) => {
-                  return <WidgetPanel key={item.key} data={item} />
-               })}
+               )}
+            />
          </div>
       </>
    )
