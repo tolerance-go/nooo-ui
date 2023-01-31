@@ -115,4 +115,14 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'grid',
       zhLabel: '网格',
    },
+   modal: {
+      label: 'modal',
+      value: 'modal',
+      zhLabel: '拟态框',
+   },
+   pricing: {
+      label: 'pricing',
+      value: 'pricing',
+      zhLabel: '定价',
+   },
 }
