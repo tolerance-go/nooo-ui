@@ -5,9 +5,8 @@ import { describe, expect, test } from 'vitest'
 describe('sass', async () => {
    test('compile', async () => {
       const result = sass.compile(path.join(__dirname, 'global.scss'))
-      expect(result).toMatchInlineSnapshot(`
-        {
-          "css": "@tailwind base;
+      expect(result.css).toMatchInlineSnapshot(`
+        "@tailwind base;
         @tailwind components;
         @tailwind utilities;
         body {
@@ -38,11 +37,7 @@ describe('sass', async () => {
         }
         #toggle-animation:hover {
           @apply text-blueGreenLight;
-        }",
-          "loadedUrls": [
-            "file:///Users/yarnb/fenxing/nooo-ui/apps/nooo-ui/test/global.scss",
-          ],
-        }
+        }"
       `)
    })
 })
