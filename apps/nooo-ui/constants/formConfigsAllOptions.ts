@@ -135,4 +135,14 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'avatar',
       zhLabel: '头像',
    },
+   blog: {
+      label: 'blog',
+      value: 'blog',
+      zhLabel: 'blog',
+   },
+   breadcrumb: {
+      label: 'breadcrumb',
+      value: 'breadcrumb',
+      zhLabel: '面包屑',
+   },
 }
