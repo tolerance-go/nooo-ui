@@ -30,7 +30,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                <div
                   key={data.key}
                   aria-label='card'
-                  className='rounded-xl bg-white dark:bg-black border dark:border-gray-800 transition overflow-hidden mb-10 lg:mb-14'
+                  className='rounded-xl bg-white dark:bg-black border dark:border-gray-800 transition mb-10 lg:mb-14 overflow-visible'
                >
                   <div className='py-4 px-4 lg:py-5 lg:px-7 flex-col space-y-3 lg:space-y-0 lg:flex-row flex justify-between items-center text-sm font-medium text-center text-gray-500 dark:text-gray-400 border-b dark:border-gray-800 transition'>
                      <div className='flex space-x-2 flex-wrap'>
