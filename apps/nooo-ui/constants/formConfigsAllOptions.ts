@@ -145,4 +145,9 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'breadcrumb',
       zhLabel: '面包屑',
    },
+   'call-to-action': {
+      label: 'call-to-action',
+      value: 'call-to-action',
+      zhLabel: '呼叫操作',
+   },
 }
