@@ -9,7 +9,7 @@ export const Previewer = ({ data }: { data: WidgetData }) => {
    return (
       <div
          className={clsx('py-5 px-7 example-bg', {
-            dark: theme === 'dark',
+            dark: data.meta.theme === 'dark' || theme === 'dark',
          })}
       >
          {data.meta.mobile ? (

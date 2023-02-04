@@ -35,7 +35,7 @@ export type WidgetItemMeta = {
       | {
            type: 'top' | 'center' | 'bottom' | 'page'
         }
-   theme?: boolean
+   theme?: boolean | 'dark'
    createDate: string
    updateDate: string
    frameHeight?: number | string

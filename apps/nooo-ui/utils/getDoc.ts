@@ -17,7 +17,7 @@ export const getDoc = ({
 
    const srcDoc = /*html*/ `
 <!DOCTYPE html>
-<html class="${clsx({ dark: theme === 'dark' })}">
+<html class="${clsx({ dark: data.meta.theme === 'dark' || theme === 'dark' })}">
    <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">

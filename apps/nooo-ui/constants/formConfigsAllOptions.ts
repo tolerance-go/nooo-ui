@@ -150,4 +150,14 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'call-to-action',
       zhLabel: '呼叫操作',
    },
+   carousel: {
+      label: 'carousel',
+      value: 'carousel',
+      zhLabel: '走马灯',
+   },
+   contact: {
+      label: 'contact',
+      value: 'contact',
+      zhLabel: '联系方式',
+   },
 }

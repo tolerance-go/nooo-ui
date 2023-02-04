@@ -89,7 +89,11 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                         ) : (
                            <TabletResponsiveSwitcher />
                         )}
-                        {data.meta.theme ? <ThemeSwitchBtn /> : null}
+                        {data.meta.theme ? (
+                           <ThemeSwitchBtn
+                              isDarkReadonly={data.meta.theme === 'dark'}
+                           />
+                        ) : null}
                         <div className='text-gray-200 dark:text-gray-800 transition'>
                            |
                         </div>
