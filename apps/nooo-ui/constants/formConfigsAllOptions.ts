@@ -160,4 +160,9 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'contact',
       zhLabel: '联系方式',
    },
+   error: {
+      label: 'error',
+      value: 'error',
+      zhLabel: '错误状态',
+   },
 }
