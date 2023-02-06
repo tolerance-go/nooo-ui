@@ -165,4 +165,14 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'error',
       zhLabel: '错误状态',
    },
+   form: {
+      label: 'form',
+      value: 'form',
+      zhLabel: '表单',
+   },
+   gallery: {
+      label: 'gallery',
+      value: 'gallery',
+      zhLabel: '陈列室',
+   },
 }

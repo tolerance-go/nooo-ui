@@ -7,9 +7,9 @@ module.exports = {
       platform: 'pc',
       categories: ['footer'],
    },
-   createDate: '2023-01-19 00:00:00',
-   updateDate: '2023-01-19 00:00:00',
-   frameHeight: 130,
+   createDate: '2023-02-06 00:00:00',
+   updateDate: '2023-02-06 00:00:00',
+   frameHeight: 280,
    tailwindcssVersion: '3.2.x',
-   playgroundLink: 'https://play.tailwindcss.com/d61V52Yz8Y',
+   theme: 'dark',
 }

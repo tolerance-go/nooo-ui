@@ -12,6 +12,6 @@ module.exports = {
    },
    createDate: '2023-01-20 00:00:00',
    updateDate: '2023-01-20 00:00:00',
-   frameHeight: 200,
+   frameHeight: 100,
    tailwindcssVersion: '3.2.x',
 }
