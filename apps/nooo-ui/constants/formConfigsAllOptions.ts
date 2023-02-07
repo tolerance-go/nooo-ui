@@ -175,4 +175,9 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'gallery',
       zhLabel: '陈列室',
    },
+   input: {
+      label: 'input',
+      value: 'input',
+      zhLabel: '输入',
+   },
 }
