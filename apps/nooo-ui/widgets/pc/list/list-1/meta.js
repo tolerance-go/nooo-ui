@@ -1,8 +1,8 @@
 /** @type {import('../../../../typings/widgets').WidgetItemMeta} */
 module.exports = {
    props: {
-      keywords: ['dark'],
-      zhKeywords: ['暗黑主题'],
+      keywords: ['list'],
+      zhKeywords: ['列表'],
       type: 'block',
       platform: 'pc',
       categories: ['list'],

@@ -38,7 +38,8 @@ export type WidgetItemMeta = {
    theme?: boolean | 'dark'
    createDate: string
    updateDate: string
-   frameHeight?: number | string
+   frameHeight?: number | string | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+   frameBodyStyle?: string
    playgroundLink?: string
 }
 

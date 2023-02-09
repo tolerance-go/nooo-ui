@@ -42,7 +42,7 @@ export const getDoc = ({
       </style>
       ${scriptsStr}
    </head>
-   <body>
+   <body style="${data.meta.frameBodyStyle ?? ''}">
       ${
          data.frameWrap
             ? mustache.render(data.frameWrap, {

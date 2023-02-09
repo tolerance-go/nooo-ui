@@ -180,4 +180,9 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'input',
       zhLabel: '输入',
    },
+   loading: {
+      label: 'loading',
+      value: 'loading',
+      zhLabel: '加载中',
+   },
 }
