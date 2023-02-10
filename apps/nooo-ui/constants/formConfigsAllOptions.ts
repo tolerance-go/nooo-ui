@@ -185,4 +185,14 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'loading',
       zhLabel: '加载中',
    },
+   news: {
+      label: 'news',
+      value: 'news',
+      zhLabel: '新闻',
+   },
+   pagination: {
+      label: 'pagination',
+      value: 'pagination',
+      zhLabel: '分页',
+   },
 }
