@@ -195,4 +195,14 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'pagination',
       zhLabel: '分页',
    },
+   profile: {
+      label: 'profile',
+      value: 'profile',
+      zhLabel: '用户形象',
+   },
+   review: {
+      label: 'review',
+      value: 'review',
+      zhLabel: '评价',
+   },
 }
