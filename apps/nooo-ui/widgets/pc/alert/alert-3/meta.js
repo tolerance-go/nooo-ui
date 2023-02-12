@@ -2,7 +2,7 @@
 module.exports = {
    props: {
       keywords: ['alert'],
-      zhKeywords: ['通知框'],
+      zhKeywords: ['提示框'],
       type: 'block',
       platform: 'pc',
       categories: ['alert'],

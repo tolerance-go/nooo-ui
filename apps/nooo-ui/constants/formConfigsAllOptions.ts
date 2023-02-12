@@ -49,7 +49,7 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
    alert: {
       label: 'alert',
       value: 'alert',
-      zhLabel: '通知框',
+      zhLabel: '提示框',
    },
    hero: {
       label: 'hero',
@@ -204,5 +204,25 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       label: 'review',
       value: 'review',
       zhLabel: '评价',
+   },
+   shoppingCart: {
+      label: 'shoppingCart',
+      value: 'shoppingCart',
+      zhLabel: '购物车',
+   },
+   skeletonLoader: {
+      label: 'skeletonLoader',
+      value: 'skeletonLoader',
+      zhLabel: '骨骼加载器',
+   },
+   slider: {
+      label: 'slider',
+      value: 'slider',
+      zhLabel: '滑动器',
+   },
+   notification: {
+      label: 'notification',
+      value: 'notification',
+      zhLabel: '通知框',
    },
 }
