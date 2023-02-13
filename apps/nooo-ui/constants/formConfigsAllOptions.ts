@@ -225,4 +225,24 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'notification',
       zhLabel: '通知框',
    },
+   stats: {
+      label: 'stats',
+      value: 'stats',
+      zhLabel: '统计数据',
+   },
+   steps: {
+      label: 'steps',
+      value: 'steps',
+      zhLabel: '步骤条',
+   },
+   table: {
+      label: 'table',
+      value: 'table',
+      zhLabel: '表格',
+   },
+   tabs: {
+      label: 'tabs',
+      value: 'tabs',
+      zhLabel: '分栏',
+   },
 }
