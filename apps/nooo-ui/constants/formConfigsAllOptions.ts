@@ -245,4 +245,29 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'tabs',
       zhLabel: '分栏',
    },
+   team: {
+      label: 'team',
+      value: 'team',
+      zhLabel: '团队',
+   },
+   testimonial: {
+      label: 'testimonial',
+      value: 'testimonial',
+      zhLabel: '证词',
+   },
+   timeline: {
+      label: 'timeline',
+      value: 'timeline',
+      zhLabel: '时间线',
+   },
+   toggle: {
+      label: 'toggle',
+      value: 'toggle',
+      zhLabel: '切换',
+   },
+   weather: {
+      label: 'weather',
+      value: 'weather',
+      zhLabel: '天气',
+   },
 }

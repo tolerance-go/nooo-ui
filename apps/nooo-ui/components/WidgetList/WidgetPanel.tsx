@@ -42,7 +42,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                               },
                               { value: 'HTML', label: 'HTML' },
                               { value: 'HTML-snippet', label: 'HTML-snippet' },
-                              { value: 'React', label: 'React' },
+                              { value: 'JSX', label: 'JSX' },
                               { value: 'Vue', label: 'Vue' },
                               {
                                  value: 'tailwindConfig',
@@ -227,7 +227,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                         }}
                      </CodeFormatter>
                   )}
-                  {activeTabKey === 'React' && (
+                  {activeTabKey === 'JSX' && (
                      <CodeFormatter code={data.jsx} type='html'>
                         {(code) => {
                            return (
