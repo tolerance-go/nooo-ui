@@ -2,10 +2,10 @@
 module.exports = {
    props: {
       keywords: ['box-arrow'],
-      zhKeywords: ['box-arrow'],
+      zhKeywords: ['箭头框'],
       type: 'block',
       platform: 'pc',
-      categories: ['箭头框'],
+      categories: ['box-arrow'],
    },
    createDate: '2023-02-18 00:00:00',
    updateDate: '2023-02-18 00:00:00',
