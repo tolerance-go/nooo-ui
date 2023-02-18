@@ -41,6 +41,10 @@ export const getFilterWidgetsData = (
             }
 
             if (prop === 'categories' && prop in watchAllFields) {
+               // 如果分类为空则不进行过滤
+               if (widgetData.meta.props[prop].length === 0) {
+                  return false
+               }
                if (
                   convertMetaPropsValueEnumToOption(targetProps).some(
                      (item) => {

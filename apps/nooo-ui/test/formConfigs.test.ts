@@ -136,42 +136,7 @@ describe('formConfigs', async () => {
                },
             ],
          ),
-      ).toMatchInlineSnapshot(`
-        [
-          {
-            "css": "",
-            "html": "",
-            "jsx": "",
-            "key": "widgets/app/page/page-1",
-            "meta": {
-              "createDate": "2023-01-01 00:00:00",
-              "mobile": {
-                "type": "page",
-              },
-              "props": {
-                "categories": [],
-                "keywords": [],
-                "platform": "mobile",
-                "type": "page",
-              },
-              "tailwindcssVersion": "",
-              "updateDate": "2023-01-01 00:00:00",
-            },
-            "segmentedMetas": [
-              {
-                "gg": "true",
-              },
-              {
-                "ff": "true",
-              },
-            ],
-            "tailwindConfig": {},
-            "tailwindConfigCode": "",
-            "tailwindEntryCss": "",
-            "vue": "",
-          },
-        ]
-      `)
+      ).toMatchInlineSnapshot('[]')
    })
 
    test('getFilterWidgetsData categories some true', async () => {
@@ -241,38 +206,6 @@ describe('formConfigs', async () => {
             "css": "",
             "html": "",
             "jsx": "",
-            "key": "widgets/app/page/page-1",
-            "meta": {
-              "createDate": "2023-01-01 00:00:00",
-              "mobile": {
-                "type": "page",
-              },
-              "props": {
-                "categories": [],
-                "keywords": [],
-                "platform": "mobile",
-                "type": "page",
-              },
-              "tailwindcssVersion": "",
-              "updateDate": "2023-01-01 00:00:00",
-            },
-            "segmentedMetas": [
-              {
-                "gg": "true",
-              },
-              {
-                "ff": "true",
-              },
-            ],
-            "tailwindConfig": {},
-            "tailwindConfigCode": "",
-            "tailwindEntryCss": "",
-            "vue": "",
-          },
-          {
-            "css": "",
-            "html": "",
-            "jsx": "",
             "key": "widgets/web/banner/banner-1",
             "meta": {
               "createDate": "2023-01-01 00:00:00",
@@ -302,6 +235,44 @@ describe('formConfigs', async () => {
           },
         ]
       `)
+   })
+
+   test('getFilterWidgetsData item categories is empty array', async () => {
+      expect(
+         getFilterWidgetsData(
+            {
+               categories: {},
+            },
+            [
+               {
+                  css: '',
+                  html: '',
+                  meta: {
+                     props: {
+                        keywords: [],
+                        type: 'page',
+                        platform: 'mobile',
+                        categories: [],
+                     },
+                     createDate: '2023-01-01 00:00:00',
+                     updateDate: '2023-01-01 00:00:00',
+
+                     mobile: {
+                        type: 'page',
+                     },
+                     tailwindcssVersion: '',
+                  },
+                  jsx: '',
+                  vue: '',
+                  tailwindConfig: {},
+                  tailwindConfigCode: '',
+                  segmentedMetas: [{ gg: 'true' }, { ff: 'true' }],
+                  key: 'widgets/app/page/page-1',
+                  tailwindEntryCss: '',
+               },
+            ],
+         ),
+      ).toEqual([])
    })
 
    test('getFilterWidgetsData keywords empty', async () => {
