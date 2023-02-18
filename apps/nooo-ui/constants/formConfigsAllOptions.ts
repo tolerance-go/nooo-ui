@@ -270,4 +270,19 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'weather',
       zhLabel: '天气',
    },
+   badge: {
+      label: 'badge',
+      value: 'badge',
+      zhLabel: '徽章',
+   },
+   'box-arrow': {
+      label: 'box-arrow',
+      value: 'box-arrow',
+      zhLabel: '箭头框',
+   },
+   'chat-box': {
+      label: 'chat-box',
+      value: 'chat-box',
+      zhLabel: '对话框',
+   },
 }

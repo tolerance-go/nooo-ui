@@ -50,12 +50,16 @@ export const WidgetInfo = ({ data }: { data: WidgetData }) => {
       {
          title: dictionary.filters.categories,
          content: data.meta.props.categories
-            .map((item) =>
-               lang === 'en'
-                  ? formConfigsAllOptions[item].label
-                  : formConfigsAllOptions[item].zhLabel ??
-                    formConfigsAllOptions[item].label,
-            )
+            .map((item) => {
+               try {
+                  return lang === 'en'
+                     ? formConfigsAllOptions[item].label
+                     : formConfigsAllOptions[item].zhLabel ??
+                          formConfigsAllOptions[item].label
+               } catch {
+                  console.log(item)
+               }
+            })
             .join(', '),
       },
       {
