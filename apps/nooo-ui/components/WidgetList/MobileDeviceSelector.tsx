@@ -9,7 +9,7 @@ export const MobileDeviceSelector = () => {
       <div className='relative'>
          <select
             id='small'
-            className='h-9 block w-72 text-xs text-gray-900 border border-gray-200 rounded-md focus:ring-sky-500 focus:border-sky-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500 transition'
+            className='block h-9 w-72 rounded-md border border-gray-200 text-xs text-gray-900 transition focus:border-sky-500 focus:ring-sky-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-sky-500 dark:focus:ring-sky-500'
             onChange={(event) => {
                const [width, height] = event.target.value
                   .split(':')[1]

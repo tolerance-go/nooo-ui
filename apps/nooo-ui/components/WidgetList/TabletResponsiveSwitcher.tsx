@@ -27,7 +27,7 @@ export const TabletResponsiveSwitcher = () => {
                         strokeWidth={2}
                         stroke='currentColor'
                         aria-hidden='true'
-                        className='w-4 h-4'
+                        className='h-4 w-4'
                      >
                         <path
                            strokeLinecap='round'
@@ -44,7 +44,7 @@ export const TabletResponsiveSwitcher = () => {
                         strokeWidth={2}
                         stroke='currentColor'
                         aria-hidden='true'
-                        className='w-4 h-4'
+                        className='h-4 w-4'
                      >
                         <path
                            strokeLinecap='round'
@@ -61,7 +61,7 @@ export const TabletResponsiveSwitcher = () => {
                         strokeWidth={2}
                         stroke='currentColor'
                         aria-hidden='true'
-                        className='w-4 h-4'
+                        className='h-4 w-4'
                      >
                         <path
                            strokeLinecap='round'

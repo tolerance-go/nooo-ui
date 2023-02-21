@@ -29,13 +29,13 @@ export const ListWrapper = ({ list }: { list: WidgetData[] }) => {
          {list.slice(0, end).map((item) => {
             return <WidgetPanel key={item.key} data={item} />
          })}
-         <div className='flex justify-center items-center'>
+         <div className='flex items-center justify-center'>
             {hasMore ? (
                <button
                   onClick={() => {
                      setEnd(end + pageSize)
                   }}
-                  className='px-5 py-4 text-base font-medium text-center text-white duration-100 ease-in-out transform bg-blue-600 lg:px-10 rounded-xl hover:bg-blue-700 active:scale-95 transition'
+                  className='transform rounded-xl bg-blue-600 px-5 py-4 text-center text-base font-medium text-white transition duration-100 ease-in-out hover:bg-blue-700 active:scale-95 lg:px-10'
                >
                   {dictionary.loadMore}
                </button>

@@ -14,13 +14,13 @@ export const MobileContainer = (
    return (
       <div
          className={clsx(
-            'border-black box-content overflow-x-hidden relative h-full',
+            'relative box-content h-full overflow-x-hidden border-black',
             {
-               'border-t-8 border-l-8 border-r-8 rounded-t-3xl': type === 'top',
+               'rounded-t-3xl border-t-8 border-l-8 border-r-8': type === 'top',
                'border-l-8 border-r-8': type === 'center',
-               'border-b-8 border-l-8 border-r-8 rounded-b-3xl':
+               'rounded-b-3xl border-b-8 border-l-8 border-r-8':
                   type === 'bottom',
-               'border-8 rounded-3xl': type === 'page',
+               'rounded-3xl border-8': type === 'page',
             },
          )}
          style={{

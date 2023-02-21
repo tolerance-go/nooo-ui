@@ -12,7 +12,7 @@ export const WidgetPreview = ({ data }: { data: WidgetData }) => {
 
    if (data.meta.mobile) {
       return (
-         <div className={'flex justify-center items-center min-h-screen'}>
+         <div className={'flex min-h-screen items-center justify-center'}>
             <MobileContainer
                size={defaultMobileSize}
                type={
@@ -22,7 +22,7 @@ export const WidgetPreview = ({ data }: { data: WidgetData }) => {
                }
             >
                <iframe
-                  className='w-full h-full'
+                  className='h-full w-full'
                   srcDoc={getDoc({
                      bodyCss: `background-color: white; overflow-x: hidden; height: ${defaultMobileSize.height}px; width: ${defaultMobileSize.width}px;`,
                      theme,

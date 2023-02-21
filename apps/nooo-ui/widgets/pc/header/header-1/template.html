@@ -1,20 +1,20 @@
 <div class="w-full max-w-7xl bg-white">
    <div
       x-data="{ open: false }"
-      class="flex flex-col max-w-screen-xl p-5 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
+      class="mx-auto flex max-w-screen-xl flex-col p-5 md:flex-row md:items-center md:justify-between md:px-6 lg:px-8"
    >
       <div class="flex flex-row items-center justify-between lg:justify-start">
          <a
             href="./index.html"
-            class="text-lg font-bold tracking-tighter text-blue-600 transition duration-500 ease-in-out transform tracking-relaxed lg:pr-8"
+            class="tracking-relaxed transform text-lg font-bold tracking-tighter text-blue-600 transition duration-500 ease-in-out lg:pr-8"
          >
             wickedblocks
          </a>
          <button
-            class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+            class="focus:shadow-outline rounded-lg focus:outline-none md:hidden"
             @click="open = !open"
          >
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="h-8 w-8">
                <path
                   x-show="!open"
                   fill-rule="evenodd"
@@ -33,15 +33,15 @@
       </div>
       <nav
          :class="{'flex': open, 'hidden': !open}"
-         class="flex-col flex-grow hidden md:flex md:justify-start md:flex-row"
+         class="hidden flex-grow flex-col md:flex md:flex-row md:justify-start"
       >
          <ul
-            class="space-y-2 list-none lg:space-y-0 lg:items-center lg:inline-flex"
+            class="list-none space-y-2 lg:inline-flex lg:items-center lg:space-y-0"
          >
             <li>
                <a
                   href="#"
-                  class="px-2 lg:px-6 py-6 text-sm border-b-2 border-transparent hover:border-blue-600 leading-[22px] md:px-3 text-gray-500 hover:text-blue-500"
+                  class="border-b-2 border-transparent px-2 py-6 text-sm leading-[22px] text-gray-500 hover:border-blue-600 hover:text-blue-500 md:px-3 lg:px-6"
                >
                   All <span class="hidden lg:inline"> templates </span>
                </a>
@@ -49,7 +49,7 @@
             <li>
                <a
                   href="#"
-                  class="px-2 lg:px-6 py-6 text-sm border-b-2 border-transparent leading-[22px] md:px-3 text-gray-500 hover:text-blue-500 hover:border-blue-600"
+                  class="border-b-2 border-transparent px-2 py-6 text-sm leading-[22px] text-gray-500 hover:border-blue-600 hover:text-blue-500 md:px-3 lg:px-6"
                >
                   FAQ
                </a>
@@ -57,7 +57,7 @@
             <li>
                <a
                   href="https://www.wickedtemplates.com/"
-                  class="px-2 lg:px-6 py-6 text-sm border-b-2 border-transparent hover:border-blue-600 leading-[22px] md:px-3 text-gray-500 hover:text-blue-500"
+                  class="border-b-2 border-transparent px-2 py-6 text-sm leading-[22px] text-gray-500 hover:border-blue-600 hover:text-blue-500 md:px-3 lg:px-6"
                >
                   Free <span class="hidden lg:inline">Templates </span>
                </a>

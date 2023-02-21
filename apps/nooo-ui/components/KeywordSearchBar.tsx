@@ -14,9 +14,9 @@ export const KeywordSearchBar = () => {
    const { ref, onChange, ...registerProps } = register('keywords')
 
    return (
-      <div className='relative w-full px-2 sm:px-0 sm:w-2/3 mx-auto'>
+      <div className='relative mx-auto w-full px-2 sm:w-2/3 sm:px-0'>
          <input
-            className='h-16 w-full rounded-lg border-none bg-white pl-5 pr-20 text-lg shadow-md focus:ring-transparent focus:outline-sky-600 focus:shadow-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white transition-colors'
+            className='h-16 w-full rounded-lg border-none bg-white pl-5 pr-20 text-lg shadow-md transition-colors focus:shadow-none focus:outline-sky-600 focus:ring-transparent dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400'
             id='search'
             type='search'
             placeholder={`${dictionary.searchPlaceholder}...`}
@@ -30,7 +30,7 @@ export const KeywordSearchBar = () => {
             }}
          />
          <div
-            className='absolute top-1/2 right-5 -translate-y-1/2 rounded-md bg-gray-50 dark:bg-gray-800 p-3 text-gray-600 dark:text-gray-400 transition'
+            className='absolute top-1/2 right-5 -translate-y-1/2 rounded-md bg-gray-50 p-3 text-gray-600 transition dark:bg-gray-800 dark:text-gray-400'
             onClick={() => {
                inputRef.current?.focus()
             }}

@@ -4,7 +4,7 @@
    <form
       novalidate=""
       action=""
-      class="flex flex-col w-full max-w-lg p-12 rounded shadow-lg dark:text-gray-100 ng-untouched ng-pristine ng-valid"
+      class="ng-untouched ng-pristine ng-valid flex w-full max-w-lg flex-col rounded p-12 shadow-lg dark:text-gray-100"
    >
       <label for="username" class="self-start text-xs font-semibold"
          >Username or Email</label
@@ -12,23 +12,23 @@
       <input
          id="username"
          type="text"
-         class="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 dark:text-gray-900 focus:dark:border-violet-400 focus:ring-violet-400"
+         class="mt-2 flex h-12 items-center rounded px-4 focus:outline-none focus:ring-2 focus:ring-violet-400 dark:text-gray-900 focus:dark:border-violet-400"
       />
-      <label for="password" class="self-start mt-3 text-xs font-semibold"
+      <label for="password" class="mt-3 self-start text-xs font-semibold"
          >Password</label
       >
       <input
          id="password"
          type="password"
-         class="flex items-center h-12 px-4 mt-2 rounded focus:outline-none focus:ring-2 dark:text-gray-900 focus:dark:border-violet-400 focus:ring-violet-400"
+         class="mt-2 flex h-12 items-center rounded px-4 focus:outline-none focus:ring-2 focus:ring-violet-400 dark:text-gray-900 focus:dark:border-violet-400"
       />
       <button
          type="submit"
-         class="flex items-center justify-center h-12 px-6 mt-8 text-sm font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+         class="mt-8 flex h-12 items-center justify-center rounded px-6 text-sm font-semibold dark:bg-violet-400 dark:text-gray-900"
       >
          Login
       </button>
-      <div class="flex justify-center mt-6 space-x-2 text-xs">
+      <div class="mt-6 flex justify-center space-x-2 text-xs">
          <a rel="noopener noreferrer" href="#" class="dark:text-gray-400"
             >Forgot Password?</a
          >

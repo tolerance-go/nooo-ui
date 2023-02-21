@@ -22,28 +22,28 @@ const Home = async ({ params }: { params: { lang: Locale } }) => {
          <div className='min-h-screen'>
             <header
                aria-label='page-header'
-               className='bg-gray-50 dark:bg-gray-900 transition border-b border-b-gray-200 dark:border-b-gray-800'
+               className='border-b border-b-gray-200 bg-gray-50 transition dark:border-b-gray-800 dark:bg-gray-900'
             >
                <div className='mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-0'>
                   <div className='flex items-center justify-between'>
-                     <div className='inline-flex space-x-3 items-center'>
+                     <div className='inline-flex items-center space-x-3'>
                         <Logo />
-                        <span className='uppercase font-bold text-lg dark:text-white'>
+                        <span className='text-lg font-bold uppercase dark:text-white'>
                            Nooo-UI
                         </span>
                      </div>
                      <div className='flex items-center justify-between space-x-4 sm:justify-end'>
-                        <div className='flex space-x-4 items-center'>
+                        <div className='flex items-center space-x-4'>
                            <Link
                               href={`/${params.lang}/docs/introduction/what-is-nooo-ui`}
-                              className='p-2.5 font-medium hover:underline underline-offset-2 dark:text-white'
+                              className='p-2.5 font-medium underline-offset-2 hover:underline dark:text-white'
                            >
                               {dictionary.nav.doc}
                            </Link>
                            <Link
                               href='https://github.com/tolerance-go/nooo-ui'
                               target='_blank'
-                              className='p-2.5 font-medium hover:underline underline-offset-2 dark:text-white'
+                              className='p-2.5 font-medium underline-offset-2 hover:underline dark:text-white'
                            >
                               Github
                            </Link>
@@ -73,10 +73,10 @@ const Home = async ({ params }: { params: { lang: Locale } }) => {
                      </div>
                   </div>
                   <div className='mt-20 text-center'>
-                     <h1 className='text-2xl font-bold text-gray-900 sm:text-4xl dark:text-gray-100 transition'>
+                     <h1 className='text-2xl font-bold text-gray-900 transition dark:text-gray-100 sm:text-4xl'>
                         {dictionary.siteTitle}
                      </h1>
-                     <p className='mt-2 text-sm text-gray-500 dark:text-gray-400 transition'>
+                     <p className='mt-2 text-sm text-gray-500 transition dark:text-gray-400'>
                         {Mustache.render(dictionary.subTitle, {
                            componentsNum: widgetsData.length,
                            typesNum: Object.keys(formConfigsAllOptions).length,
@@ -88,14 +88,14 @@ const Home = async ({ params }: { params: { lang: Locale } }) => {
                   </div>
                </div>
             </header>
-            <div className='mx-auto max-w-screen-xl relative'>
+            <div className='relative mx-auto max-w-screen-xl'>
                <WidgetsFilter />
             </div>
             <WidgetList list={widgetsData} />
          </div>
          <div
             aria-label='footer'
-            className='bg-gray-50 dark:bg-gray-900 transition p-5 mt-10 text-center'
+            className='mt-10 bg-gray-50 p-5 text-center transition dark:bg-gray-900'
          >
             <span className='text-sm text-gray-600 dark:text-gray-300'>
                © Copyright 2022. All Rights Reserved.

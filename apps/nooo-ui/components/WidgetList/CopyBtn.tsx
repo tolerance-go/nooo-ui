@@ -16,7 +16,7 @@ export const CopyBtn = ({ text }: { text: string }) => {
       <CopyToClipboard text={text} onCopy={() => setCopied(true)}>
          <button
             type='button'
-            className='absolute top-2 right-3 text-sky-600 bg-white hover:text-white border border-sky-600 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-sky-600 dark:text-sky-600 dark:hover:text-white dark:hover:bg-sky-600 dark:focus:ring-sky-700 transition dark:bg-gray-800'
+            className='absolute top-2 right-3 mr-2 mb-2 rounded-lg border border-sky-600 bg-white px-5 py-2.5 text-center text-sm font-medium text-sky-600 transition hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-4 focus:ring-sky-300 dark:border-sky-600 dark:bg-gray-800 dark:text-sky-600 dark:hover:bg-sky-600 dark:hover:text-white dark:focus:ring-sky-700'
          >
             {copied ? 'Copied!' : 'Copy'}
          </button>

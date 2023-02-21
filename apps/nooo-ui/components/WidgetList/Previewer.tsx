@@ -8,7 +8,7 @@ export const Previewer = ({ data }: { data: WidgetData }) => {
    const { theme } = useThemeContext()
    return (
       <div
-         className={clsx('py-5 px-7 example-bg', {
+         className={clsx('example-bg py-5 px-7', {
             dark: data.meta.theme === 'dark' || theme === 'dark',
          })}
       >

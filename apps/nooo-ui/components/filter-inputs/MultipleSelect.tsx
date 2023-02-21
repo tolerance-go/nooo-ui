@@ -3,7 +3,7 @@ export const MultipleSelect = () => {
       <div className='flex items-stretch border-b'>
          <div
             aria-label='left-area'
-            className='w-52 bg-gray-50 flex items-center justify-center p-2'
+            className='flex w-52 items-center justify-center bg-gray-50 p-2'
          >
             multiple select
          </div>
@@ -11,7 +11,7 @@ export const MultipleSelect = () => {
             <div>
                <select
                   multiple
-                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2'
+                  className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-sky-500 focus:ring-sky-500'
                >
                   <option selected>Choose countries</option>
                   <option value='US'>United States</option>

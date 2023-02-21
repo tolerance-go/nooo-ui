@@ -3,15 +3,15 @@ export const Toggle = () => {
       <div className='flex items-stretch border-b'>
          <div
             aria-label='left-area'
-            className='w-52 bg-gray-50 flex items-center justify-center p-2'
+            className='flex w-52 items-center justify-center bg-gray-50 p-2'
          >
             toggle
          </div>
          <div className='flex-grow p-2' aria-label='right-area'>
-            <div className='flex items-center space-x-2 h-full'>
-               <label className='relative inline-flex items-center cursor-pointer'>
-                  <input type='checkbox' className='sr-only peer' />
-                  <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-sky-300 dark:peer-focus:ring-sky-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-sky-600" />
+            <div className='flex h-full items-center space-x-2'>
+               <label className='relative inline-flex cursor-pointer items-center'>
+                  <input type='checkbox' className='peer sr-only' />
+                  <div className="peer h-5 w-9 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-4 after:w-4 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-sky-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-sky-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-sky-800" />
                   <span className='ml-3 text-sm font-medium text-gray-900 dark:text-gray-300'>
                      Small toggle
                   </span>

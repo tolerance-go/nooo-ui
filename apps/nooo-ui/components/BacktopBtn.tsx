@@ -5,7 +5,7 @@ import { backPageTop } from 'utils/backPageTop'
 export const BacktopBtn = () => {
    return (
       <div
-         className='fixed right-5 bottom-10 p-2 rounded-full text-gray-500 dark:bg-black bg-white dark:text-gray-400 hover:text-black shadow-xl hover:bg-gray-50 dark:hover:bg-gray-900 dark:shadow-none border dark:hover:text-white dark:border-gray-700 border-transparent cursor-pointer transition'
+         className='fixed right-5 bottom-10 cursor-pointer rounded-full border border-transparent bg-white p-2 text-gray-500 shadow-xl transition hover:bg-gray-50 hover:text-black dark:border-gray-700 dark:bg-black dark:text-gray-400 dark:shadow-none dark:hover:bg-gray-900 dark:hover:text-white'
          onClick={() => {
             backPageTop()
          }}
@@ -15,7 +15,7 @@ export const BacktopBtn = () => {
             viewBox='0 0 24 24'
             xmlns='http://www.w3.org/2000/svg'
             aria-hidden='true'
-            className='w-6 h-6'
+            className='h-6 w-6'
          >
             <path
                clipRule='evenodd'

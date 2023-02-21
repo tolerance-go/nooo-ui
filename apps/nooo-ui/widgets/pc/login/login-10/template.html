@@ -1,23 +1,23 @@
 <div
-   class="flex flex-col w-full max-w-md p-12 space-y-4 text-center dark:bg-gray-900 dark:text-gray-100"
+   class="flex w-full max-w-md flex-col space-y-4 p-12 text-center dark:bg-gray-900 dark:text-gray-100"
 >
    <h1 class="text-3xl font-semibold">Sign in to your account</h1>
    <a class="text-sm dark:text-gray-400" href="/">Or start your free trial</a>
-   <form novalidate="" class="space-y-4 ng-untouched ng-pristine ng-valid">
+   <form novalidate="" class="ng-untouched ng-pristine ng-valid space-y-4">
       <div class="flex flex-col">
          <label for="email" class="sr-only">Email address</label>
          <input
             id="email"
             type="email"
             placeholder="Email address"
-            class="rounded-t-md dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 focus:ring-violet-400 focus:dark:border-violet-400 focus:ring-2"
+            class="rounded-t-md focus:ring-2 focus:ring-violet-400 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
          />
          <label for="password" class="sr-only">Password</label>
          <input
             id="password"
             type="text"
             placeholder="Password"
-            class="-mt-1 rounded-b-md dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 focus:ring-violet-400 focus:dark:border-violet-400 focus:ring-2"
+            class="-mt-1 rounded-b-md focus:ring-2 focus:ring-violet-400 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
          />
       </div>
       <div class="flex justify-between">
@@ -27,7 +27,7 @@
                name="remember"
                id="remember"
                aria-label="Remember me"
-               class="mr-1 rounded-sm focus:ring-violet-400 focus:dark:border-violet-400 focus:ring-2 accent-violet-400"
+               class="mr-1 rounded-sm accent-violet-400 focus:ring-2 focus:ring-violet-400 focus:dark:border-violet-400"
             />
             <label for="remember" class="text-sm dark:text-gray-400"
                >Remember me</label
@@ -39,7 +39,7 @@
       </div>
       <button
          type="button"
-         class="px-8 py-3 space-x-2 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+         class="space-x-2 rounded px-8 py-3 font-semibold dark:bg-violet-400 dark:text-gray-900"
       >
          Sign in
       </button>

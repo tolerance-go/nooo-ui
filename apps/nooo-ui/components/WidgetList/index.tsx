@@ -31,19 +31,19 @@ export const WidgetList = ({ list }: { list: WidgetData[] }) => {
 
    return (
       <>
-         <div className='max-w-screen-2xl mx-auto mt-11 flex justify-between items-center px-2 lg:px-0'>
+         <div className='mx-auto mt-11 flex max-w-screen-2xl items-center justify-between px-2 lg:px-0'>
             <div>
                <span className='text-xl transition dark:text-white'>
                   {size} {size ? dictionary.items : dictionary.item}
                </span>
-               <span className='text-gray-500 pl-2'>
+               <span className='pl-2 text-gray-500'>
                   {dictionary.searchResults}
                   {dictionary.colon}
                </span>
             </div>
             <OnlyCollectedToggle setOnlyShowCollected={setOnlyShowCollected} />
          </div>
-         <div className='max-w-screen-2xl mx-auto mt-3 px-2 lg:px-0'>
+         <div className='mx-auto mt-3 max-w-screen-2xl px-2 lg:px-0'>
             <ListWrapper
                list={resultsFilterByCollection.sort(
                   (a, b) =>

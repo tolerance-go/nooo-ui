@@ -1,6 +1,6 @@
 <section class="min-h-screen bg-gray-50" x-data="{ sideBar: false }">
    <nav
-      class="fixed top-0 left-0 z-20 h-full pb-10 overflow-x-hidden overflow-y-auto transition origin-left transform bg-white border-r w-60 md:translate-x-0"
+      class="fixed top-0 left-0 z-20 h-full w-60 origin-left transform overflow-y-auto overflow-x-hidden border-r bg-white pb-10 transition md:translate-x-0"
       :class="{ '-translate-x-full' : !sideBar, 'translate-x-0' : sideBar }"
       @click.away="sideBar = false"
    >
@@ -12,11 +12,11 @@
          aria-label="Main Navigation"
       >
          <a
-            class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-100 hover:text-gray-900"
+            class="group flex cursor-pointer items-center px-4 py-3 transition hover:bg-gray-100 hover:text-gray-900"
             href="#"
          >
             <svg
-               class="shrink-0 w-5 h-5 mr-2 text-gray-400 transition group-hover:text-gray-600"
+               class="mr-2 h-5 w-5 shrink-0 text-gray-400 transition group-hover:text-gray-600"
                xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 20 20"
                fill="currentColor"
@@ -28,11 +28,11 @@
             <span>Home</span>
          </a>
          <a
-            class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-100 hover:text-gray-900"
+            class="group flex cursor-pointer items-center px-4 py-3 transition hover:bg-gray-100 hover:text-gray-900"
             href="#"
          >
             <svg
-               class="shrink-0 w-5 h-5 mr-2 text-gray-400 transition group-hover:text-gray-600"
+               class="mr-2 h-5 w-5 shrink-0 text-gray-400 transition group-hover:text-gray-600"
                xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 20 20"
                fill="currentColor"
@@ -47,11 +47,11 @@
             <span>Articles</span>
          </a>
          <a
-            class="flex items-center px-4 py-3 text-gray-900 transition bg-gray-100 cursor-pointer group hover:bg-gray-100 hover:text-gray-900"
+            class="group flex cursor-pointer items-center bg-gray-100 px-4 py-3 text-gray-900 transition hover:bg-gray-100 hover:text-gray-900"
             href="#"
          >
             <svg
-               class="shrink-0 w-5 h-5 mr-2 text-gray-600 transition group-hover:text-gray-600"
+               class="mr-2 h-5 w-5 shrink-0 text-gray-600 transition group-hover:text-gray-600"
                xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 20 20"
                fill="currentColor"
@@ -63,11 +63,11 @@
             <span>Collections</span>
          </a>
          <a
-            class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-100 hover:text-gray-900"
+            class="group flex cursor-pointer items-center px-4 py-3 transition hover:bg-gray-100 hover:text-gray-900"
             href="#"
          >
             <svg
-               class="shrink-0 w-5 h-5 mr-2 text-gray-400 transition group-hover:text-gray-600"
+               class="mr-2 h-5 w-5 shrink-0 text-gray-400 transition group-hover:text-gray-600"
                xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 20 20"
                fill="currentColor"
@@ -83,13 +83,13 @@
          </a>
          <div x-data="collapse()">
             <div
-               class="flex items-center justify-between px-4 py-3 transition cursor-pointer group hover:bg-gray-100 hover:text-gray-900"
+               class="group flex cursor-pointer items-center justify-between px-4 py-3 transition hover:bg-gray-100 hover:text-gray-900"
                role="button"
                x-spread="trigger"
             >
                <div class="flex items-center">
                   <svg
-                     class="shrink-0 w-5 h-5 mr-2 text-gray-400 transition group-hover:text-gray-600"
+                     class="mr-2 h-5 w-5 shrink-0 text-gray-400 transition group-hover:text-gray-600"
                      xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 20 20"
                      fill="currentColor"
@@ -104,7 +104,7 @@
                </div>
                <svg
                   :class="{ 'rotate-90': open }"
-                  class="shrink-0 w-4 h-4 ml-2 transition transform"
+                  class="ml-2 h-4 w-4 shrink-0 transform transition"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -118,28 +118,28 @@
             </div>
             <div class="mb-4" x-spread="collapse" x-cloak>
                <a
-                  class="flex items-center py-2 pl-12 pr-4 transition cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+                  class="flex cursor-pointer items-center py-2 pl-12 pr-4 transition hover:bg-gray-100 hover:text-gray-900"
                   href="#"
                   >Shopify</a
                >
                <a
-                  class="flex items-center py-2 pl-12 pr-4 transition cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+                  class="flex cursor-pointer items-center py-2 pl-12 pr-4 transition hover:bg-gray-100 hover:text-gray-900"
                   href="#"
                   >Slack</a
                >
                <a
-                  class="flex items-center py-2 pl-12 pr-4 transition cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+                  class="flex cursor-pointer items-center py-2 pl-12 pr-4 transition hover:bg-gray-100 hover:text-gray-900"
                   href="#"
                   >Zapier</a
                >
             </div>
          </div>
          <a
-            class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-100 hover:text-gray-900"
+            class="group flex cursor-pointer items-center px-4 py-3 transition hover:bg-gray-100 hover:text-gray-900"
             href="#"
          >
             <svg
-               class="shrink-0 w-5 h-5 mr-2 text-gray-400 transition group-hover:text-gray-600"
+               class="mr-2 h-5 w-5 shrink-0 text-gray-400 transition group-hover:text-gray-600"
                xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 20 20"
                fill="currentColor"
@@ -156,11 +156,11 @@
             <span>Changelog</span>
          </a>
          <a
-            class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-100 hover:text-gray-900"
+            class="group flex cursor-pointer items-center px-4 py-3 transition hover:bg-gray-100 hover:text-gray-900"
             href="#"
          >
             <svg
-               class="shrink-0 w-5 h-5 mr-2 text-gray-400 transition group-hover:text-gray-600"
+               class="mr-2 h-5 w-5 shrink-0 text-gray-400 transition group-hover:text-gray-600"
                xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 20 20"
                fill="currentColor"
@@ -177,15 +177,15 @@
    </nav>
    <div class="ml-0 transition md:ml-60">
       <header
-         class="flex items-center justify-between w-full px-4 bg-white border-b h-14"
+         class="flex h-14 w-full items-center justify-between border-b bg-white px-4"
       >
          <button
-            class="block btn btn-light md:hidden"
+            class="btn btn-light block md:hidden"
             @click.stop="sideBar = true"
          >
             <span class="sr-only">Menu</span>
             <svg
-               class="w-4 h-4"
+               class="h-4 w-4"
                xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 20 20"
                fill="currentColor"
@@ -197,7 +197,7 @@
                />
             </svg>
          </button>
-         <div class="hidden -ml-3 form-icon md:block w-96">
+         <div class="form-icon -ml-3 hidden w-96 md:block">
             <svg
                xmlns="http://www.w3.org/2000/svg"
                fill="none"
@@ -212,14 +212,14 @@
                />
             </svg>
             <input
-               class="border-0 form-input"
+               class="form-input border-0"
                placeholder="Search for articles..."
             />
          </div>
          <div class="flex items-center">
             <a href="#" class="flex text-gray-500">
                <svg
-                  class="shrink-0 w-5 h-5"
+                  class="h-5 w-5 shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -229,7 +229,7 @@
                   />
                </svg>
             </a>
-            <a href="#" class="ml-4 avatar avatar-sm">
+            <a href="#" class="avatar avatar-sm ml-4">
                <img
                   src="https://api.dicebear.com/5.x/identicon/svg?seed=Ginger"
                   alt="Photo of Praveen Juge"
@@ -239,12 +239,12 @@
       </header>
       <div class="p-4">
          <!-- Add content here, remove div below -->
-         <div class="border-4 border-dashed rounded h-96"></div>
+         <div class="h-96 rounded border-4 border-dashed"></div>
       </div>
    </div>
    <!-- Sidebar Backdrop -->
    <div
-      class="fixed inset-0 z-10 w-screen h-screen bg-black bg-opacity-25 md:hidden"
+      class="fixed inset-0 z-10 h-screen w-screen bg-black bg-opacity-25 md:hidden"
       x-show.transition="sideBar"
       x-cloak
    ></div>

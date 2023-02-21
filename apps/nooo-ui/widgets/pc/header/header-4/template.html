@@ -1,20 +1,20 @@
 <div class="w-full max-w-7xl bg-white">
    <div
       x-data="{ open: false }"
-      class="flex flex-col max-w-screen-xl p-5 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
+      class="mx-auto flex max-w-screen-xl flex-col p-5 md:flex-row md:items-center md:justify-between md:px-6 lg:px-8"
    >
       <div class="flex flex-row items-center justify-between lg:justify-start">
          <a
             href="./index.html"
-            class="text-lg font-bold tracking-tighter text-blue-600 transition duration-500 ease-in-out transform tracking-relaxed lg:pr-8"
+            class="tracking-relaxed transform text-lg font-bold tracking-tighter text-blue-600 transition duration-500 ease-in-out lg:pr-8"
          >
             wickedblocks
          </a>
          <button
-            class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+            class="focus:shadow-outline rounded-lg focus:outline-none md:hidden"
             @click="open = !open"
          >
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="h-8 w-8">
                <path
                   x-show="!open"
                   fill-rule="evenodd"
@@ -33,15 +33,15 @@
       </div>
       <nav
          :class="{'flex': open, 'hidden': !open}"
-         class="flex-col items-center flex-grow hidden pb-4 border-blue-600 md:pb-0 md:flex md:justify-end md:flex-row lg:border-l-2 lg:pl-2"
+         class="hidden flex-grow flex-col items-center border-blue-600 pb-4 md:flex md:flex-row md:justify-end md:pb-0 lg:border-l-2 lg:pl-2"
       >
          <a
-            class="px-4 py-2 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline"
+            class="focus:shadow-outline mt-2 px-4 py-2 text-sm text-gray-500 hover:text-blue-600 focus:outline-none md:mt-0"
             href="#"
             >About</a
          >
          <a
-            class="px-4 py-2 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline"
+            class="focus:shadow-outline mt-2 px-4 py-2 text-sm text-gray-500 hover:text-blue-600 focus:outline-none md:mt-0"
             href="#"
             >Contact</a
          >
@@ -52,14 +52,14 @@
          >
             <button
                @click="open = !open"
-               class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm text-left text-gray-500 md:w-auto md:inline md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline"
+               class="focus:shadow-outline mt-2 flex w-full flex-row items-center px-4 py-2 text-left text-sm text-gray-500 hover:text-blue-600 focus:outline-none md:mt-0 md:inline md:w-auto"
             >
                <span>Dropdown List</span>
                <svg
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   :class="{'rotate-180': open, 'rotate-0': !open}"
-                  class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform rotate-0 md:-mt-1"
+                  class="mt-1 ml-1 inline h-4 w-4 rotate-0 transform transition-transform duration-200 md:-mt-1"
                >
                   <path
                      fill-rule="evenodd"
@@ -76,55 +76,55 @@
                x-transition:leave="transition ease-in duration-75"
                x-transition:leave-start="transform opacity-100 scale-100"
                x-transition:leave-end="transform opacity-0 scale-95"
-               class="absolute right-0 z-30 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48"
+               class="absolute right-0 z-30 mt-2 w-full origin-top-right rounded-md shadow-lg md:w-48"
                style="display: none"
             >
-               <div class="px-2 py-2 bg-white rounded-md shadow">
+               <div class="rounded-md bg-white px-2 py-2 shadow">
                   <a
-                     class="block px-4 py-2 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline"
+                     class="focus:shadow-outline mt-2 block px-4 py-2 text-sm text-gray-500 hover:text-blue-600 focus:outline-none md:mt-0"
                      href="#"
                      >Link #1</a
                   >
                   <a
-                     class="block px-4 py-2 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline"
+                     class="focus:shadow-outline mt-2 block px-4 py-2 text-sm text-gray-500 hover:text-blue-600 focus:outline-none md:mt-0"
                      href="#"
                      >Link #2</a
                   >
                   <a
-                     class="block px-4 py-2 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline"
+                     class="focus:shadow-outline mt-2 block px-4 py-2 text-sm text-gray-500 hover:text-blue-600 focus:outline-none md:mt-0"
                      href="#"
                      >Link #3</a
                   >
                </div>
             </div>
          </div>
-         <div class="inline-flex items-center gap-2 list-none lg:ml-auto">
+         <div class="inline-flex list-none items-center gap-2 lg:ml-auto">
             <form
                action=""
                method="post"
                id="revue-form"
                name="revue-form"
                target="_blank"
-               class="p-1 transition duration-500 ease-in-out transform border2 bg-gray-50 rounded-xl sm:max-w-lg sm:flex"
+               class="border2 transform rounded-xl bg-gray-50 p-1 transition duration-500 ease-in-out sm:flex sm:max-w-lg"
             >
-               <div class="flex-1 min-w-0 revue-form-group">
+               <div class="revue-form-group min-w-0 flex-1">
                   <label for="member_email" class="sr-only"
                      >Email address</label
                   >
                   <input
                      id="cta-email"
                      type="email"
-                     class="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform bg-transparent border border-transparent rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+                     class="block w-full transform rounded-md border border-transparent bg-transparent px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
                      placeholder="Enter your email  "
                   />
                </div>
-               <div class="mt-4 sm:mt-0 sm:ml-3 revue-form-actions">
+               <div class="revue-form-actions mt-4 sm:mt-0 sm:ml-3">
                   <button
                      type="submit"
                      value="Subscribe"
                      name="member[subscribe]"
                      id="member_submit"
-                     class="block w-full px-5 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 sm:px-10"
+                     class="block w-full rounded-lg border border-transparent bg-blue-600 px-5 py-3 text-base font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 sm:px-10"
                   >
                      Notify me
                   </button>
@@ -135,117 +135,117 @@
    </div>
 </div>
 <div>
-   <div class="p-5 overflow-y-auto whitespace-nowrap scroll-hidden bg-gray-50">
-      <ul class="inline-flex items-center list-none">
+   <div class="scroll-hidden overflow-y-auto whitespace-nowrap bg-gray-50 p-5">
+      <ul class="inline-flex list-none items-center">
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Pricing</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Contact</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Services</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Now</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Pricing</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Contact</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Services</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Now</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Pricing</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Contact</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Services</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Now</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Pricing</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Contact</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Services</a
             >
          </li>
          <li>
             <a
                href="#"
-               class="px-4 py-1 mr-1 text-base text-gray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:text-blue-600"
+               class="focus:shadow-outline mr-1 transform rounded-md px-4 py-1 text-base text-gray-500 ring-offset-2 ring-offset-current transition duration-500 ease-in-out hover:text-blue-600 focus:outline-none focus:ring-2"
                >Now</a
             >
          </li>

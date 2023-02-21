@@ -9,7 +9,7 @@ export const ThemeSwitchBtn = () => {
 
    return (
       <div
-         className='w-10 h-10 flex cursor-pointer transition hover:bg-gray-100 dark:hover:bg-gray-800 justify-center items-center rounded-md dark:text-white'
+         className='flex h-10 w-10 cursor-pointer items-center justify-center rounded-md transition hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800'
          onClick={() => {
             setTheme(theme === 'light' ? 'dark' : 'light')
             if (theme === 'light') {
@@ -31,7 +31,7 @@ export const ThemeSwitchBtn = () => {
                viewBox='0 0 24 24'
                xmlns='http://www.w3.org/2000/svg'
                aria-hidden='true'
-               className='w-5 h-5'
+               className='h-5 w-5'
             >
                <path
                   clipRule='evenodd'
@@ -45,7 +45,7 @@ export const ThemeSwitchBtn = () => {
                viewBox='0 0 20 20'
                xmlns='http://www.w3.org/2000/svg'
                aria-hidden='true'
-               className='w-5 h-5'
+               className='h-5 w-5'
             >
                <path
                   clipRule='evenodd'

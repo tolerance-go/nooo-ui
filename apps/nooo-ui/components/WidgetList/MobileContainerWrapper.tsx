@@ -25,7 +25,7 @@ export const MobileContainerWrapper = ({ data }: { data: WidgetData }) => {
             }
          >
             <iframe
-               className='w-full h-full'
+               className='h-full w-full'
                srcDoc={getDoc({
                   bodyCss: `background-color: white; overflow-x: hidden; height: ${size.height}px; width: ${size.width}px;`,
                   theme,

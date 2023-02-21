@@ -30,10 +30,10 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                <div
                   key={data.key}
                   aria-label='card'
-                  className='rounded-xl bg-white dark:bg-black border dark:border-gray-800 transition mb-10 lg:mb-14 overflow-visible'
+                  className='mb-10 overflow-visible rounded-xl border bg-white transition dark:border-gray-800 dark:bg-black lg:mb-14'
                >
-                  <div className='py-4 px-4 lg:py-5 lg:px-7 flex-col space-y-3 lg:space-y-0 lg:flex-row flex justify-between items-center text-sm font-medium text-center text-gray-500 dark:text-gray-400 border-b dark:border-gray-800 transition'>
-                     <div className='flex space-x-2 flex-wrap'>
+                  <div className='flex flex-col items-center justify-between space-y-3 border-b py-4 px-4 text-center text-sm font-medium text-gray-500 transition dark:border-gray-800 dark:text-gray-400 lg:flex-row lg:space-y-0 lg:py-5 lg:px-7'>
+                     <div className='flex flex-wrap space-x-2'>
                         {(
                            [
                               {
@@ -65,12 +65,12 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                               <div key={item.value}>
                                  <div
                                     className={clsx(
-                                       'inline-block px-4 py-3 rounded-lg cursor-pointer',
+                                       'inline-block cursor-pointer rounded-lg px-4 py-3',
                                        item.disabled
-                                          ? 'text-gray-400 cursor-not-allowed dark:text-gray-500'
+                                          ? 'cursor-not-allowed text-gray-400 dark:text-gray-500'
                                           : active
-                                          ? 'text-white bg-sky-600 active'
-                                          : 'hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white',
+                                          ? 'active bg-sky-600 text-white'
+                                          : 'hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white',
                                     )}
                                     onClick={() =>
                                        !item.disabled &&
@@ -94,7 +94,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                               isDarkReadonly={data.meta.theme === 'dark'}
                            />
                         ) : null}
-                        <div className='text-gray-200 dark:text-gray-800 transition'>
+                        <div className='text-gray-200 transition dark:text-gray-800'>
                            |
                         </div>
                         <CollectionBtn data={data} />
@@ -143,7 +143,7 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                            </div>
                         )}
                         {data.meta.frameworks && (
-                           <div className='text-gray-200 dark:text-gray-800 transition'>
+                           <div className='text-gray-200 transition dark:text-gray-800'>
                               |
                            </div>
                         )}
@@ -152,10 +152,10 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                            <Link
                               href={data.meta.playgroundLink}
                               target='_blank'
-                              className='w-9 h-9 flex justify-center hover:bg-gray-50 dark:hover:bg-gray-900 dark:border-gray-700 transition hover:text-sky-600 items-center border rounded-md'
+                              className='flex h-9 w-9 items-center justify-center rounded-md border transition hover:bg-gray-50 hover:text-sky-600 dark:border-gray-700 dark:hover:bg-gray-900'
                            >
                               <svg
-                                 className='w-4 h-4'
+                                 className='h-4 w-4'
                                  fill='currentColor'
                                  viewBox='0 0 20 20'
                                  xmlns='http://www.w3.org/2000/svg'
@@ -173,10 +173,10 @@ export const WidgetPanel = ({ data }: { data: WidgetData }) => {
                         <Link
                            href={`/${lang}/preview/${data.key}`}
                            target='_blank'
-                           className='w-9 h-9 flex justify-center transition hover:bg-gray-50 dark:hover:bg-gray-900 dark:border-gray-700 hover:text-sky-600 items-center border rounded-md'
+                           className='flex h-9 w-9 items-center justify-center rounded-md border transition hover:bg-gray-50 hover:text-sky-600 dark:border-gray-700 dark:hover:bg-gray-900'
                         >
                            <svg
-                              className='w-4 h-4'
+                              className='h-4 w-4'
                               fill='none'
                               stroke='currentColor'
                               strokeWidth={2}

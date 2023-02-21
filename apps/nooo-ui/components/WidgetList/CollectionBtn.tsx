@@ -19,7 +19,7 @@ export const CollectionBtn = ({ data }: { data: WidgetData }) => {
    return (
       <div
          className={clsx(
-            'w-9 h-9 flex hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-amber-500 transition cursor-pointer justify-center items-center border dark:border-gray-700 rounded-md',
+            'flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border transition hover:bg-gray-50 hover:text-amber-500 dark:border-gray-700 dark:hover:bg-gray-900',
             collected && 'text-amber-500',
          )}
          onClick={() => {
@@ -37,14 +37,14 @@ export const CollectionBtn = ({ data }: { data: WidgetData }) => {
          }}
       >
          {!mounted ? (
-            <div className='w-4 h-4'></div>
+            <div className='h-4 w-4'></div>
          ) : collected ? (
             <svg
                fill='currentColor'
                viewBox='0 0 24 24'
                xmlns='http://www.w3.org/2000/svg'
                aria-hidden='true'
-               className='w-4 h-4'
+               className='h-4 w-4'
             >
                <path
                   clipRule='evenodd'
@@ -60,7 +60,7 @@ export const CollectionBtn = ({ data }: { data: WidgetData }) => {
                viewBox='0 0 24 24'
                xmlns='http://www.w3.org/2000/svg'
                aria-hidden='true'
-               className='w-4 h-4'
+               className='h-4 w-4'
             >
                <path
                   strokeLinecap='round'

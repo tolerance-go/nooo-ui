@@ -3,7 +3,7 @@ export const Logo = () => {
       <svg
          viewBox='0 0 118 118'
          fill='none'
-         className='w-7 h-7 dark:text-white transition'
+         className='h-7 w-7 transition dark:text-white'
          xmlns='http://www.w3.org/2000/svg'
       >
          <path
