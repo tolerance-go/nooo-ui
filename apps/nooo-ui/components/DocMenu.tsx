@@ -18,6 +18,11 @@ export const DocMenu = () => {
                title: 'What is Nooo-UI?',
                path: `/${lang}/docs/introduction/what-is-nooo-ui`,
             },
+            {
+               zhTitle: '如何贡献代码？',
+               title: 'How to contribute?',
+               path: `/${lang}/docs/introduction/how-to-contribute`,
+            },
          ],
       },
    ]
@@ -35,7 +40,7 @@ export const DocMenu = () => {
                   )}
                   key={title}
                >
-                  <li className='text-gray-900 transition dark:text-gray-100 my-3.5 text-sm font-medium'>
+                  <li className='my-3.5 text-sm font-medium text-gray-900 transition dark:text-gray-100'>
                      {title}
                   </li>
                   {item.children.map((it) => {

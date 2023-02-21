@@ -13,22 +13,22 @@ const DocLayout = (
    }>,
 ) => {
    return (
-      <div>
-         <div className='px-4 md:px-10 py-4 border-b sm:fixed sm:top-0 w-full doc-header flex items-center justify-between dark:bg-black dark:border-b-gray-800 transition'>
+      <div className='relative'>
+         <div className='doc-header z-10 flex w-full items-center justify-between border-b px-4 py-4 transition dark:border-b-gray-800 dark:bg-black sm:fixed sm:top-0 md:px-10'>
             <Link
-               className='inline-flex space-x-3 items-center'
+               className='inline-flex items-center space-x-3'
                href={`/${props.params.lang}`}
             >
                <Logo />
-               <span className='uppercase font-bold text-lg dark:text-white transition'>
+               <span className='text-lg font-bold uppercase transition dark:text-white'>
                   Nooo-UI
                </span>
             </Link>
-            <div className='flex space-x-4 items-center'>
+            <div className='flex items-center space-x-4'>
                <Link
                   href='https://github.com/tolerance-go/nooo-ui'
                   target='_blank'
-                  className='p-2.5 font-medium hover:underline underline-offset-2 dark:text-white transition'
+                  className='p-2.5 font-medium underline-offset-2 transition hover:underline dark:text-white'
                >
                   Github
                </Link>
@@ -36,11 +36,11 @@ const DocLayout = (
                <ThemeSwitchBtn />
             </div>
          </div>
-         <div className='py-4 sm:py-0 px-4 sm:px-0 sm:fixed sm:w-52 lg:left-60 md:left-8 sm:top-32'>
+         <div className='py-2 pl-4 sm:fixed sm:left-0 sm:top-24 sm:px-10 sm:py-5'>
             <DocMenu />
          </div>
-         <div className='sm:max-w-screen-2xl mx-auto sm:px-8 py-2 sm:py-5 md:pl-48 lg:pl-72 sm:mt-16'>
-            <div className='px-4 lg:px-14 pt-4 pb-8 sm:pt-10 sm:pb-14 md:px-9 md:shadow-xl rounded-2xl dark:rounded-none dark:shadow-none'>
+         <div className='pb-20 sm:absolute sm:top-20 sm:left-52 sm:right-10 sm:mx-0 sm:mt-0'>
+            <div className='rounded-2xl px-4 pt-4 pb-8 dark:rounded-none dark:shadow-none sm:pt-10 sm:pb-14 md:px-9 md:shadow-xl lg:px-14'>
                <div className='prose dark:prose-invert'>{props.children}</div>
             </div>
          </div>

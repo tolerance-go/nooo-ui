@@ -1,0 +1,69 @@
+# 如何贡献代码？
+
+## 项目启动
+
+1. 将 git 进行 fork 并 clone 到本地
+2. 进入文件目录，执行 pnpm install 快速安装依赖
+3. 执行 pnpm dev 运行开发环境
+
+准备工作就做完了
+
+## 如何添加 widgets
+
+网站上能看到的模板都在 apps/nooo-ui/widgets 目录下，我们以新增模板 navigation-kitwind-3 为例子，介绍一下新增流程：
+
+1. 新建文件夹 apps/nooo-ui/widgets/pc/navigation/navigation-kitwind-3
+
+```bash
+.
+├── frame-wrap.html // 可选，包裹 widget 的 html 结构，语法参考 [mustache](https://www.npmjs.com/package/mustache)
+├── global.css // 可选，全局样式
+├── global.scss // 可选，基于 scss 语法的全局样式
+├── assets // 可选，资源文件夹，template 中可以引用它
+├── meta.js // 导出组件信息描述对象
+├── tailwind.config.js // 就是 tailwind 的配置文件，不过插件的引用路径需要注意，相对于 apps/nooo-ui/tailwindcss-lib
+└── template.html // 核心的模板 html 资源放在这里
+```
+
+关于 meta 的详细配置：
+
+```js
+/** @type {import('../../../../typings/widgets').WidgetItemMeta} */
+module.exports = {
+   props: {
+      keywords: ['xx'], // 英文关键词，用户可以基于它搜索到该组件
+      zhKeywords: ['xx'], // 中文关键词
+      type: 'component', // 类型 component | block | page
+      platform: 'pc', // 平台 pc | mobile
+      categories: ['xx'], // 标签
+   },
+   createDate: '2023-02-19 00:00:00', // 创建时间
+   updateDate: '2023-02-19 00:00:00', // 更新时间
+   tailwindcssVersion: '3.2.x', // 所使用的 tailwind 版本，对应 apps/nooo-ui/tailwindcss-lib/tailwindcss 内容
+   frameHeight: 'xs', // 可选，widget 展示时包裹的 frame 元素的高度，可以设置具体数值和字符串
+   frameBodyStyle: 'height: 100vh;', // 可选，widget 展示时包裹的 frame 元素的内联样式
+   theme: true // 可选，主题是否可以切换 ｜ dark 默认黑色主题
+   playgroundLink: '' // 可选，https://play.tailwindcss.com/ 的生成链接
+   mobile: false, // 可选，使用手机外壳样式进行包裹器的渲染，可以指定方位
+   frameworks: { // 可选，声明使用的框架，会在前端进行显示
+      alpine: true,
+      // ...
+   },
+   plugins: { // 可选，声明使用的插件，会在前端进行显示
+      daisyui: true,
+      kutty: true,
+      // ...
+   }
+}
+```
+
+2. 执行脚本进行资源生成
+
+```bash
+// 只转换对应名称的组件
+node scripts/collect 'widgets/**/navigation-kitwind-3/template.html'
+// 批量转换组件
+node scripts/collect 'widgets/**/navigation/*/template.html'
+```
+
+3. 查看页面即可

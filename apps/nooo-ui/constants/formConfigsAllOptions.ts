@@ -6,6 +6,11 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       value: 'page',
       zhLabel: '页面',
    },
+   component: {
+      label: 'component',
+      value: 'component',
+      zhLabel: '区块',
+   },
    block: {
       label: 'block',
       value: 'block',
@@ -284,5 +289,10 @@ export const formConfigsAllOptions: Record<string, OptionItem> = {
       label: 'chat-box',
       value: 'chat-box',
       zhLabel: '对话框',
+   },
+   navigation: {
+      label: 'navigation',
+      value: 'navigation',
+      zhLabel: '导航',
    },
 }

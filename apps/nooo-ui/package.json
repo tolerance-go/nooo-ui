@@ -78,6 +78,7 @@
       "concurrently": "^7.6.0",
       "eslint-config-next": "^13.1.2",
       "postcss": "^8.4.19",
+      "prettier-plugin-tailwindcss": "^0.2.3",
       "sass": "^1.57.1",
       "tailwindcss": "^3.2.4",
       "tailwindcss-animate": "^1.0.5",
