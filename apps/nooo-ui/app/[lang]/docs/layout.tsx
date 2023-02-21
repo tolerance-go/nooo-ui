@@ -39,7 +39,7 @@ const DocLayout = (
          <div className='py-2 pl-4 sm:fixed sm:left-0 sm:top-24 sm:px-10 sm:py-5'>
             <DocMenu />
          </div>
-         <div className='pb-20 sm:absolute sm:top-20 sm:left-52 sm:right-10 sm:mx-0 sm:mt-0'>
+         <div className='pb-20 sm:absolute sm:top-20 sm:left-60 sm:right-10 sm:mx-0 sm:mt-0'>
             <div className='rounded-2xl px-4 pt-4 pb-8 dark:rounded-none dark:shadow-none sm:pt-10 sm:pb-14 md:px-9 md:shadow-xl lg:px-14'>
                <div className='prose dark:prose-invert'>{props.children}</div>
             </div>
