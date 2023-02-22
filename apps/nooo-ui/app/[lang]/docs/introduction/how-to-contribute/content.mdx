@@ -1,0 +1,69 @@
+# How to contribute code?
+
+## Project begining
+
+1. Fork git and clone to local
+2. Enter the file directory and execute pnpm install to quickly install dependencies
+3. Execute pnpm dev to run the development environment
+
+the preparations are done
+
+## How to add widgets
+
+The templates that can be seen on the website are all in the apps/nooo-ui/widgets directory. Let’s take the new template navigation-kitwind-3 as an example to introduce the new process:
+
+1. Create a new folder apps/nooo-ui/widgets/pc/navigation/navigation-kitwind-3
+
+```bash
+.
+├── frame-wrap.html // Optional, wrap the html structure of the widget, syntax reference [mustache](https://www.npmjs.com/package/mustache)
+├── global.css // optional, global style
+├── global.scss // optional, global style based on scss syntax
+├── assets // optional, resource folder, it can be referenced in the template
+├── meta.js // export component information description object
+├── tailwind.config.js // It is the configuration file of tailwind, but the reference path of the plug-in needs to be paid attention to, compared to apps/nooo-ui/tailwindcss-lib
+└── template.html // The core template html resources are placed here
+```
+
+Detailed configuration about meta:
+
+```js
+/** @type {import('../../../../typings/widgets').WidgetItemMeta} */
+module.exports = {
+    props: {
+       keywords: ['xx'], // English keywords, based on which users can search for the component
+       zhKeywords: ['xx'], // Chinese keywords
+       type: 'component', // type component | block | page
+       platform: 'pc', // platform pc | mobile
+       categories: ['xx'], // labels
+    },
+    createDate: '2023-02-19 00:00:00', // creation time
+    updateDate: '2023-02-19 00:00:00', // update time
+    tailwindcssVersion: '3.2.x', // Tailwind version used, corresponding to apps/nooo-ui/tailwindcss-lib/tailwindcss content
+    frameHeight: 'xs', // optional, the height of the wrapped frame element when the widget is displayed, specific values and strings can be set
+    frameBodyStyle: 'height: 100vh;', // optional, the inline style of the wrapped frame element when the widget is displayed
+    theme: true // optional, whether the theme can be switched ｜ dark default black theme
+    playgroundLink: '' // optional, generated link of https://play.tailwindcss.com/
+    mobile: false, // Optional, use the mobile phone shell style to render the wrapper, and you can specify the orientation
+    frameworks: { // Optional, declare the framework used, which will be displayed on the front end
+       alpine: true,
+       //...
+    },
+    plugins: { // Optional, the plugins used in the declaration will be displayed on the front end
+       daisyui: true,
+       kutty: true,
+       //...
+    }
+}
+```
+
+2. Execute the script for resource generation
+
+```bash
+// Only convert components with the corresponding name
+node scripts/collect 'widgets/**/navigation-kitwind-3/template.html'
+// Batch conversion component
+node scripts/collect 'widgets/**/navigation/*/template.html'
+```
+
+3. View the page
